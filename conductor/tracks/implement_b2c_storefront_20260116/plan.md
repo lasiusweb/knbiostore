@@ -2,10 +2,10 @@
 
 ## Phase 1: Product Catalog Display
 
-- [ ] Task: Design and implement database schema for products and categories (Supabase).
-    - [ ] Write Tests: For product and category database operations.
-    - [ ] Implement Feature: Create tables and relationships in Supabase.
-- [ ] Task: Develop API endpoints for fetching product lists and individual product details.
+- [x] Task: Design and implement database schema for products and categories (Supabase).
+    - [x] Write Tests: For product and category database operations.
+    - [x] Implement Feature: Create tables and relationships in Supabase.
+- [~] Task: Develop API endpoints for fetching product lists and individual product details.
     - [ ] Write Tests: For product API endpoints.
     - [ ] Implement Feature: Create Supabase Edge Functions or API routes for product data.
 - [ ] Task: Create UI components for product cards and product detail pages (Next.js/React).
