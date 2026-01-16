@@ -19,21 +19,21 @@
     - [x] Implement Feature: Implement the `onSubmit` handler to log form values.
 - [~] Task: Conductor - User Manual Verification 'Component Scaffolding and Basic Product Info'
 
-## Phase 2: Dynamic Variants Table
+## Phase 2: Dynamic Variants Table [checkpoint: 771483d]
 
-- [ ] Task: Define Zod schema for variant logic (sku, price, weight_value, enums for units/types).
+- [x] Task: Define Zod schema for variant logic (sku, price, weight_value, enums for units/types).
     - [ ] Write Tests: For Zod variant schema validation.
-    - [ ] Implement Feature: Define Zod schemas for variant structure and enums.
-- [ ] Task: Integrate `useFieldArray` for dynamic variant rows.
+    - [x] Implement Feature: Define Zod schemas for variant structure and enums.
+- [x] Task: Integrate `useFieldArray` for dynamic variant rows.
     - [ ] Write Tests: For `useFieldArray` operations (append, remove).
-    - [ ] Implement Feature: Implement `useFieldArray` and render dynamic variant rows.
-- [ ] Task: Create UI for variant table (Table, Input, Select) using Shadcn UI.
+    - [x] Implement Feature: Implement `useFieldArray` and render dynamic variant rows.
+- [x] Task: Create UI for variant table (Table, Input, Select) using Shadcn UI.
     - [ ] Write Tests: For rendering of variant table with dynamic rows.
-    - [ ] Implement Feature: Add Table, TableHeader, TableBody, TableRow, TableHead, TableCell, Input, Select components for variants.
-- [ ] Task: Implement "Add Variant Row" button functionality.
+    - [x] Implement Feature: Add Table, TableHeader, TableBody, TableRow, TableHead, TableCell, Input, Select components for variants.
+- [x] Task: Implement "Add Variant Row" button functionality.
     - [ ] Write Tests: For "Add Variant Row" button click.
-    - [ ] Implement Feature: Add a button to append a new empty variant row.
-- [ ] Task: Conductor - User Manual Verification 'Dynamic Variants Table'
+    - [x] Implement Feature: Add a button to append a new empty variant row.
+- [~] Task: Conductor - User Manual Verification 'Dynamic Variants Table'
 
 ## Phase 3: Integrate `createProduct` Action
 
