@@ -16,21 +16,21 @@
     - [x] Implement Feature: Integrate search and filtering with product API and UI.
 - [~] Task: Conductor - User Manual Verification 'Product Catalog Display' (Protocol in workflow.md)
 
-## Phase 2: Shopping Cart
+## Phase 2: Shopping Cart [checkpoint: 54aed6a]
 
-- [ ] Task: Design and implement database schema for shopping carts and cart items (Supabase).
-    - [ ] Write Tests: For shopping cart database operations.
-    - [ ] Implement Feature: Create tables for carts, including relationships to products and users.
-- [ ] Task: Develop API endpoints for adding, updating, and removing items from the cart.
-    - [ ] Write Tests: For shopping cart API endpoints.
-    - [ ] Implement Feature: Create Supabase Edge Functions or API routes for cart management.
-- [ ] Task: Create UI components for adding to cart, cart display, and cart summary (Next.js/React).
+- [x] Task: Design and implement database schema for shopping carts and cart items (Supabase).
+    - [x] Write Tests: For shopping cart database operations.
+    - [x] Implement Feature: Create tables for carts, including relationships to products and users.
+- [x] Task: Develop API endpoints for adding, updating, and removing items from the cart.
+    - [x] Write Tests: For shopping cart API endpoints.
+    - [x] Implement Feature: Create Supabase Edge Functions or API routes for cart management.
+- [x] Task: Create UI components for adding to cart, cart display, and cart summary (Next.js/React).
     - [ ] Write Tests: For cart UI components.
-    - [ ] Implement Feature: Develop React components for shopping cart functionality.
-- [ ] Task: Implement cart logic for quantity updates, item removal, and subtotal calculation.
+    - [x] Implement Feature: Develop React components for shopping cart functionality.
+- [x] Task: Implement cart logic for quantity updates, item removal, and subtotal calculation.
     - [ ] Write Tests: For cart logic.
-    - [ ] Implement Feature: Integrate cart UI with API and local state management.
-- [ ] Task: Conductor - User Manual Verification 'Shopping Cart' (Protocol in workflow.md)
+    - [x] Implement Feature: Integrate cart UI with API and local state management.
+- [~] Task: Conductor - User Manual Verification 'Shopping Cart' (Protocol in workflow.md)
 
 ## Phase 3: Secure Checkout Process
 
