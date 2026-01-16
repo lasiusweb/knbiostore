@@ -6,7 +6,7 @@
     - [x] Write Tests: For product and category database operations.
     - [x] Implement Feature: Create tables and relationships in Supabase.
 - [~] Task: Develop API endpoints for fetching product lists and individual product details.
-    - [ ] Write Tests: For product API endpoints.
+    - [~] Write Tests: For product API endpoints.
     - [ ] Implement Feature: Create Supabase Edge Functions or API routes for product data.
 - [ ] Task: Create UI components for product cards and product detail pages (Next.js/React).
     - [ ] Write Tests: For UI components (e.g., snapshot tests, rendering tests).

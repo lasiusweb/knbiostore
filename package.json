@@ -29,6 +29,7 @@
     "eslint-config-next": "16.1.2",
     "jest": "^30.2.0",
     "jest-environment-jsdom": "^30.2.0",
+    "next-test-api-route-handler": "^5.0.3",
     "tailwindcss": "^4",
     "text-encoding": "^0.7.0",
     "ts-jest": "^29.4.6",
