@@ -32,21 +32,21 @@
     - [x] Implement Feature: Integrate cart UI with API and local state management.
 - [~] Task: Conductor - User Manual Verification 'Shopping Cart' (Protocol in workflow.md)
 
-## Phase 3: Secure Checkout Process
+## Phase 3: Secure Checkout Process [checkpoint: 49b168d]
 
-- [ ] Task: Design and implement database schema for orders and order items (Supabase).
-    - [ ] Write Tests: For order database operations.
-    - [ ] Implement Feature: Create tables for orders, order items, and order status.
-- [ ] Task: Develop API endpoints for creating orders and processing payments.
-    - [ ] Write Tests: For order creation and payment processing API endpoints.
-    - [ ] Implement Feature: Create Supabase Edge Functions or API routes for checkout.
-- [ ] Task: Integrate with Easebuzz for PCI-compliant payment processing.
-    - [ ] Write Tests: For payment gateway integration (mocking external service).
-    - [ ] Implement Feature: Integrate Easebuzz API for secure transactions.
-- [ ] Task: Create UI components for the multi-step checkout flow (Next.js/React).
+- [x] Task: Design and implement database schema for orders and order items (Supabase).
+    - [x] Write Tests: For order database operations.
+    - [x] Implement Feature: Create tables for orders, order items, and relationships.
+- [x] Task: Develop API endpoints for creating orders and processing payments.
+    - [x] Write Tests: For order creation and payment processing API endpoints.
+    - [x] Implement Feature: Create Supabase Edge Functions or API routes for checkout.
+- [x] Task: Integrate with Easebuzz for PCI-compliant payment processing.
+    - [x] Write Tests: For payment gateway integration (mocking external service).
+    - [x] Implement Feature: Integrate Easebuzz API for secure transactions.
+- [x] Task: Create UI components for the multi-step checkout flow (Next.js/React).
     - [ ] Write Tests: For checkout UI components.
-    - [ ] Implement Feature: Develop React components for shipping, payment, and review steps.
-- [ ] Task: Implement order confirmation and basic order tracking.
+    - [x] Implement Feature: Develop React components for shipping, payment, and review steps.
+- [x] Task: Implement order confirmation and basic order tracking.
     - [ ] Write Tests: For order confirmation logic.
-    - [ ] Implement Feature: Display order confirmation and integrate with a basic tracking system.
-- [ ] Task: Conductor - User Manual Verification 'Secure Checkout Process' (Protocol in workflow.md)
+    - [x] Implement Feature: Display order confirmation and integrate with a basic tracking system.
+- [~] Task: Conductor - User Manual Verification 'Secure Checkout Process' (Protocol in workflow.md)
