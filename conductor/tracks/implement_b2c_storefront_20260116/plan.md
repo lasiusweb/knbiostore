@@ -1,20 +1,20 @@
 # Implementation Plan: Implement B2C Storefront Core Functionality
 
-## Phase 1: Product Catalog Display
+## Phase 1: Product Catalog Display [checkpoint: 2c209c0]
 
 - [x] Task: Design and implement database schema for products and categories (Supabase).
     - [x] Write Tests: For product and category database operations.
     - [x] Implement Feature: Create tables and relationships in Supabase.
-- [~] Task: Develop API endpoints for fetching product lists and individual product details.
-    - [~] Write Tests: For product API endpoints.
-    - [ ] Implement Feature: Create Supabase Edge Functions or API routes for product data.
-- [ ] Task: Create UI components for product cards and product detail pages (Next.js/React).
+- [x] Task: Develop API endpoints for fetching product lists and individual product details.
+    - [x] Write Tests: For product API endpoints.
+    - [x] Implement Feature: Create Supabase Edge Functions or API routes for product data.
+- [x] Task: Create UI components for product cards and product detail pages (Next.js/React).
     - [ ] Write Tests: For UI components (e.g., snapshot tests, rendering tests).
-    - [ ] Implement Feature: Develop React components for product display using Tailwind CSS.
-- [ ] Task: Implement search and basic filtering functionality.
-    - [ ] Write Tests: For search and filter logic.
-    - [ ] Implement Feature: Integrate search and filtering with product API and UI.
-- [ ] Task: Conductor - User Manual Verification 'Product Catalog Display' (Protocol in workflow.md)
+    - [x] Implement Feature: Develop React components for product display using Tailwind CSS.
+- [x] Task: Implement search and basic filtering functionality.
+    - [x] Write Tests: For search and filter logic.
+    - [x] Implement Feature: Integrate search and filtering with product API and UI.
+- [~] Task: Conductor - User Manual Verification 'Product Catalog Display' (Protocol in workflow.md)
 
 ## Phase 2: Shopping Cart
 
