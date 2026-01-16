@@ -12,3 +12,8 @@
 
 ## Backend
 *   Supabase
+
+## Form & Validation
+*   react-hook-form
+*   Zod
+*   Shadcn UI

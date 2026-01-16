@@ -9,6 +9,7 @@ To provide a single platform that handles three distinct business models:
 ## 2. Precision Inventory & Product Management
 To manage the complex lifecycle of biological products:
 *   **Variant System:** Handle specific product attributes like Weight (g/kg/ml), Packing (Box/Drum/Bag), and Form (Powder/Liquid/Granules) with specific pricing per variant.
+*   **Admin Product Management:** Enabled product creation and variant management through a dedicated admin interface.
 *   **Batch Tracking:** Track inventory down to the Lot Number and Expiry Date.
 *   **Traceability:** Ensure every sale links back to the specific manufactured batch for quality control and regulatory compliance.
 
