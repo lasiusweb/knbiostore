@@ -35,18 +35,18 @@
     - [x] Implement Feature: Add a button to append a new empty variant row.
 - [~] Task: Conductor - User Manual Verification 'Dynamic Variants Table'
 
-## Phase 3: Integrate `createProduct` Action
+## Phase 3: Integrate `createProduct` Action [checkpoint: c0b673f]
 
-- [ ] Task: Create `src/actions/create-product.ts` with a dummy `createProduct` function.
+- [x] Task: Create `src/actions/create-product.ts` with a dummy `createProduct` function.
     - [ ] Write Tests: For dummy `createProduct` function.
-    - [ ] Implement Feature: Create `create-product.ts` and export a placeholder async function.
-- [ ] Task: Import `createProduct` into `AdminProductForm.tsx`.
+    - [x] Implement Feature: Create `create-product.ts` and export a placeholder async function.
+- [x] Task: Import `createProduct` into `AdminProductForm.tsx`.
     - [ ] Write Tests: N/A (import statement).
-    - [ ] Implement Feature: Add the import statement.
-- [ ] Task: Call `await createProduct(values)` in `onSubmit`.
+    - [x] Implement Feature: Add the import statement.
+- [x] Task: Call `await createProduct(values)` in `onSubmit`.
     - [ ] Write Tests: For `createProduct` call with form values.
-    - [ ] Implement Feature: Replace `console.log(values)` with `await createProduct(values)`.
-- [ ] Task: Reset form and show success message (`console.log('Saved')`).
+    - [x] Implement Feature: Replace `console.log(values)` with `await createProduct(values)`.
+- [x] Task: Reset form and show success message (`console.log('Saved')`).
     - [ ] Write Tests: For form reset and success logging.
-    - [ ] Implement Feature: Add `form.reset()` and `console.log('Saved')` after successful API call.
-- [ ] Task: Conductor - User Manual Verification 'Integrate createProduct Action'
+    - [x] Implement Feature: Add `form.reset()` and `console.log('Saved')` after successful API call.
+- [~] Task: Conductor - User Manual Verification 'Integrate `createProduct` Action'
