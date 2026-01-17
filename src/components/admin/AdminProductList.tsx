@@ -9,6 +9,7 @@ import {
   TableHead,
   TableCell,
 } from '@/components/ui/table';
+import { Badge } from '@/components/ui/badge';
 
 const AdminProductList = async () => {
   const supabase = createClient();
@@ -59,8 +60,14 @@ const AdminProductList = async () => {
                 <TableCell>
                   {product.product_variants?.[0]?.price || 'N/A'}
                 </TableCell>
-                <TableCell>
-                  {product.tags?.join(', ') || 'No Tags'}
+                <TableCell className="flex flex-wrap gap-1">
+                  {product.tags && product.tags.length > 0 ? (
+                    product.tags.map((tag: string) => (
+                      <Badge key={tag} variant="secondary">{tag}</Badge>
+                    ))
+                  ) : (
+                    'No Tags'
+                  )}
                 </TableCell>
                 <TableCell>{product.description}</TableCell>
               </TableRow>
