@@ -14,9 +14,9 @@
 - [x] Task: Set up Shadcn UI Table structure. 4f82d82
     - [x] Define table columns for Product Name, SKU, Price, Tags, and Description.
     - [x] Map fetched product data to the table rows.
-- [~] Task: Implement Skeleton Loader for loading state.
-    - [ ] Display a skeleton loader that mimics the table structure while data is being fetched.
-- [ ] Task: Implement Empty State display.
+- [x] Task: Implement Skeleton Loader for loading state. 1dc33fd
+    - [x] Display a skeleton loader that mimics the table structure while data is being fetched.
+- [~] Task: Implement Empty State display.
     - [ ] Display "No products found. Click here to add a new product." message when no products are available.
 - [ ] Task: Conductor - User Manual Verification 'UI Implementation - Table and Loading State' (Protocol in workflow.md)
 
