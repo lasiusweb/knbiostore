@@ -1,6 +1,14 @@
 // src/components/admin/AdminProductList.tsx
 import React from 'react';
 import { createClient } from '@/lib/supabase/client';
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from '@/components/ui/table';
 
 const AdminProductList = async () => {
   const supabase = createClient();
@@ -24,10 +32,36 @@ const AdminProductList = async () => {
   }
 
   return (
-    <div>
-      <h1>Admin Product List</h1>
-      {/* Product list will be rendered here */}
-      <pre>{JSON.stringify(products, null, 2)}</pre>
+    <div className="container mx-auto py-10">
+      <h1 className="text-2xl font-bold mb-4">Admin Product List</h1>
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHead>Product Name</TableHead>
+            <TableHead>SKU</TableHead>
+            <TableHead>Price (INR)</TableHead>
+            <TableHead>Tags</TableHead>
+            <TableHead>Description</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {products.map((product) => (
+            <TableRow key={product.id}>
+              <TableCell>{product.name}</TableCell>
+              <TableCell>
+                {product.product_variants?.[0]?.sku || 'N/A'}
+              </TableCell>
+              <TableCell>
+                {product.product_variants?.[0]?.price || 'N/A'}
+              </TableCell>
+              <TableCell>
+                {product.tags?.join(', ') || 'No Tags'}
+              </TableCell>
+              <TableCell>{product.description}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
     </div>
   );
 };
