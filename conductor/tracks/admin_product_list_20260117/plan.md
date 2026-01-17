@@ -21,8 +21,8 @@
 - [x] Task: Conductor - User Manual Verification 'UI Implementation - Table and Loading State' (Protocol in workflow.md)
 
 ## Phase 3: Display Product Details
-- [ ] Task: Display Product Name and Description.
-- [ ] Task: Display SKU from the first product variant.
+- [x] Task: Display Product Name and Description. 4f82d82
+- [~] Task: Display SKU from the first product variant.
 - [ ] Task: Display Price from the first product variant in INR.
 - [ ] Task: Display Tags as interactive badge/pill components.
 - [ ] Task: Conductor - User Manual Verification 'Display Product Details' (Protocol in workflow.md)
