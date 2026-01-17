@@ -20,12 +20,12 @@
     - [x] Display "No products found. Click here to add a new product." message when no products are available.
 - [x] Task: Conductor - User Manual Verification 'UI Implementation - Table and Loading State' (Protocol in workflow.md)
 
-## Phase 3: Display Product Details
+## Phase 3: Display Product Details [checkpoint: 1327c80]
 - [x] Task: Display Product Name and Description. 4f82d82
 - [x] Task: Display SKU from the first product variant. 4f82d82
 - [x] Task: Display Price from the first product variant in INR. 4f82d82
 - [x] Task: Display Tags as interactive badge/pill components. 8efad01
-- [ ] Task: Conductor - User Manual Verification 'Display Product Details' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Display Product Details' (Protocol in workflow.md)
 
 ## Phase 4: Integration and Refinement
 - [ ] Task: Integrate `AdminProductList` into `src/app/admin/products/page.tsx`.
