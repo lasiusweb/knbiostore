@@ -25,3 +25,21 @@ export const getProductById = async (id: number) => {
     }
     return data[0];
 };
+
+export const getProducts = async (search?: string, category?: string) => {
+  // Dummy implementation for search and category filtering
+  let products = [
+    { id: 1, name: 'Product A', price: 100, category: 'Electronics', imageUrl: '' },
+    { id: 2, name: 'Product B', price: 200, category: 'Books', imageUrl: '' },
+    { id: 3, name: 'Product C', price: 150, category: 'Electronics', imageUrl: '' },
+  ];
+
+  if (search) {
+    products = products.filter(p => p.name.toLowerCase().includes(search.toLowerCase()));
+  }
+  if (category) {
+    products = products.filter(p => p.category.toLowerCase() === category.toLowerCase());
+  }
+  return products;
+};
+
