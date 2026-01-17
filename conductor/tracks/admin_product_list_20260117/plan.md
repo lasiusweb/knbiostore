@@ -4,7 +4,7 @@
 - [x] Task: Create `AdminProductList.tsx` Server Component file. 2804567
     - [ ] Create the file `src/components/admin/AdminProductList.tsx`.
     - [ ] Add basic React component structure.
-- [~] Task: Implement Supabase data fetching.
+- [x] Task: Implement Supabase data fetching. f45ae63
     - [ ] Import `createClient` from `@/lib/supabase/client`.
     - [ ] Fetch data from the `products` table using `.select('*, product_variants(*)')`.
     - [ ] Handle potential errors during data fetching.
