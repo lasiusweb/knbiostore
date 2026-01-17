@@ -23,8 +23,8 @@
 ## Phase 3: Display Product Details
 - [x] Task: Display Product Name and Description. 4f82d82
 - [x] Task: Display SKU from the first product variant. 4f82d82
-- [~] Task: Display Price from the first product variant in INR.
-- [ ] Task: Display Tags as interactive badge/pill components.
+- [x] Task: Display Price from the first product variant in INR. 4f82d82
+- [~] Task: Display Tags as interactive badge/pill components.
 - [ ] Task: Conductor - User Manual Verification 'Display Product Details' (Protocol in workflow.md)
 
 ## Phase 4: Integration and Refinement
