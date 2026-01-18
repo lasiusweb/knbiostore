@@ -1,0 +1,8 @@
+{
+  "track_id": "offline_pos_order_persistence_20260117",
+  "type": "feature",
+  "status": "new",
+  "created_at": "2026-01-17T00:00:00Z",
+  "updated_at": "2026-01-17T00:00:00Z",
+  "description": "When \"Checkout\" is clicked, we must save this to db.orders so it persists even if the app crashes or they close the browser.We need to update the Dexie Schema to store orders.\"Update lib/db.ts.Add a new table to the stores definition:orders: 'id, created_at, status, total_amount'.\""
+}

@@ -1,0 +1,8 @@
+{
+  "track_id": "global_navbar_component_20260117",
+  "type": "feature",
+  "status": "new",
+  "created_at": "2026-01-17T00:00:00Z",
+  "updated_at": "2026-01-17T00:00:00Z",
+  "description": "We need a menu so users can switch between the Store, Admin, and POS. \"Create a Client Component src/components/layout/Navbar.tsx. Design:A simple fixed header at the top with a white background and shadow.Logo on the left (text: 'KnBioStore').Navigation links on the right: 'Store', 'POS', 'Admin'.Use Shadcn Button (ghost variant) for links.Links should use Next.js Link component to route to /store, /pos, and /admin/products.\""
+}

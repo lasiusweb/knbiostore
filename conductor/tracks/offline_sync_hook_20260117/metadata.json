@@ -1,0 +1,8 @@
+{
+  "track_id": "offline_sync_hook_20260117",
+  "type": "feature",
+  "status": "new",
+  "created_at": "2026-01-17T00:00:00Z",
+  "updated_at": "2026-01-17T00:00:00Z",
+  "description": "We need a mechanism to download data from Supabase and save it into the local db. \"Create a Client Component hook hooks/useOfflineSync.ts. Logic:Use useEffect to run this code once when the component loads.Import createClient from @/lib/supabase/client and db from @/lib/db. Fetch data from Supabase:Query products table.Query inventory_lots table where status is 'available'.Save data locally:Use db.products.bulkPut(supabaseProducts).Use db.inventory_lots.bulkPut(supabaseLots).Add a boolean state isSyncing to show a loading spinner while downloading.\""
+}

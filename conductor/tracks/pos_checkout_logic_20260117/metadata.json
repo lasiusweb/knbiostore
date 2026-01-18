@@ -1,0 +1,8 @@
+{
+  "track_id": "pos_checkout_logic_20260117",
+  "type": "feature",
+  "status": "new",
+  "created_at": "2026-01-17T00:00:00Z",
+  "updated_at": "2026-01-17T00:00:00Z",
+  "description": "Now we need the logic that runs when \"Checkout\" is clicked.In src/components/pos/POSInterface.tsx, update the handleCheckout function.Logic: Generate a random UUID for the order ID (use crypto.randomUUID()). Create an order object:id: UUID , created_at: new Date(), status: 'PENDING_SYNC', total_amount: Calculated total from cart, items: The current cart array, Save this to db.orders using await db.orders.add(orderObject)., Alert 'Order Saved Locally' and clear the cart."
+}

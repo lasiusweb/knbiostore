@@ -1,0 +1,8 @@
+{
+  "track_id": "local_indexeddb_20260117",
+  "type": "feature",
+  "status": "new",
+  "created_at": "2026-01-17T00:00:00Z",
+  "updated_at": "2026-01-17T00:00:00Z",
+  "description": "We need a file that tells the phone: \"When I store data, put it in these boxes.\"Create a file lib/db.ts. Logic:Import Dexie from 'dexie'. Define a class KnBioStoreDB extending Dexie.Call super('knbiostore_pos'). Define the tables using .stores():products: 'id, name, is_active', inventory_lots: 'id, lot_number, expiry_date, available_quantity, variant_id', Export an instance: export const db = new KnBioStoreDB()."
+}

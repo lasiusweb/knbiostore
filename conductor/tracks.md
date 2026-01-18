@@ -9,7 +9,7 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [ ] **Track: Create a Client Component src/components/admin/InventoryLotForm.tsx. Logic:On load, use createClient from @/lib/supabase/client to fetch all product_variants and their related products name.Query: select('*, products(name)'), Populate a Shadcn Select dropdown with the Variants. Format the label as: "Product Name - SKU".Form Fields:variant_id (The Select dropdown above), lot_number (Input Text),manufacture_date (Input Date),expiry_date (Input Date),initial_quantity (Input Number), warehouse_location (Input Text), Validation:Ensure Lot Number is unique (check locally if possible, otherwise rely on DB error).Ensure expiry_date is after manufacture_date.Use react-hook-form and zod for validation.**
+- [~] **Track: Create a Client Component src/components/admin/InventoryLotForm.tsx. Logic:On load, use createClient from @/lib/supabase/client to fetch all product_variants and their related products name.Query: select('*, products(name)'), Populate a Shadcn Select dropdown with the Variants. Format the label as: "Product Name - SKU".Form Fields:variant_id (The Select dropdown above), lot_number (Input Text),manufacture_date (Input Date),expiry_date (Input Date),initial_quantity (Input Number), warehouse_location (Input Text), Validation:Ensure Lot Number is unique (check locally if possible, otherwise rely on DB error).Ensure expiry_date is after manufacture_date.Use react-hook-form and zod for validation.**
 *Link: [./tracks/inventory_lot_form_20260117/](./tracks/inventory_lot_form_20260117/)*
 
 ---
@@ -50,4 +50,15 @@ This file tracks all major tracks for the project. Each track has its own detail
 ---
 
 - [ ] **Track: Update Navbar to show Login/Logout.We need to update the Navbar so it shows a "Login" button if they are a guest, and their "Email" and a "Logout" button if they are logged in.**
+
 *Link: [./tracks/update_navbar_auth_20260117/](./tracks/update_navbar_auth_20260117/)*
+
+
+
+---
+
+
+
+- [ ] **Track: Update the Navbar (The Mega Menu). We need to replace the simple navbar with one that handles your complex hierarchy.**
+
+*Link: [./tracks/global_navbar_mega_menu_20260118/](./tracks/global_navbar_mega_menu_20260118/)*

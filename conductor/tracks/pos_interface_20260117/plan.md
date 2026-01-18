@@ -1,0 +1,35 @@
+# Track: POS Interface Component Implementation Plan
+
+## Phase 1: Component Setup and Data Integration
+- [ ] Task: Create `components/pos/POSInterface.tsx` Client Component file.
+    - [ ] Create the file `components/pos/POSInterface.tsx`.
+    - [ ] Add basic React client component structure, including `"use client";` directive.
+- [ ] Task: Integrate `useOfflineSync` hook.
+    - [ ] Import and call `useOfflineSync` to ensure data freshness.
+    - [ ] Implement visual representation of `isSyncing` state (small spinner/text indicator).
+- [ ] Task: Integrate `useLiveQuery` for `inventory_lots`.
+    - [ ] Install `dexie-react-hooks` if not already installed.
+    - [ ] Import `useLiveQuery` and `db` (from `@/lib/db`).
+    - [ ] Use `useLiveQuery(() => db.inventory_lots.toArray())` to watch the table.
+- [ ] Task: Conductor - User Manual Verification 'Component Setup and Data Integration' (Protocol in workflow.md)
+
+## Phase 2: UI Implementation - Lot Cards and "Add to Cart"
+- [ ] Task: Implement Grid layout for lot cards.
+    - [ ] Use Tailwind CSS for mobile-friendly card-based grid layout with shadows.
+- [ ] Task: Display lot information on each card.
+    - [ ] Show Lot Number, Expiry Date, Quantity.
+    - [ ] Show Product Name, SKU, and Price.
+- [ ] Task: Implement "Add to Cart" button.
+    - [ ] Add an "Add to Cart" button to each lot card.
+- [ ] Task: Implement "Add to Cart" logic.
+    - [ ] Add item to a temporary client-side cart.
+    - [ ] Display a small confirmation (e.g., a toast notification) after adding to cart.
+- [ ] Task: Conductor - User Manual Verification 'UI Implementation - Lot Cards and "Add to Cart"' (Protocol in workflow.md)
+
+## Phase 3: Refinement and Cleanup
+- [ ] Task: Review and Refine Styles.
+    - [ ] Ensure the interface is visually appealing and responsive across different mobile devices.
+- [ ] Task: Final Code Review and Cleanup.
+    - [ ] Ensure all code adheres to project guidelines.
+    - [ ] Remove any temporary code or comments.
+- [ ] Task: Conductor - User Manual Verification 'Refinement and Cleanup' (Protocol in workflow.md)

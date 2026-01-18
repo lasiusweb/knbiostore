@@ -1,0 +1,8 @@
+{
+  "track_id": "admin_product_list_20260117",
+  "type": "feature",
+  "status": "new",
+  "created_at": "2026-01-17T00:00:00Z",
+  "updated_at": "2026-01-17T00:00:00Z",
+  "description": "Create a Server Component at src/components/admin/AdminProductList.tsx.Logic:Import createClient from @/lib/supabase/client. Fetch data from the products table.Crucial: Use a Left Join to fetch the related product_variants. Supabase Syntax: .select('*, product_variants(*)')Map through the products and display them in a Shadcn Table.Columns in the Table:Product Name, SKU (List the first variant's SKU for simplicity), Price (List the first variant's price in INR), Tags,Description, Handle the loading state if data is empty."
+}

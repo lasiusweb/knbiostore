@@ -1,0 +1,8 @@
+{
+  "track_id": "update_navbar_auth_20260117",
+  "type": "feature",
+  "status": "new",
+  "created_at": "2026-01-17T00:00:00Z",
+  "updated_at": "2026-01-17T00:00:00Z",
+  "description": "Update Navbar to show Login/Logout. We need to update the Navbar so it shows a \"Login\" button if they are a guest, and their \"Email\" and a \"Logout\" button if they are logged in. Update src/components/layout/Navbar.tsx.Logic:Import createClient from @/lib/supabase/client. Create a User state: const [user, setUser] = useState(null).Use useEffect to check supabase.auth.getSession(). If session exists, setUser(session.user).Render:If user is null: Show 'Login' button linking to /login.If user exists: Show 'Hi, {user.email}' and a 'Logout' button.Logout Logic: Call supabase.auth.signOut()."
+}
