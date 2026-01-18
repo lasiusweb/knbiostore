@@ -26,7 +26,7 @@
     - [x] Display a small confirmation (e.g., a toast notification) after adding to cart.
 - [x] Task: Conductor - User Manual Verification 'UI Implementation - Lot Cards and "Add to Cart"' (Protocol in workflow.md)
 
-## Phase 3: Refinement and Cleanup
+## Phase 3: Refinement and Cleanup [checkpoint: af8e992]
 - [x] Task: Review and Refine Styles. [20217eb]
     - [x] Ensure the interface is visually appealing and responsive across different mobile devices.
 - [x] Task: Final Code Review and Cleanup. [20217eb]
