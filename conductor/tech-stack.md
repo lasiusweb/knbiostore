@@ -12,6 +12,7 @@
 
 ## Backend
 *   Supabase
+*   Dexie.js (Local IndexedDB for Offline Support)
 
 ## Form & Validation
 *   react-hook-form

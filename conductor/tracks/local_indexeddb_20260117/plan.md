@@ -25,8 +25,6 @@
 - [x] Task: Conductor - User Manual Verification 'Basic CRUD Operations and Verification' (Protocol in workflow.md)
 
 ## Phase 3: Integration and Refinement
-- [ ] Task: Update `tech-stack.md` to include Dexie.js.
-- [ ] Task: Final Code Review and Cleanup.
-    - [ ] Ensure all code adheres to project guidelines.
-    - [ ] Remove any temporary code or comments.
-- [ ] Task: Conductor - User Manual Verification 'Integration and Refinement' (Protocol in workflow.md)
+- [x] Task: Update `tech-stack.md` to include Dexie.js.
+- [x] Task: Final Code Review and Cleanup.
+- [x] Task: Conductor - User Manual Verification 'Integration and Refinement' (Protocol in workflow.md)
