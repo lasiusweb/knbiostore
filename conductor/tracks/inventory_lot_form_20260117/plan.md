@@ -24,7 +24,7 @@
     - [x] Integrate with `react-hook-form`.
 - [x] Task: Conductor - User Manual Verification 'Form Structure and Variant Selection' (Protocol in workflow.md)
 
-## Phase 3: Date Pickers and Validation
+## Phase 3: Date Pickers and Validation [checkpoint: 698518c]
 - [x] Task: Implement Shadcn UI `Calendar` components for `manufacture_date` and `expiry_date`.
     - [x] Integrate calendar components with a popover.
     - [x] Integrate with `react-hook-form`.
