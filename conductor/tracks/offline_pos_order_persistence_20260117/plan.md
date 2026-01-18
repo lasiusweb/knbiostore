@@ -20,7 +20,7 @@
 - [x] Task: Implement basic `get` operation for `customers` table.
 - [x] Task: Conductor - User Manual Verification 'Basic CRUD Operations for New Tables' (Protocol in workflow.md)
 
-## Phase 3: Integration and Refinement
+## Phase 3: Integration and Refinement [checkpoint: 1df1305]
 - [x] Task: Update `tech-stack.md` to reflect schema changes if necessary. [1b762af]
 - [x] Task: Final Code Review and Cleanup. [1b762af]
     - [x] Ensure all code adheres to project guidelines.
