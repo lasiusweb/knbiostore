@@ -71,4 +71,40 @@ describe('useOfflineSync', () => {
       expect(result.current.isSyncing).toBe(false);
     });
   });
+
+  it('handles errors during sync', async () => {
+    mockSupabase.from.mockImplementation(() => ({
+      select: jest.fn().mockImplementation(() => {
+        throw new Error('Supabase Error');
+      })
+    }));
+
+    const { result } = renderHook(() => useOfflineSync());
+
+    await waitFor(() => {
+      expect(result.current.isSyncing).toBe(false);
+      expect(result.current.error).toBe('Synchronization failed.');
+    });
+  });
+
+  it('allows manual re-sync', async () => {
+    mockSupabase.from.mockImplementation(() => ({
+      select: jest.fn().mockImplementation(() => ({
+        eq: jest.fn().mockResolvedValue({ data: [], error: null })
+      }))
+    }));
+
+    const { result } = renderHook(() => useOfflineSync());
+
+    await waitFor(() => {
+      expect(result.current.isSyncing).toBe(false);
+    });
+
+    await act(async () => {
+      await result.current.refetchData();
+    });
+
+    // It should have been called twice (mount + manual)
+    expect(mockSupabase.from).toHaveBeenCalledTimes(4); // 2 tables * 2 runs
+  });
 });
