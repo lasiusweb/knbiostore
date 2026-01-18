@@ -14,10 +14,16 @@ export function useOfflineSync() {
         const supabase = createClient();
         
         // Fetch products
-        const { data: products } = await supabase.from('products').select('*');
+        const { data: products, error: productsError } = await supabase.from('products').select('*');
+        if (productsError) throw productsError;
         
         // Fetch lots
-        const { data: lots } = await supabase.from('inventory_lots').select('*').eq('status', 'available');
+        const { data: lots, error: lotsError } = await supabase.from('inventory_lots').select('*').eq('status', 'available');
+        if (lotsError) throw lotsError;
+
+        // Save locally
+        if (products) await db.products.bulkPut(products);
+        if (lots) await db.inventory_lots.bulkPut(lots);
 
       } catch (error) {
         console.error('Sync failed:', error);
