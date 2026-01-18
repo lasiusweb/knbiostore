@@ -1,16 +1,16 @@
 # Track: Admin Expiry Monitor Component Implementation Plan
 
 ## Phase 1: Component Setup and Data Fetching
-- [ ] Task: Create `ExpiryMonitor.tsx` Server Component file.
-    - [ ] Create the file `src/components/admin/ExpiryMonitor.tsx`.
-    - [ ] Add basic React component structure.
-- [ ] Task: Implement Supabase data fetching for expiring inventory lots.
-    - [ ] Import `createClient` from `@/lib/supabase/client`.
-    - [ ] Calculate the date 30 days from now.
-    - [ ] Query `inventory_lots` where `expiry_date` is between `NOW()` and `NOW() + 30 days` and `status` is 'available'.
-    - [ ] Join with `product_variants` and `products` to get SKU, product name, and packing type.
-    - [ ] Handle potential errors during data fetching.
-- [ ] Task: Conductor - User Manual Verification 'Component Setup and Data Fetching' (Protocol in workflow.md)
+- [x] Task: Create `ExpiryMonitor.tsx` Server Component file. [1a269ba]
+    - [x] Create the file `src/components/admin/ExpiryMonitor.tsx`.
+    - [x] Add basic React component structure.
+- [x] Task: Implement Supabase data fetching for expiring inventory lots. [1a269ba]
+    - [x] Import `createClient` from `@/lib/supabase/client`.
+    - [x] Calculate the date 30 days from now.
+    - [x] Query `inventory_lots` where `expiry_date` is between `NOW()` and `NOW() + 30 days` and `status` is 'available'.
+    - [x] Join with `product_variants` and `products` to get SKU, product name, and packing type.
+    - [x] Handle potential errors during data fetching.
+- [~] Task: Conductor - User Manual Verification 'Component Setup and Data Fetching' (Protocol in workflow.md)
 
 ## Phase 2: UI Implementation - Table and 'Days Left' Logic
 - [ ] Task: Set up Shadcn UI Table structure.
