@@ -13,15 +13,15 @@
 - [x] Task: Conductor - User Manual Verification 'Component Setup and Basic Structure' (Protocol in workflow.md)
 
 ## Phase 2: Navigation Links and Mobile Responsiveness
-- [ ] Task: Implement navigation links.
-    - [ ] Display 'Store', 'POS', 'Admin' links on the right.
-    - [ ] Use Shadcn Button (ghost variant) for links.
-    - [ ] Use Next.js Link component for routing: `/store`, `/pos`, `/admin/products`.
-    - [ ] Visually emphasize the 'Store' link.
-- [ ] Task: Implement mobile responsiveness (hamburger menu).
-    - [ ] Collapse navigation links into a hamburger menu on smaller screens.
-    - [ ] Implement toggle functionality for the hamburger menu.
-- [ ] Task: Conductor - User Manual Verification 'Navigation Links and Mobile Responsiveness' (Protocol in workflow.md)
+- [x] Task: Implement navigation links.
+    - [x] Display 'Store', 'POS', 'Admin' links on the right.
+    - [x] Use Shadcn Button (ghost variant) for links.
+    - [x] Use Next.js Link component for routing: `/store`, `/pos`, `/admin/products`.
+    - [x] Visually emphasize the 'Store' link.
+- [x] Task: Implement mobile responsiveness (hamburger menu).
+    - [x] Collapse navigation links into a hamburger menu on smaller screens.
+    - [x] Implement toggle functionality for the hamburger menu.
+- [x] Task: Conductor - User Manual Verification 'Navigation Links and Mobile Responsiveness' (Protocol in workflow.md)
 
 ## Phase 3: Refinement and Integration
 - [ ] Task: Review and Refine Styles.
