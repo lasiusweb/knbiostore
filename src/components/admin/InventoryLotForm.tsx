@@ -32,6 +32,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { createLot } from "@/actions/create-lot";
 
 const inventoryLotSchema = z.object({
   variant_id: z.string().min(1, "Variant is required"),
@@ -49,12 +50,14 @@ const inventoryLotSchema = z.object({
   path: ["expiry_date"],
 });
 
-type InventoryLotFormValues = z.infer<typeof inventoryLotSchema>;
+export type InventoryLotFormValues = z.infer<typeof inventoryLotSchema>;
 
 const InventoryLotForm = () => {
   const [variants, setVariants] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState<string | null>(null);
 
   const form = useForm<InventoryLotFormValues>({
     resolver: zodResolver(inventoryLotSchema),
@@ -88,7 +91,22 @@ const InventoryLotForm = () => {
   }, []);
 
   async function onSubmit(values: InventoryLotFormValues) {
-    console.log(values);
+    setSubmitting(true);
+    setError(null);
+    setSuccess(null);
+    try {
+      const result = await createLot(values);
+      if (result.success) {
+        setSuccess(result.message);
+        form.reset();
+      } else {
+        setError(result.message);
+      }
+    } catch (err: any) {
+      setError(err.message || "An unexpected error occurred");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -97,6 +115,16 @@ const InventoryLotForm = () => {
         <CardTitle>Add New Inventory Lot</CardTitle>
       </CardHeader>
       <CardContent>
+        {success && (
+          <div className="mb-4 p-3 bg-green-100 border border-green-400 text-green-700 rounded">
+            {success}
+          </div>
+        )}
+        {error && (
+          <div className="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
+            {error}
+          </div>
+        )}
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
             <FormField
@@ -105,7 +133,7 @@ const InventoryLotForm = () => {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Select Variant</FormLabel>
-                  <Select onValueChange={field.onChange} defaultValue={field.value}>
+                  <Select onValueChange={field.onChange} defaultValue={field.value} value={field.value}>
                     <FormControl>
                       <SelectTrigger>
                         <SelectValue placeholder="Select a variant" />
@@ -252,8 +280,8 @@ const InventoryLotForm = () => {
               )}
             />
 
-            <Button type="submit" disabled={loading}>
-              {loading ? "Loading..." : "Submit"}
+            <Button type="submit" disabled={loading || submitting}>
+              {submitting ? "Submitting..." : "Submit"}
             </Button>
           </form>
         </Form>
