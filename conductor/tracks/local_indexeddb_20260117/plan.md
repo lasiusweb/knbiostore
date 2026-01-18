@@ -24,7 +24,7 @@
 - [x] Task: Implement basic `get` operation for `inventory_lots` table.
 - [x] Task: Conductor - User Manual Verification 'Basic CRUD Operations and Verification' (Protocol in workflow.md)
 
-## Phase 3: Integration and Refinement
+## Phase 3: Integration and Refinement [checkpoint: 17eb1c4]
 - [x] Task: Update `tech-stack.md` to include Dexie.js.
 - [x] Task: Final Code Review and Cleanup.
 - [x] Task: Conductor - User Manual Verification 'Integration and Refinement' (Protocol in workflow.md)
