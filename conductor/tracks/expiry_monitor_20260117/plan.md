@@ -1,6 +1,6 @@
 # Track: Admin Expiry Monitor Component Implementation Plan
 
-## Phase 1: Component Setup and Data Fetching
+## Phase 1: Component Setup and Data Fetching [checkpoint: f284734]
 - [x] Task: Create `ExpiryMonitor.tsx` Server Component file. [1a269ba]
     - [x] Create the file `src/components/admin/ExpiryMonitor.tsx`.
     - [x] Add basic React component structure.
