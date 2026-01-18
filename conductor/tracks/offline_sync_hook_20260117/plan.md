@@ -1,6 +1,6 @@
 # Track: Offline Sync Hook (useOfflineSync) Implementation Plan
 
-## Phase 1: Hook Setup and Initial Data Fetching
+## Phase 1: Hook Setup and Initial Data Fetching [checkpoint: cb265eb]
 - [x] Task: Create `hooks/useOfflineSync.ts` file.
     - [x] Create the file `hooks/useOfflineSync.ts`.
     - [x] Add basic React Client Component hook structure, including `"use client";` directive and `useEffect`.
