@@ -9,7 +9,7 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [~] **Track: Create a Client Component src/components/admin/InventoryLotForm.tsx. Logic:On load, use createClient from @/lib/supabase/client to fetch all product_variants and their related products name.Query: select('*, products(name)'), Populate a Shadcn Select dropdown with the Variants. Format the label as: "Product Name - SKU".Form Fields:variant_id (The Select dropdown above), lot_number (Input Text),manufacture_date (Input Date),expiry_date (Input Date),initial_quantity (Input Number), warehouse_location (Input Text), Validation:Ensure Lot Number is unique (check locally if possible, otherwise rely on DB error).Ensure expiry_date is after manufacture_date.Use react-hook-form and zod for validation.**
+- [x] **Track: Create a Client Component src/components/admin/InventoryLotForm.tsx. Logic:On load, use createClient from @/lib/supabase/client to fetch all product_variants and their related products name.Query: select('*, products(name)'), Populate a Shadcn Select dropdown with the Variants. Format the label as: "Product Name - SKU".Form Fields:variant_id (The Select dropdown above), lot_number (Input Text),manufacture_date (Input Date),expiry_date (Input Date),initial_quantity (Input Number), warehouse_location (Input Text), Validation:Ensure Lot Number is unique (check locally if possible, otherwise rely on DB error).Ensure expiry_date is after manufacture_date.Use react-hook-form and zod for validation.**
 *Link: [./tracks/inventory_lot_form_20260117/](./tracks/inventory_lot_form_20260117/)*
 
 ---
