@@ -1,6 +1,6 @@
 # Track: Global Navbar Component Implementation Plan
 
-## Phase 1: Component Setup and Basic Structure
+## Phase 1: Component Setup and Basic Structure [checkpoint: 5b8d943]
 - [x] Task: Create `src/components/layout/Navbar.tsx` Client Component file.
     - [x] Create the file `src/components/layout/Navbar.tsx`.
     - [x] Add basic React client component structure.
