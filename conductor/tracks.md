@@ -14,7 +14,7 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [~] **Track: We need a component that calculates "Days Remaining" based on the expiry_date in the database.Create a Server Component src/components/admin/ExpiryMonitor.tsx. Logic:Import createClient from @/lib/supabase/client. Calculate the date 30 days from now.Query inventory_lots where:expiry_date is between NOW() and NOW() + 30 days. status is 'available'. Join with product_variants and products to get sku, product name, and packing type.Display:Render a Shadcn Table.Columns: Product Name, SKU, Lot Number, Expiry Date, Available Qty.Calculated Column: 'Days Left'. (e.g., (Expiry - Today)).Color Logic:If Days Left < 7: Render a Red Badge.If Days Left < 15: Render a Yellow Badge.Else: Green/Blue Badge.Handle empty states (e.g., 'No items expiring soon').**
+- [x] **Track: We need a component that calculates "Days Remaining" based on the expiry_date in the database.Create a Server Component src/components/admin/ExpiryMonitor.tsx. Logic:Import createClient from @/lib/supabase/client. Calculate the date 30 days from now.Query inventory_lots where:expiry_date is between NOW() and NOW() + 30 days. status is 'available'. Join with product_variants and products to get sku, product name, and packing type.Display:Render a Shadcn Table.Columns: Product Name, SKU, Lot Number, Expiry Date, Available Qty.Calculated Column: 'Days Left'. (e.g., (Expiry - Today)).Color Logic:If Days Left < 7: Render a Red Badge.If Days Left < 15: Render a Yellow Badge.Else: Green/Blue Badge.Handle empty states (e.g., 'No items expiring soon').**
 *Link: [./tracks/expiry_monitor_20260117/](./tracks/expiry_monitor_20260117/)*
 
 ---
