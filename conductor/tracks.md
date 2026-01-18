@@ -44,7 +44,7 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [~] **Track: Now we need the logic that runs when "Checkout" is clicked."In src/components/pos/POSInterface.tsx, update the handleCheckout function.Logic: Generate a random UUID for the order ID (use crypto.randomUUID()). Create an order object:id: UUID , created_at: new Date(), status: 'PENDING_SYNC', total_amount: Calculated total from cart, items: The current cart array, Save this to db.orders using await db.orders.add(orderObject)., Alert 'Order Saved Locally' and clear the cart."**
+- [x] **Track: Now we need the logic that runs when "Checkout" is clicked."In src/components/pos/POSInterface.tsx, update the handleCheckout function.Logic: Generate a random UUID for the order ID (use crypto.randomUUID()). Create an order object:id: UUID , created_at: new Date(), status: 'PENDING_SYNC', total_amount: Calculated total from cart, items: The current cart array, Save this to db.orders using await db.orders.add(orderObject)., Alert 'Order Saved Locally' and clear the cart."**
 *Link: [./tracks/pos_checkout_logic_20260117/](./tracks/pos_checkout_logic_20260117/)*
 
 ---
