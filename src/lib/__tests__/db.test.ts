@@ -1,9 +1,13 @@
 import { db } from '../db';
 
 describe('Local Database', () => {
-  it('should have products and inventory_lots tables', () => {
-    expect(db.tables.map(t => t.name)).toContain('products');
-    expect(db.tables.map(t => t.name)).toContain('inventory_lots');
+  it('should have all required tables', () => {
+    const tableNames = db.tables.map(t => t.name);
+    expect(tableNames).toContain('products');
+    expect(tableNames).toContain('inventory_lots');
+    expect(tableNames).toContain('orders');
+    expect(tableNames).toContain('order_items');
+    expect(tableNames).toContain('customers');
   });
 
   it('should initialize with the correct database name', () => {

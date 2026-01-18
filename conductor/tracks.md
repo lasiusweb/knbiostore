@@ -39,7 +39,7 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [ ] **Track: When "Checkout" is clicked, we must save this to db.orders so it persists even if the app crashes or they close the browser.We need to update the Dexie Schema to store orders."Update lib/db.ts.Add a new table to the stores definition:orders: 'id, created_at, status, total_amount'."**
+- [~] **Track: When "Checkout" is clicked, we must save this to db.orders so it persists even if the app crashes or they close the browser.We need to update the Dexie Schema to store orders."Update lib/db.ts.Add a new table to the stores definition:orders: 'id, created_at, status, total_amount'."**
 *Link: [./tracks/offline_pos_order_persistence_20260117/](./tracks/offline_pos_order_persistence_20260117/)*
 
 ---
