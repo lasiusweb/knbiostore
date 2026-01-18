@@ -1,6 +1,6 @@
 # Track: Offline POS Order Persistence Implementation Plan
 
-## Phase 1: Dexie Schema Update
+## Phase 1: Dexie Schema Update [checkpoint: 1d560bb]
 - [x] Task: Update `lib/db.ts` to include `orders` table.
     - [x] Add `orders: 'id, created_at, status, total_amount'` to the `.stores()` definition.
     - [x] Define `id` as primary key for orders, with client-side UUID generation.
