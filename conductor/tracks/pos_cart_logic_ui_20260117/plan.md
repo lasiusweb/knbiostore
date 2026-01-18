@@ -11,7 +11,7 @@
 - [x] Task: Implement `calculateTotal` function.
 - [x] Task: Conductor - User Manual Verification 'Cart State and Core Functions' (Protocol in workflow.md)
 
-## Phase 2: UI for Cart Button and Sidebar
+## Phase 2: UI for Cart Button and Sidebar [checkpoint: 68fc9fe]
 - [x] Task: Implement floating "Cart" button.
     - [x] Display total number of items in cart on the button.
     - [x] Implement click handler to toggle `showCart` state.
