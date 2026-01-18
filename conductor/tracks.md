@@ -34,7 +34,7 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [~] **Track: We need to add logic to select items and total up the price."Update src/components/pos/POSInterface.tsx. Add State:cart: An array of objects (id, lot_number, quantity, price). showCart: Boolean to toggle the cart view.Functions:addToCart(lot): Check if lot is already in cart. If yes, increment quantity. If no, add new entry. removeFromCart(id): Remove item.calculateTotal(): Sum of (price * quantity). UI Update:Keep the Product Grid. Add a floating "Cart" button (or fixed sidebar) showing number of items.When the button is clicked, show a list of selected items and a 'Checkout' button."**
+- [x] **Track: We need to add logic to select items and total up the price."Update src/components/pos/POSInterface.tsx. Add State:cart: An array of objects (id, lot_number, quantity, price). showCart: Boolean to toggle the cart view.Functions:addToCart(lot): Check if lot is already in cart. If yes, increment quantity. If no, add new entry. removeFromCart(id): Remove item.calculateTotal(): Sum of (price * quantity). UI Update:Keep the Product Grid. Add a floating "Cart" button (or fixed sidebar) showing number of items.When the button is clicked, show a list of selected items and a 'Checkout' button."**
 *Link: [./tracks/pos_cart_logic_ui_20260117/](./tracks/pos_cart_logic_ui_20260117/)*
 
 ---
