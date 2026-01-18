@@ -35,7 +35,7 @@
     - [x] Add validation rule to Zod schema.
 - [x] Task: Conductor - User Manual Verification 'Date Pickers and Validation' (Protocol in workflow.md)
 
-## Phase 4: Form Submission and Refinement
+## Phase 4: Form Submission and Refinement [checkpoint: 2e15fc0]
 - [x] Task: Implement form submission logic.
     - [x] Handle form data submission.
     - [x] Integrate with Supabase to save the new inventory lot.
