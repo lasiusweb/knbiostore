@@ -10,7 +10,7 @@
     - [x] Clear the cart after saving the order.
 - [x] Task: Conductor - User Manual Verification 'Checkout Logic Implementation' (Protocol in workflow.md)
 
-## Phase 2: Refinement and Cleanup
+## Phase 2: Refinement and Cleanup [checkpoint: 03abdc1]
 - [x] Task: Review and Refine Code. [5e62425]
     - [x] Ensure the checkout logic is robust and handles edge cases appropriately.
     - [x] Confirm order status can be manually updated by the POS user locally.
