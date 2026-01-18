@@ -18,11 +18,11 @@
 - [x] Task: Conductor - User Manual Verification 'Dexie Setup and Database Definition' (Protocol in workflow.md)
 
 ## Phase 2: Basic CRUD Operations and Verification
-- [ ] Task: Implement basic `add` operation for `products` table.
-- [ ] Task: Implement basic `get` operation for `products` table.
-- [ ] Task: Implement basic `add` operation for `inventory_lots` table.
-- [ ] Task: Implement basic `get` operation for `inventory_lots` table.
-- [ ] Task: Conductor - User Manual Verification 'Basic CRUD Operations and Verification' (Protocol in workflow.md)
+- [x] Task: Implement basic `add` operation for `products` table.
+- [x] Task: Implement basic `get` operation for `products` table.
+- [x] Task: Implement basic `add` operation for `inventory_lots` table.
+- [x] Task: Implement basic `get` operation for `inventory_lots` table.
+- [~] Task: Conductor - User Manual Verification 'Basic CRUD Operations and Verification' (Protocol in workflow.md)
 
 ## Phase 3: Integration and Refinement
 - [ ] Task: Update `tech-stack.md` to include Dexie.js.
