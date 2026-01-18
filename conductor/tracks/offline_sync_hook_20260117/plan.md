@@ -1,16 +1,16 @@
 # Track: Offline Sync Hook (useOfflineSync) Implementation Plan
 
 ## Phase 1: Hook Setup and Initial Data Fetching
-- [ ] Task: Create `hooks/useOfflineSync.ts` file.
-    - [ ] Create the file `hooks/useOfflineSync.ts`.
-    - [ ] Add basic React Client Component hook structure, including `"use client";` directive and `useEffect`.
-- [ ] Task: Implement Supabase data fetching for products.
-    - [ ] Import `createClient` from `@/lib/supabase/client`.
-    - [ ] Query the `products` table from Supabase within the `useEffect`.
-- [ ] Task: Implement Supabase data fetching for inventory lots.
-    - [ ] Import `db` from `@/lib/db`.
-    - [ ] Query the `inventory_lots` table from Supabase where `status` is 'available'.
-- [ ] Task: Conductor - User Manual Verification 'Hook Setup and Initial Data Fetching' (Protocol in workflow.md)
+- [x] Task: Create `hooks/useOfflineSync.ts` file.
+    - [x] Create the file `hooks/useOfflineSync.ts`.
+    - [x] Add basic React Client Component hook structure, including `"use client";` directive and `useEffect`.
+- [x] Task: Implement Supabase data fetching for products.
+    - [x] Import `createClient` from `@/lib/supabase/client`.
+    - [x] Query the `products` table from Supabase within the `useEffect`.
+- [x] Task: Implement Supabase data fetching for inventory lots.
+    - [x] Import `db` from `@/lib/db`.
+    - [x] Query the `inventory_lots` table from Supabase where `status` is 'available'.
+- [x] Task: Conductor - User Manual Verification 'Hook Setup and Initial Data Fetching' (Protocol in workflow.md)
 
 ## Phase 2: Local Data Storage and Status Management
 - [ ] Task: Implement local data storage for products.
