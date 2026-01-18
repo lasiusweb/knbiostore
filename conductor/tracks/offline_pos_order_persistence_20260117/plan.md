@@ -12,13 +12,13 @@
 - [x] Task: Conductor - User Manual Verification 'Dexie Schema Update' (Protocol in workflow.md)
 
 ## Phase 2: Basic CRUD Operations for New Tables
-- [ ] Task: Implement basic `add` operation for `orders` table.
-- [ ] Task: Implement basic `get` operation for `orders` table.
-- [ ] Task: Implement basic `add` operation for `order_items` table.
-- [ ] Task: Implement basic `get` operation for `order_items` table.
-- [ ] Task: Implement basic `add` operation for `customers` table.
-- [ ] Task: Implement basic `get` operation for `customers` table.
-- [ ] Task: Conductor - User Manual Verification 'Basic CRUD Operations for New Tables' (Protocol in workflow.md)
+- [x] Task: Implement basic `add` operation for `orders` table.
+- [x] Task: Implement basic `get` operation for `orders` table.
+- [x] Task: Implement basic `add` operation for `order_items` table.
+- [x] Task: Implement basic `get` operation for `order_items` table.
+- [x] Task: Implement basic `add` operation for `customers` table.
+- [x] Task: Implement basic `get` operation for `customers` table.
+- [x] Task: Conductor - User Manual Verification 'Basic CRUD Operations for New Tables' (Protocol in workflow.md)
 
 ## Phase 3: Integration and Refinement
 - [ ] Task: Update `tech-stack.md` to reflect schema changes if necessary (unlikely for this specific task, but good practice).
