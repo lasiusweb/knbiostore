@@ -12,7 +12,7 @@
     - [x] Handle potential errors during data fetching.
 - [x] Task: Conductor - User Manual Verification 'Component Setup and Data Fetching' (Protocol in workflow.md)
 
-## Phase 2: UI Implementation - Table and 'Days Left' Logic
+## Phase 2: UI Implementation - Table and 'Days Left' Logic [checkpoint: 7a3703d]
 - [x] Task: Set up Shadcn UI Table structure. [98bb48e]
     - [x] Define table columns for Product Name, SKU, Lot Number, Expiry Date, Available Qty.
 - [x] Task: Implement 'Days Left' calculation logic. [98bb48e]
