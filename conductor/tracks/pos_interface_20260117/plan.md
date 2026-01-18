@@ -14,17 +14,17 @@
 - [x] Task: Conductor - User Manual Verification 'Component Setup and Data Integration' (Protocol in workflow.md)
 
 ## Phase 2: UI Implementation - Lot Cards and "Add to Cart"
-- [ ] Task: Implement Grid layout for lot cards.
-    - [ ] Use Tailwind CSS for mobile-friendly card-based grid layout with shadows.
-- [ ] Task: Display lot information on each card.
-    - [ ] Show Lot Number, Expiry Date, Quantity.
-    - [ ] Show Product Name, SKU, and Price.
-- [ ] Task: Implement "Add to Cart" button.
-    - [ ] Add an "Add to Cart" button to each lot card.
-- [ ] Task: Implement "Add to Cart" logic.
-    - [ ] Add item to a temporary client-side cart.
-    - [ ] Display a small confirmation (e.g., a toast notification) after adding to cart.
-- [ ] Task: Conductor - User Manual Verification 'UI Implementation - Lot Cards and "Add to Cart"' (Protocol in workflow.md)
+- [x] Task: Implement Grid layout for lot cards.
+    - [x] Use Tailwind CSS for mobile-friendly card-based grid layout with shadows.
+- [x] Task: Display lot information on each card.
+    - [x] Show Lot Number, Expiry Date, Quantity.
+    - [x] Show Product Name, SKU, and Price.
+- [x] Task: Implement "Add to Cart" button.
+    - [x] Add an "Add to Cart" button to each lot card.
+- [x] Task: Implement "Add to Cart" logic.
+    - [x] Add item to a temporary client-side cart.
+    - [x] Display a small confirmation (e.g., a toast notification) after adding to cart.
+- [x] Task: Conductor - User Manual Verification 'UI Implementation - Lot Cards and "Add to Cart"' (Protocol in workflow.md)
 
 ## Phase 3: Refinement and Cleanup
 - [ ] Task: Review and Refine Styles.
