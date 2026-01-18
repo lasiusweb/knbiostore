@@ -1,6 +1,6 @@
 # Track: Local IndexedDB for Offline POS Implementation Plan
 
-## Phase 1: Dexie Setup and Database Definition
+## Phase 1: Dexie Setup and Database Definition [checkpoint: ed97e73]
 - [x] Task: Create `lib/db.ts` file.
     - [x] Create the file `lib/db.ts`.
 - [x] Task: Install Dexie.js.
