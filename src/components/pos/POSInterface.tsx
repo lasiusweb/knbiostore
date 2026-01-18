@@ -70,7 +70,9 @@ const POSInterface = () => {
     if (cart.length === 0) return;
 
     try {
-      const orderId = crypto.randomUUID();
+      const orderId = typeof crypto.randomUUID === 'function' 
+        ? crypto.randomUUID() 
+        : Math.random().toString(36).substring(2, 15);
       const orderObject: any = {
         id: orderId,
         created_at: new Date(),
