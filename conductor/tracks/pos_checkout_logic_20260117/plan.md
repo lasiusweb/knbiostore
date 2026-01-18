@@ -1,6 +1,6 @@
 # Track: POS Interface - Checkout Logic Implementation Plan
 
-## Phase 1: Checkout Logic Implementation
+## Phase 1: Checkout Logic Implementation [checkpoint: 4f14b48]
 - [x] Task: Update `src/components/pos/POSInterface.tsx` to modify `handleCheckout` function.
     - [x] Generate a random UUID for the order ID using `crypto.randomUUID()`.
     - [x] Create an order object including `id`, `created_at` (`new Date()`), `status` ('PENDING_SYNC'), `total_amount`, and `items` (current cart array).
