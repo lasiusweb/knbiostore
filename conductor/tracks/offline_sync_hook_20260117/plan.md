@@ -12,7 +12,7 @@
     - [x] Query the `inventory_lots` table from Supabase where `status` is 'available'.
 - [x] Task: Conductor - User Manual Verification 'Hook Setup and Initial Data Fetching' (Protocol in workflow.md)
 
-## Phase 2: Local Data Storage and Status Management
+## Phase 2: Local Data Storage and Status Management [checkpoint: fa09b16]
 - [x] Task: Implement local data storage for products.
     - [x] Use `db.products.bulkPut(supabaseProducts)` to save fetched products locally.
 - [x] Task: Implement local data storage for inventory lots.
