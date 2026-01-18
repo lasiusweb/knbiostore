@@ -26,7 +26,7 @@
     - [x] Display "No items expiring soon" message when no data is returned.
 - [x] Task: Conductor - User Manual Verification 'UI Implementation - Table and 'Days Left' Logic' (Protocol in workflow.md)
 
-## Phase 3: Integration and Refinement
+## Phase 3: Integration and Refinement [checkpoint: cc60f9e]
 - [x] Task: Integrate `ExpiryMonitor` into appropriate admin page (e.g., `src/app/admin/dashboard/page.tsx` or similar). [b558343]
     - [x] Import the `ExpiryMonitor` component.
     - [x] Render the component in the admin page.
