@@ -22,7 +22,7 @@
     - [x] Expose `isSyncing` from the hook.
 - [x] Task: Conductor - User Manual Verification 'Local Data Storage and Status Management' (Protocol in workflow.md)
 
-## Phase 3: Error Handling and Manual Re-synchronization
+## Phase 3: Error Handling and Manual Re-synchronization [checkpoint: 116f103]
 - [x] Task: Implement error handling for data fetching and local storage.
     - [x] Display a generic error message (e.g., "Synchronization failed.") as a temporary notification using a toast or similar mechanism.
 - [x] Task: Implement manual re-synchronization trigger.
