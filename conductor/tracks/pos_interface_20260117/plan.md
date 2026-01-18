@@ -13,7 +13,7 @@
     - [x] Use `useLiveQuery(() => db.inventory_lots.toArray())` to watch the table.
 - [x] Task: Conductor - User Manual Verification 'Component Setup and Data Integration' (Protocol in workflow.md)
 
-## Phase 2: UI Implementation - Lot Cards and "Add to Cart"
+## Phase 2: UI Implementation - Lot Cards and "Add to Cart" [checkpoint: ff227f0]
 - [x] Task: Implement Grid layout for lot cards.
     - [x] Use Tailwind CSS for mobile-friendly card-based grid layout with shadows.
 - [x] Task: Display lot information on each card.
