@@ -1,6 +1,6 @@
 # Track: Admin Inventory Lot Form Component Implementation Plan
 
-## Phase 1: Component Setup and Data Fetching
+## Phase 1: Component Setup and Data Fetching [checkpoint: 6c1886f]
 - [x] Task: Create `InventoryLotForm.tsx` Client Component file.
     - [x] Create the file `src/components/admin/InventoryLotForm.tsx`.
     - [x] Add basic React client component structure with `"use client";` directive.
