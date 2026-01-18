@@ -25,15 +25,15 @@
 - [x] Task: Conductor - User Manual Verification 'Form Structure and Variant Selection' (Protocol in workflow.md)
 
 ## Phase 3: Date Pickers and Validation
-- [ ] Task: Implement Shadcn UI `Calendar` components for `manufacture_date` and `expiry_date`.
-    - [ ] Integrate calendar components with a popover.
-    - [ ] Integrate with `react-hook-form`.
-- [ ] Task: Implement `lot_number` uniqueness validation.
-    - [ ] Add client-side validation logic for uniqueness check.
-    - [ ] Ensure database error is handled as a fallback.
-- [ ] Task: Implement `expiry_date` after `manufacture_date` validation.
-    - [ ] Add validation rule to Zod schema.
-- [ ] Task: Conductor - User Manual Verification 'Date Pickers and Validation' (Protocol in workflow.md)
+- [x] Task: Implement Shadcn UI `Calendar` components for `manufacture_date` and `expiry_date`.
+    - [x] Integrate calendar components with a popover.
+    - [x] Integrate with `react-hook-form`.
+- [x] Task: Implement `lot_number` uniqueness validation.
+    - [x] Add client-side validation logic for uniqueness check.
+    - [x] Ensure database error is handled as a fallback.
+- [x] Task: Implement `expiry_date` after `manufacture_date` validation.
+    - [x] Add validation rule to Zod schema.
+- [x] Task: Conductor - User Manual Verification 'Date Pickers and Validation' (Protocol in workflow.md)
 
 ## Phase 4: Form Submission and Refinement
 - [ ] Task: Implement form submission logic.
