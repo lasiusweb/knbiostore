@@ -10,6 +10,9 @@
 ## Styling
 *   Tailwind CSS
 
+## Icons
+*   Lucide React
+
 ## Backend
 *   Supabase
 *   Dexie.js (Local IndexedDB for Offline Support)
@@ -18,3 +21,6 @@
 *   react-hook-form
 *   Zod
 *   Shadcn UI
+
+## Utilities
+*   date-fns
