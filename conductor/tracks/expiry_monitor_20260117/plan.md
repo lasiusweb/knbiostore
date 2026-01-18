@@ -13,18 +13,18 @@
 - [x] Task: Conductor - User Manual Verification 'Component Setup and Data Fetching' (Protocol in workflow.md)
 
 ## Phase 2: UI Implementation - Table and 'Days Left' Logic
-- [ ] Task: Set up Shadcn UI Table structure.
-    - [ ] Define table columns for Product Name, SKU, Lot Number, Expiry Date, Available Qty.
-- [ ] Task: Implement 'Days Left' calculation logic.
-    - [ ] Calculate 'Days Left' as (Expiry Date - Today's Date).
-    - [ ] Handle negative 'Days Left' by displaying "Expired".
-- [ ] Task: Implement 'Days Left' color-coding logic using Shadcn Badge component.
-    - [ ] Red Badge for < 7 days.
-    - [ ] Yellow Badge for < 15 days.
-    - [ ] Green Badge for >= 15 days.
-- [ ] Task: Implement empty state display.
-    - [ ] Display "No items expiring soon" message when no data is returned.
-- [ ] Task: Conductor - User Manual Verification 'UI Implementation - Table and 'Days Left' Logic' (Protocol in workflow.md)
+- [x] Task: Set up Shadcn UI Table structure. [98bb48e]
+    - [x] Define table columns for Product Name, SKU, Lot Number, Expiry Date, Available Qty.
+- [x] Task: Implement 'Days Left' calculation logic. [98bb48e]
+    - [x] Calculate 'Days Left' as (Expiry Date - Today's Date).
+    - [x] Handle negative 'Days Left' by displaying "Expired".
+- [x] Task: Implement 'Days Left' color-coding logic using Shadcn Badge component. [98bb48e]
+    - [x] Red Badge for < 7 days.
+    - [x] Yellow Badge for < 15 days.
+    - [x] Green Badge for >= 15 days.
+- [x] Task: Implement empty state display. [98bb48e]
+    - [x] Display "No items expiring soon" message when no data is returned.
+- [~] Task: Conductor - User Manual Verification 'UI Implementation - Table and 'Days Left' Logic' (Protocol in workflow.md)
 
 ## Phase 3: Integration and Refinement
 - [ ] Task: Integrate `ExpiryMonitor` into appropriate admin page (e.g., `src/app/admin/dashboard/page.tsx` or similar).
