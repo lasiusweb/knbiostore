@@ -1,21 +1,21 @@
 # Track: Local IndexedDB for Offline POS Implementation Plan
 
 ## Phase 1: Dexie Setup and Database Definition
-- [ ] Task: Create `lib/db.ts` file.
-    - [ ] Create the file `lib/db.ts`.
-- [ ] Task: Install Dexie.js.
-    - [ ] Run `npm install dexie`.
-- [ ] Task: Define `KnBioStoreDB` class.
-    - [ ] Import `Dexie` from 'dexie'.
-    - [ ] Define `class KnBioStoreDB extends Dexie`.
-    - [ ] Implement `super('knbiostore_pos')` in the constructor.
-- [ ] Task: Define `products` table schema.
-    - [ ] Use `.stores()` to define `products: 'id, name, is_active'`.
-- [ ] Task: Define `inventory_lots` table schema.
-    - [ ] Use `.stores()` to define `inventory_lots: 'id, lot_number, expiry_date, available_quantity, variant_id'`.
-- [ ] Task: Export `db` instance.
-    - [ ] `export const db = new KnBioStoreDB()`.
-- [ ] Task: Conductor - User Manual Verification 'Dexie Setup and Database Definition' (Protocol in workflow.md)
+- [x] Task: Create `lib/db.ts` file.
+    - [x] Create the file `lib/db.ts`.
+- [x] Task: Install Dexie.js.
+    - [x] Run `npm install dexie`. (Verified in package.json)
+- [x] Task: Define `KnBioStoreDB` class.
+    - [x] Import `Dexie` from 'dexie'.
+    - [x] Define `class KnBioStoreDB extends Dexie`.
+    - [x] Implement `super('knbiostore_pos')` in the constructor.
+- [x] Task: Define `products` table schema.
+    - [x] Use `.stores()` to define `products: 'id, name, is_active'`.
+- [x] Task: Define `inventory_lots` table schema.
+    - [x] Use `.stores()` to define `inventory_lots: 'id, lot_number, expiry_date, available_quantity, variant_id'`.
+- [x] Task: Export `db` instance.
+    - [x] `export const db = new KnBioStoreDB()`.
+- [x] Task: Conductor - User Manual Verification 'Dexie Setup and Database Definition' (Protocol in workflow.md)
 
 ## Phase 2: Basic CRUD Operations and Verification
 - [ ] Task: Implement basic `add` operation for `products` table.
