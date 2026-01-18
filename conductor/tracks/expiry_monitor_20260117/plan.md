@@ -27,12 +27,12 @@
 - [x] Task: Conductor - User Manual Verification 'UI Implementation - Table and 'Days Left' Logic' (Protocol in workflow.md)
 
 ## Phase 3: Integration and Refinement
-- [ ] Task: Integrate `ExpiryMonitor` into appropriate admin page (e.g., `src/app/admin/dashboard/page.tsx` or similar).
-    - [ ] Import the `ExpiryMonitor` component.
-    - [ ] Render the component in the admin page.
-- [ ] Task: Review and Refine Styles and Layout.
-    - [ ] Ensure the table and badges are visually appealing and responsive.
-- [ ] Task: Final Code Review and Cleanup.
-    - [ ] Ensure all code adheres to project guidelines.
-    - [ ] Remove any temporary code or comments.
-- [ ] Task: Conductor - User Manual Verification 'Integration and Refinement' (Protocol in workflow.md)
+- [x] Task: Integrate `ExpiryMonitor` into appropriate admin page (e.g., `src/app/admin/dashboard/page.tsx` or similar). [b558343]
+    - [x] Import the `ExpiryMonitor` component.
+    - [x] Render the component in the admin page.
+- [x] Task: Review and Refine Styles and Layout. [b558343]
+    - [x] Ensure the table and badges are visually appealing and responsive.
+- [x] Task: Final Code Review and Cleanup. [b558343]
+    - [x] Ensure all code adheres to project guidelines.
+    - [x] Remove any temporary code or comments.
+- [x] Task: Conductor - User Manual Verification 'Integration and Refinement' (Protocol in workflow.md)
