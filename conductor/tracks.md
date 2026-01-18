@@ -24,7 +24,7 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [~] **Track: Offline Sync Hook (useOfflineSync). Create a hook hooks/useOfflineSync.ts to implement a mechanism for downloading critical data from Supabase and saving it into the local IndexedDB.**
+- [x] **Track: Offline Sync Hook (useOfflineSync). Create a hook hooks/useOfflineSync.ts to implement a mechanism for downloading critical data from Supabase and saving it into the local IndexedDB.**
 *Link: [./tracks/offline_sync_hook_20260117/](./tracks/offline_sync_hook_20260117/)*
 
 ---
