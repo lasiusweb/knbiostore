@@ -11,18 +11,18 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Setup and Basic Structure' (Protocol in workflow.md)
 
 ## Phase 2: Form Structure and Variant Selection
-- [ ] Task: Set up `react-hook-form` and `zod` for form management and validation schema.
-    - [ ] Define the Zod schema for form inputs: `variant_id`, `lot_number`, `manufacture_date`, `expiry_date`, `initial_quantity`, `warehouse_location`.
-    - [ ] Initialize `useForm` from `react-hook-form`.
-- [ ] Task: Implement Shadcn `Select` for variant_id.
-    - [ ] Populate the `Select` dropdown with fetched product variants.
-    - [ ] Format the label for each option as "Product Name - SKU".
-    - [ ] Integrate with `react-hook-form`.
-- [ ] Task: Implement Input Text for `lot_number` and `warehouse_location`.
-    - [ ] Integrate with `react-hook-form`.
-- [ ] Task: Implement Input Number for `initial_quantity`.
-    - [ ] Integrate with `react-hook-form`.
-- [ ] Task: Conductor - User Manual Verification 'Form Structure and Variant Selection' (Protocol in workflow.md)
+- [x] Task: Set up `react-hook-form` and `zod` for form management and validation schema.
+    - [x] Define the Zod schema for form inputs: `variant_id`, `lot_number`, `manufacture_date`, `expiry_date`, `initial_quantity`, `warehouse_location`.
+    - [x] Initialize `useForm` from `react-hook-form`.
+- [x] Task: Implement Shadcn `Select` for variant_id.
+    - [x] Populate the `Select` dropdown with fetched product variants.
+    - [x] Format the label for each option as "Product Name - SKU".
+    - [x] Integrate with `react-hook-form`.
+- [x] Task: Implement Input Text for `lot_number` and `warehouse_location`.
+    - [x] Integrate with `react-hook-form`.
+- [x] Task: Implement Input Number for `initial_quantity`.
+    - [x] Integrate with `react-hook-form`.
+- [x] Task: Conductor - User Manual Verification 'Form Structure and Variant Selection' (Protocol in workflow.md)
 
 ## Phase 3: Date Pickers and Validation
 - [ ] Task: Implement Shadcn UI `Calendar` components for `manufacture_date` and `expiry_date`.

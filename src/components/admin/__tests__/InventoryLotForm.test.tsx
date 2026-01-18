@@ -34,4 +34,18 @@ describe('InventoryLotForm', () => {
     expect(mockSupabase.from).toHaveBeenCalledWith('product_variants');
     expect(mockSupabase.select).toHaveBeenCalledWith('*, products(name)');
   });
+
+  it('renders all required form fields', async () => {
+    await act(async () => {
+      render(<InventoryLotForm />);
+    });
+    
+    // Select is a bit tricky to find by role sometimes if it's custom, 
+    // but we can check for labels or placeholders once implemented.
+    // For now, let's just look for labels we expect.
+    expect(screen.getByText(/Select Variant/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Lot Number/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Initial Quantity/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Warehouse Location/i)).toBeInTheDocument();
+  });
 });
