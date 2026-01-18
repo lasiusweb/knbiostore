@@ -1,17 +1,17 @@
 # Track: POS Interface Component Implementation Plan
 
 ## Phase 1: Component Setup and Data Integration
-- [ ] Task: Create `components/pos/POSInterface.tsx` Client Component file.
-    - [ ] Create the file `components/pos/POSInterface.tsx`.
-    - [ ] Add basic React client component structure, including `"use client";` directive.
-- [ ] Task: Integrate `useOfflineSync` hook.
-    - [ ] Import and call `useOfflineSync` to ensure data freshness.
-    - [ ] Implement visual representation of `isSyncing` state (small spinner/text indicator).
-- [ ] Task: Integrate `useLiveQuery` for `inventory_lots`.
-    - [ ] Install `dexie-react-hooks` if not already installed.
-    - [ ] Import `useLiveQuery` and `db` (from `@/lib/db`).
-    - [ ] Use `useLiveQuery(() => db.inventory_lots.toArray())` to watch the table.
-- [ ] Task: Conductor - User Manual Verification 'Component Setup and Data Integration' (Protocol in workflow.md)
+- [x] Task: Create `components/pos/POSInterface.tsx` Client Component file.
+    - [x] Create the file `components/pos/POSInterface.tsx`.
+    - [x] Add basic React client component structure, including `"use client";` directive.
+- [x] Task: Integrate `useOfflineSync` hook.
+    - [x] Import and call `useOfflineSync` to ensure data freshness.
+    - [x] Implement visual representation of `isSyncing` state (small spinner/text indicator).
+- [x] Task: Integrate `useLiveQuery` for `inventory_lots`.
+    - [x] Install `dexie-react-hooks` if not already installed.
+    - [x] Import `useLiveQuery` and `db` (from `@/lib/db`).
+    - [x] Use `useLiveQuery(() => db.inventory_lots.toArray())` to watch the table.
+- [x] Task: Conductor - User Manual Verification 'Component Setup and Data Integration' (Protocol in workflow.md)
 
 ## Phase 2: UI Implementation - Lot Cards and "Add to Cart"
 - [ ] Task: Implement Grid layout for lot cards.
