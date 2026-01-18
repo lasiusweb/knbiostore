@@ -12,7 +12,7 @@
     - [x] Make the logo a Next.js Link to `/store`.
 - [x] Task: Conductor - User Manual Verification 'Component Setup and Basic Structure' (Protocol in workflow.md)
 
-## Phase 2: Navigation Links and Mobile Responsiveness
+## Phase 2: Navigation Links and Mobile Responsiveness [checkpoint: 3e402c6]
 - [x] Task: Implement navigation links.
     - [x] Display 'Store', 'POS', 'Admin' links on the right.
     - [x] Use Shadcn Button (ghost variant) for links.
