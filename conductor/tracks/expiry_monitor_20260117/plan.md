@@ -24,7 +24,7 @@
     - [x] Green Badge for >= 15 days.
 - [x] Task: Implement empty state display. [98bb48e]
     - [x] Display "No items expiring soon" message when no data is returned.
-- [~] Task: Conductor - User Manual Verification 'UI Implementation - Table and 'Days Left' Logic' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'UI Implementation - Table and 'Days Left' Logic' (Protocol in workflow.md)
 
 ## Phase 3: Integration and Refinement
 - [ ] Task: Integrate `ExpiryMonitor` into appropriate admin page (e.g., `src/app/admin/dashboard/page.tsx` or similar).

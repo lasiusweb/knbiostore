@@ -1,6 +1,6 @@
 import React from 'react';
 import { createClient } from '@/lib/supabase/client';
-import { addDays, format, differenceInDays, isBefore } from 'date-fns';
+import { addDays, format, differenceInDays, isBefore, startOfDay } from 'date-fns';
 import {
   Table,
   TableHeader,
@@ -13,7 +13,7 @@ import { Badge } from '@/components/ui/badge';
 
 const ExpiryMonitor = async () => {
   const supabase = createClient();
-  const today = new Date();
+  const today = startOfDay(new Date());
   const thirtyDaysFromNow = addDays(today, 30);
 
   const { data: lots, error } = await supabase
@@ -47,7 +47,7 @@ const ExpiryMonitor = async () => {
           </TableHeader>
           <TableBody>
             {lots.map((lot) => {
-              const expiryDate = new Date(lot.expiry_date);
+              const expiryDate = startOfDay(new Date(lot.expiry_date));
               const daysLeft = differenceInDays(expiryDate, today);
               const isExpired = isBefore(expiryDate, today);
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { addDays } from 'date-fns';
+import { addDays, startOfDay } from 'date-fns';
 import ExpiryMonitor from '../ExpiryMonitor';
 
 // Mock the createClient for server components if needed
@@ -70,7 +70,7 @@ describe('ExpiryMonitor', () => {
   });
 
   it('calculates days left correctly', async () => {
-    const today = new Date();
+    const today = startOfDay(new Date());
     const mockLots = [
       {
         id: '1',
@@ -105,7 +105,7 @@ describe('ExpiryMonitor', () => {
   });
 
   it('applies correct badge variants based on days left', async () => {
-    const today = new Date();
+    const today = startOfDay(new Date());
     const mockLots = [
       {
         id: '1',
