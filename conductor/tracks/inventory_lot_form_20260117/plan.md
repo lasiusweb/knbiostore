@@ -10,7 +10,7 @@
     - [x] Handle loading and error states for data fetching.
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Setup and Basic Structure' (Protocol in workflow.md)
 
-## Phase 2: Form Structure and Variant Selection
+## Phase 2: Form Structure and Variant Selection [checkpoint: 2f59a1d]
 - [x] Task: Set up `react-hook-form` and `zod` for form management and validation schema.
     - [x] Define the Zod schema for form inputs: `variant_id`, `lot_number`, `manufacture_date`, `expiry_date`, `initial_quantity`, `warehouse_location`.
     - [x] Initialize `useForm` from `react-hook-form`.
