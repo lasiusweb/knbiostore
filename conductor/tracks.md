@@ -29,7 +29,7 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [~] **Track: Generate the Interface. This needs to use useOfflineSync and query db."Create a Client Component components/pos/POSInterface.tsx. Logic:Call useOfflineSync to ensure data is fresh.Use useLiveQuery (from dexie-react-hooks) to watch the inventory_lots table. Example: const lots = useLiveQuery(() => db.inventory_lots.toArray()), Display a list of lots in a Grid layout (Cards). For each lot, show: Lot Number,Expiry Date, Quantity. Add a button 'Add to Cart' to each card.Styling: Use Tailwind for a mobile-friendly look (cards with shadows).**
+- [x] **Track: Generate the Interface. This needs to use useOfflineSync and query db."Create a Client Component components/pos/POSInterface.tsx. Logic:Call useOfflineSync to ensure data is fresh.Use useLiveQuery (from dexie-react-hooks) to watch the inventory_lots table. Example: const lots = useLiveQuery(() => db.inventory_lots.toArray()), Display a list of lots in a Grid layout (Cards). For each lot, show: Lot Number,Expiry Date, Quantity. Add a button 'Add to Cart' to each card.Styling: Use Tailwind for a mobile-friendly look (cards with shadows).**
 *Link: [./tracks/pos_interface_20260117/](./tracks/pos_interface_20260117/)*
 
 ---
