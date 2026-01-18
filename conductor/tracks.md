@@ -49,7 +49,7 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [ ] **Track: We need a menu so users can switch between the Store, Admin, and POS. "Create a Client Component src/components/layout/Navbar.tsx. Design:A simple fixed header at the top with a white background and shadow.Logo on the left (text: 'KnBioStore').Navigation links on the right: 'Store', 'POS', 'Admin'.Use Shadcn Button (ghost variant) for links.Links should use Next.js Link component to route to /store, /pos, and /admin/products."**
+- [~] **Track: We need a menu so users can switch between the Store, Admin, and POS. "Create a Client Component src/components/layout/Navbar.tsx. Design:A simple fixed header at the top with a white background and shadow.Logo on the left (text: 'KnBioStore').Navigation links on the right: 'Store', 'POS', 'Admin'.Use Shadcn Button (ghost variant) for links.Links should use Next.js Link component to route to /store, /pos, and /admin/products."**
 *Link: [./tracks/global_navbar_component_20260117/](./tracks/global_navbar_component_20260117/)*
 
 ---

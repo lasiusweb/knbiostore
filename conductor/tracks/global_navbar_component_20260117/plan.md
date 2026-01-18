@@ -1,16 +1,16 @@
 # Track: Global Navbar Component Implementation Plan
 
 ## Phase 1: Component Setup and Basic Structure
-- [ ] Task: Create `src/components/layout/Navbar.tsx` Client Component file.
-    - [ ] Create the file `src/components/layout/Navbar.tsx`.
-    - [ ] Add basic React client component structure.
-- [ ] Task: Implement fixed header design.
-    - [ ] Apply Tailwind CSS for a fixed header at the top.
-    - [ ] Apply white background and shadow styling.
-- [ ] Task: Implement text logo.
-    - [ ] Display 'KnBioStore' text on the left.
-    - [ ] Make the logo a Next.js Link to `/store`.
-- [ ] Task: Conductor - User Manual Verification 'Component Setup and Basic Structure' (Protocol in workflow.md)
+- [x] Task: Create `src/components/layout/Navbar.tsx` Client Component file.
+    - [x] Create the file `src/components/layout/Navbar.tsx`.
+    - [x] Add basic React client component structure.
+- [x] Task: Implement fixed header design.
+    - [x] Apply Tailwind CSS for a fixed header at the top.
+    - [x] Apply white background and shadow styling.
+- [x] Task: Implement text logo.
+    - [x] Display 'KnBioStore' text on the left.
+    - [x] Make the logo a Next.js Link to `/store`.
+- [x] Task: Conductor - User Manual Verification 'Component Setup and Basic Structure' (Protocol in workflow.md)
 
 ## Phase 2: Navigation Links and Mobile Responsiveness
 - [ ] Task: Implement navigation links.
