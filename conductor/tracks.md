@@ -19,7 +19,7 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [~] **Track: We need a file that tells the phone: "When I store data, put it in these boxes."Create a file lib/db.ts. Logic:Import Dexie from 'dexie'. Define a class KnBioStoreDB extending Dexie.Call super('knbiostore_pos'). Define the tables using .stores():products: 'id, name, is_active', inventory_lots: 'id, lot_number, expiry_date, available_quantity, variant_id', Export an instance: export const db = new KnBioStoreDB().**
+- [x] **Track: We need a file that tells the phone: "When I store data, put it in these boxes."Create a file lib/db.ts. Logic:Import Dexie from 'dexie'. Define a class KnBioStoreDB extending Dexie.Call super('knbiostore_pos'). Define the tables using .stores():products: 'id, name, is_active', inventory_lots: 'id, lot_number, expiry_date, available_quantity, variant_id', Export an instance: export const db = new KnBioStoreDB().**
 *Link: [./tracks/local_indexeddb_20260117/](./tracks/local_indexeddb_20260117/)*
 
 ---
