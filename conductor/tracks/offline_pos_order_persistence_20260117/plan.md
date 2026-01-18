@@ -11,7 +11,7 @@
     - [x] Add `customers: 'id, name, email, phone'` to the `.stores()` definition.
 - [x] Task: Conductor - User Manual Verification 'Dexie Schema Update' (Protocol in workflow.md)
 
-## Phase 2: Basic CRUD Operations for New Tables
+## Phase 2: Basic CRUD Operations for New Tables [checkpoint: 5000f45]
 - [x] Task: Implement basic `add` operation for `orders` table.
 - [x] Task: Implement basic `get` operation for `orders` table.
 - [x] Task: Implement basic `add` operation for `order_items` table.
