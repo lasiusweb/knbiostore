@@ -66,6 +66,30 @@ const POSInterface = () => {
     return cart.reduce((total, item) => total + (item.price * item.quantity), 0);
   };
 
+  const handleCheckout = async () => {
+    if (cart.length === 0) return;
+
+    try {
+      const orderId = crypto.randomUUID();
+      const orderObject: any = {
+        id: orderId,
+        created_at: new Date(),
+        status: 'PENDING_SYNC',
+        total_amount: calculateTotal(),
+        items: cart,
+      };
+
+      await db.orders.add(orderObject);
+      
+      alert('Order Saved Locally');
+      setCart([]);
+      setShowCart(false);
+    } catch (error) {
+      console.error('Checkout failed:', error);
+      alert('Failed to save order locally.');
+    }
+  };
+
   const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
 
   return (
@@ -191,7 +215,11 @@ const POSInterface = () => {
                 <span>Total:</span>
                 <span>₹{calculateTotal()}</span>
               </div>
-              <Button className="w-full py-6 text-lg font-bold" disabled={cart.length === 0}>
+              <Button 
+                className="w-full py-6 text-lg font-bold" 
+                disabled={cart.length === 0}
+                onClick={handleCheckout}
+              >
                 Checkout
               </Button>
             </div>

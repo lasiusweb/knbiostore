@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, act } from '@testing-library/react';
 import POSInterface from '../POSInterface';
 
 // Mock dependencies
@@ -11,6 +11,9 @@ jest.mock('@/lib/db', () => ({
   db: {
     inventory_lots: {
       toArray: jest.fn().mockResolvedValue([]),
+    },
+    orders: {
+      add: jest.fn(),
     },
   },
 }));
@@ -126,6 +129,44 @@ describe('POSInterface', () => {
     const removeButton = screen.getByRole('button', { name: /Remove/i });
     fireEvent.click(removeButton);
     
+    expect(screen.getByText(/Your cart is empty/i)).toBeInTheDocument();
+  });
+
+  it('saves order to database and clears cart on checkout', async () => {
+    const { useLiveQuery } = require('dexie-react-hooks');
+    const { fireEvent } = require('@testing-library/react');
+    const { db } = require('@/lib/db');
+    
+    // Mock db.orders.add
+    db.orders.add = jest.fn().mockResolvedValue('order-id');
+    window.alert = jest.fn();
+    
+    // Polyfill crypto.randomUUID for JSDOM
+    if (!global.crypto.randomUUID) {
+      global.crypto.randomUUID = jest.fn(() => 'test-uuid');
+    }
+
+    const mockLot = { id: '1', lot_number: 'L1', product_name: 'P1', sku: 'S1', price: 100, available_quantity: 10, variant_id: 'v1' };
+    useLiveQuery.mockReturnValue([mockLot]);
+
+    render(<POSInterface />);
+    
+    fireEvent.click(screen.getByRole('button', { name: /Add to Cart/i }));
+    fireEvent.click(screen.getByRole('button', { name: /^Cart/i }));
+    
+    const checkoutButton = screen.getByRole('button', { name: /Checkout/i });
+    await act(async () => {
+      fireEvent.click(checkoutButton);
+    });
+    
+    expect(db.orders.add).toHaveBeenCalled();
+    expect(window.alert).toHaveBeenCalledWith('Order Saved Locally');
+    
+    // Check if badge is gone (quantity 0)
+    expect(screen.queryByText('1')).not.toBeInTheDocument();
+    
+    // Re-open cart to verify it is empty
+    fireEvent.click(screen.getByRole('button', { name: /^Cart/i }));
     expect(screen.getByText(/Your cart is empty/i)).toBeInTheDocument();
   });
 });
