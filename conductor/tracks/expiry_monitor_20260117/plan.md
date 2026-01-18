@@ -10,7 +10,7 @@
     - [x] Query `inventory_lots` where `expiry_date` is between `NOW()` and `NOW() + 30 days` and `status` is 'available'.
     - [x] Join with `product_variants` and `products` to get SKU, product name, and packing type.
     - [x] Handle potential errors during data fetching.
-- [~] Task: Conductor - User Manual Verification 'Component Setup and Data Fetching' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Component Setup and Data Fetching' (Protocol in workflow.md)
 
 ## Phase 2: UI Implementation - Table and 'Days Left' Logic
 - [ ] Task: Set up Shadcn UI Table structure.
