@@ -64,6 +64,6 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 
 
-- [ ] **Track: Update the Navbar (The Mega Menu). We need to replace the simple navbar with one that handles your complex hierarchy.**
+- [~] **Track: Update the Navbar (The Mega Menu). We need to replace the simple navbar with one that handles your complex hierarchy.**
 
 *Link: [./tracks/global_navbar_mega_menu_20260118/](./tracks/global_navbar_mega_menu_20260118/)*

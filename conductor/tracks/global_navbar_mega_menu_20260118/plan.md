@@ -13,7 +13,7 @@
 - [x] Task: Map the requirement lists to menu links pointing to `/store`. [1380560]
 - [x] Task: Conductor - User Manual Verification 'Phase 2: Desktop Mega Menu Implementation' (Protocol in workflow.md) [1380560]
 
-## Phase 3: Mobile Responsiveness [f137d5a]
+## Phase 3: Mobile Responsiveness [checkpoint: 0fdf1a7] [f137d5a]
 - [x] Task: Write tests for mobile menu toggle and accordion behavior. [f137d5a]
 - [x] Task: Implement the Mobile Hamburger menu button and overlay. [f137d5a]
 - [x] Task: Convert the Mega Menu structure into a mobile-friendly Accordion for the "Shop" section. [f137d5a]
@@ -21,7 +21,7 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 3: Mobile Responsiveness' (Protocol in workflow.md) [f137d5a]
 
 ## Phase 4: Refinement and Accessibility
-- [ ] Task: Add ARIA labels and roles for screen reader accessibility.
+- [x] Task: Add ARIA labels and roles for screen reader accessibility. [101e9ab]
 - [ ] Task: Refine transitions and hover effects for a polished feel.
 - [ ] Task: Verify that all links point to the correct routes as per the spec.
 - [ ] Task: Conductor - User Manual Verification 'Phase 4: Refinement and Accessibility' (Protocol in workflow.md)
