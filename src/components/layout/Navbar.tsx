@@ -104,7 +104,7 @@ const Navbar = () => {
             </Button>
             
             {/* Mega Menu Content */}
-            <div className="absolute top-full right-0 w-[800px] bg-white border shadow-2xl rounded-b-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 p-6">
+            <div className="absolute top-full right-0 w-[800px] bg-white border shadow-2xl rounded-b-lg opacity-0 invisible -translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 ease-in-out transform origin-top z-50 p-6">
               <div className="grid grid-cols-4 gap-8">
                 {/* Column 1: Shop by Segment */}
                 <div>
