@@ -9,6 +9,28 @@ import { createClient } from '@/lib/supabase/client';
 import { User } from '@supabase/supabase-js';
 import { Input } from '@/components/ui/input';
 
+const shopData = {
+  segments: [
+    'Agriculture', 'Aquaculture', 'Poultry Healthcare', 'Animal Healthcare', 
+    'Bioremediation', 'Seeds', 'Organic Farming', 'Farm equipment', 
+    'Testing lab', 'Oilpalm'
+  ],
+  farmingSegments: [
+    'for-crop-champions', 'for-pond-champions', 'for-poultry-pros', 
+    'for-organic-newbies', 'organic-farming', 'farm-needs', 'farm-equipment'
+  ],
+  crops: [
+    'Paddy', 'Mango', 'Banana', 'Chilli', 'Cotton', 'Coffee', 'Tea', 
+    'Papaya', 'Pomegranate', 'Dragoon', 'Ground Nut', 'Pulses', 'Coco', 
+    'Turmeric', 'Oil Palm', 'Coconut', 'Maize', 'Fish', 'Shrimp', 
+    'Chicks', 'Layers', 'Broilers'
+  ],
+  problems: [
+    'Thrips', 'Mites', 'White Flys', 'Green Flys', 'White Grubs', 
+    'Nutrients Deficiency'
+  ]
+};
+
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [user, setUser] = useState<User | null>(null);
@@ -68,13 +90,65 @@ const Navbar = () => {
 
         {/* Right Side Navigation & Utilities */}
         <div className="hidden md:flex items-center space-x-2">
-          {/* Shop Mega Menu Trigger (Placeholder for now) */}
+          {/* Shop Mega Menu Trigger */}
           <div className="relative group">
-            <Button variant="ghost" className="flex items-center space-x-1">
+            <Button variant="ghost" className="flex items-center space-x-1 group-hover:text-primary transition-colors">
               <span>Shop</span>
               <ChevronDown className="h-4 w-4" />
             </Button>
-            {/* Mega Menu content will go here in Phase 2 */}
+            
+            {/* Mega Menu Content */}
+            <div className="absolute top-full right-0 w-[800px] bg-white border shadow-2xl rounded-b-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 p-6">
+              <div className="grid grid-cols-4 gap-8">
+                {/* Column 1: Shop by Segment */}
+                <div>
+                  <h3 className="font-bold text-sm mb-3 text-primary uppercase tracking-wider">Shop by Segment</h3>
+                  <div className="space-y-1">
+                    {shopData.segments.map(item => (
+                      <Link key={item} href="/store" className="block text-sm hover:text-primary py-1 transition-colors">
+                        {item}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Column 2: Farming Segment */}
+                <div>
+                  <h3 className="font-bold text-sm mb-3 text-primary uppercase tracking-wider">Farming Segment</h3>
+                  <div className="space-y-1">
+                    {shopData.farmingSegments.map(item => (
+                      <Link key={item} href="/store" className="block text-sm hover:text-primary py-1 transition-colors">
+                        {item}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Column 3: Shop by Crop */}
+                <div>
+                  <h3 className="font-bold text-sm mb-3 text-primary uppercase tracking-wider">Shop by Crop</h3>
+                  <div className="space-y-1 max-h-[400px] overflow-y-auto pr-2">
+                    {shopData.crops.map(item => (
+                      <Link key={item} href="/store" className="block text-sm hover:text-primary py-1 transition-colors">
+                        {item}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Column 4: Shop By Problem */}
+                <div>
+                  <h3 className="font-bold text-sm mb-3 text-primary uppercase tracking-wider">Shop By Problem</h3>
+                  <div className="space-y-1">
+                    {shopData.problems.map(item => (
+                      <Link key={item} href="/store" className="block text-sm hover:text-primary py-1 transition-colors">
+                        {item}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="relative w-48 lg:w-64">
