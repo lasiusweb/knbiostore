@@ -54,7 +54,7 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [ ] **Track: Update Navbar to show Login/Logout.We need to update the Navbar so it shows a "Login" button if they are a guest, and their "Email" and a "Logout" button if they are logged in.**
+- [x] **Track: Update Navbar to show Login/Logout.We need to update the Navbar so it shows a "Login" button if they are a guest, and their "Email" and a "Logout" button if they are logged in.**
 
 *Link: [./tracks/update_navbar_auth_20260117/](./tracks/update_navbar_auth_20260117/)*
 
