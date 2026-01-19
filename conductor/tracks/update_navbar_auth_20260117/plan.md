@@ -1,4 +1,4 @@
-# Implementation Plan: Update Navbar Authentication Display
+# Implementation Plan: Update Navbar Authentication Display [checkpoint: ff7a6df]
 
 ## Phase 1: Setup and Initial Integration [3a310f8]
 - [x] Task: Identify `Navbar.tsx` and relevant insertion points.
