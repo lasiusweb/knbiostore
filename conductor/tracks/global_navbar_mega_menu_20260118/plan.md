@@ -6,7 +6,7 @@
 - [x] Task: Implement Utility placeholders (Search, Login, Cart) in the Navbar. [bba72f2]
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Setup and Basic Structure' (Protocol in workflow.md) [bba72f2]
 
-## Phase 2: Desktop Mega Menu Implementation [1380560]
+## Phase 2: Desktop Mega Menu Implementation [checkpoint: 657dd52] [1380560]
 - [x] Task: Write tests for Mega Menu visibility and content structure on desktop. [1380560]
 - [x] Task: Implement the "Shop" dropdown trigger and Mega Menu container using Tailwind `group-hover`. [1380560]
 - [x] Task: Build the 4-column layout for Segments, Farming Segments, Crops, and Problems with bold headers and dividers. [1380560]
