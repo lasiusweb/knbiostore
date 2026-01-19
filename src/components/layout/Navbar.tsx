@@ -72,7 +72,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-0 w-full bg-white shadow-md z-50">
+    <nav className="fixed top-0 w-full bg-white shadow-md z-50" aria-label="Main navigation">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <div className="flex items-center space-x-8">
           <Link href="/" className="text-2xl font-bold text-primary shrink-0">
@@ -93,7 +93,12 @@ const Navbar = () => {
         <div className="hidden md:flex items-center space-x-2">
           {/* Shop Mega Menu Trigger */}
           <div className="relative group">
-            <Button variant="ghost" className="flex items-center space-x-1 group-hover:text-primary transition-colors">
+            <Button 
+              variant="ghost" 
+              className="flex items-center space-x-1 group-hover:text-primary transition-colors"
+              aria-haspopup="true"
+              aria-expanded={false}
+            >
               <span>Shop</span>
               <ChevronDown className="h-4 w-4" />
             </Button>
@@ -158,6 +163,7 @@ const Navbar = () => {
               type="search" 
               placeholder="Search..." 
               className="pl-8 h-9"
+              aria-label="Search products"
             />
           </div>
 
@@ -194,7 +200,13 @@ const Navbar = () => {
               <ShoppingCart className="h-5 w-5" />
             </Link>
           </Button>
-          <Button variant="ghost" size="icon" onClick={toggleMobileMenu} aria-label="toggle menu">
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            onClick={toggleMobileMenu} 
+            aria-label="toggle menu"
+            aria-expanded={isMobileMenuOpen}
+          >
             {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </Button>
         </div>
@@ -210,6 +222,7 @@ const Navbar = () => {
                 type="search" 
                 placeholder="Search..." 
                 className="pl-8 h-9"
+                aria-label="Search products"
               />
             </div>
           </div>
