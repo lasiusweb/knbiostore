@@ -22,6 +22,6 @@
 
 ## Phase 4: Refinement and Accessibility
 - [x] Task: Add ARIA labels and roles for screen reader accessibility. [101e9ab]
-- [~] Task: Refine transitions and hover effects for a polished feel.
+- [x] Task: Refine transitions and hover effects for a polished feel. [fde2977]
 - [ ] Task: Verify that all links point to the correct routes as per the spec.
 - [ ] Task: Conductor - User Manual Verification 'Phase 4: Refinement and Accessibility' (Protocol in workflow.md)
