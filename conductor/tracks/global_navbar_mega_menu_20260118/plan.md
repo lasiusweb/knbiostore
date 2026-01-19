@@ -1,10 +1,10 @@
 # Plan: Global Navbar Mega Menu Update
 
-## Phase 1: Setup and Basic Structure
-- [ ] Task: Create unit tests for basic Navbar links and layout.
-- [ ] Task: Update `Navbar.tsx` structure to include the new left-side links (Home, About, Knowledge, Contact).
-- [ ] Task: Implement Utility placeholders (Search, Login, Cart) in the Navbar.
-- [ ] Task: Conductor - User Manual Verification 'Phase 1: Setup and Basic Structure' (Protocol in workflow.md)
+## Phase 1: Setup and Basic Structure [bba72f2]
+- [x] Task: Create unit tests for basic Navbar links and layout. [bba72f2]
+- [x] Task: Update `Navbar.tsx` structure to include the new left-side links (Home, About, Knowledge, Contact). [bba72f2]
+- [x] Task: Implement Utility placeholders (Search, Login, Cart) in the Navbar. [bba72f2]
+- [x] Task: Conductor - User Manual Verification 'Phase 1: Setup and Basic Structure' (Protocol in workflow.md) [bba72f2]
 
 ## Phase 2: Desktop Mega Menu Implementation
 - [ ] Task: Write tests for Mega Menu visibility and content structure on desktop.
