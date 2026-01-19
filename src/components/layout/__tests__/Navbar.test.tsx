@@ -78,8 +78,6 @@ describe('Navbar Mega Menu', () => {
         render(<Navbar />);
       });
       
-      // In a real browser, this is visibility: hidden until hover
-      // In JSDOM, we just check if they are in the document
       expect(screen.getByText(/Shop by Segment/i)).toBeInTheDocument();
       expect(screen.getByText(/Farming Segment/i)).toBeInTheDocument();
       expect(screen.getByText(/Shop by Crop/i)).toBeInTheDocument();
@@ -99,6 +97,35 @@ describe('Navbar Mega Menu', () => {
 
       const thripsLink = screen.getByRole('link', { name: /Thrips/i });
       expect(thripsLink).toHaveAttribute('href', '/store');
+    });
+  });
+
+  describe('Mobile Accordion Behavior', () => {
+    it('toggles shop categories when Shop is clicked in mobile menu', async () => {
+      await act(async () => {
+        render(<Navbar />);
+      });
+      
+      // Open mobile menu
+      const toggleButton = screen.getByLabelText(/toggle menu/i);
+      fireEvent.click(toggleButton);
+      
+      // Find mobile Shop button (it's the one that's not the desktop one)
+      const shopButtons = screen.getAllByRole('button', { name: /Shop/i });
+      const mobileShopButton = shopButtons.find(b => b.classList.contains('w-full'));
+      
+      if (!mobileShopButton) throw new Error('Mobile Shop button not found');
+      
+      fireEvent.click(mobileShopButton);
+      
+      // Categories should now be visible in mobile view
+      // Since they are already in document (for desktop), we check if they appear TWICE now
+      expect(screen.getAllByText(/Shop by Segment/i).length).toBe(2);
+      expect(screen.getAllByText(/Shop by Crop/i).length).toBe(2);
+      
+      // Clicking again should hide them (length back to 1)
+      fireEvent.click(mobileShopButton);
+      expect(screen.getAllByText(/Shop by Segment/i).length).toBe(1);
     });
   });
 });

@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Search, ShoppingCart, User as UserIcon, ChevronDown } from 'lucide-react';
+import { Menu, X, Search, ShoppingCart, User as UserIcon, ChevronDown, ChevronUp } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
 import { User } from '@supabase/supabase-js';
 import { Input } from '@/components/ui/input';
@@ -33,6 +33,7 @@ const shopData = {
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isShopOpen, setIsShopOpen] = useState(false);
   const [user, setUser] = useState<User | null>(null);
   const router = useRouter();
   const supabase = createClient();
@@ -227,11 +228,49 @@ const Navbar = () => {
 
           <Button 
             variant="ghost" 
-            className="w-full justify-start font-bold"
-            onClick={() => {/* Toggle Shop Accordion in Phase 3 */}}
+            className="w-full justify-between font-bold"
+            onClick={() => setIsShopOpen(!isShopOpen)}
           >
-            Shop
+            <span>Shop</span>
+            {isShopOpen ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
           </Button>
+
+          {isShopOpen && (
+            <div className="pl-4 space-y-4 pt-2">
+               <div>
+                  <h3 className="font-bold text-xs text-primary uppercase mb-2">Shop by Segment</h3>
+                  <div className="grid grid-cols-2 gap-x-2 gap-y-1">
+                    {shopData.segments.map(item => (
+                      <Link key={item} href="/store" className="text-sm py-1" onClick={() => setIsMobileMenuOpen(false)}>{item}</Link>
+                    ))}
+                  </div>
+               </div>
+               <div>
+                  <h3 className="font-bold text-xs text-primary uppercase mb-2">Farming Segment</h3>
+                  <div className="grid grid-cols-2 gap-x-2 gap-y-1">
+                    {shopData.farmingSegments.map(item => (
+                      <Link key={item} href="/store" className="text-sm py-1" onClick={() => setIsMobileMenuOpen(false)}>{item}</Link>
+                    ))}
+                  </div>
+               </div>
+               <div>
+                  <h3 className="font-bold text-xs text-primary uppercase mb-2">Shop by Crop</h3>
+                  <div className="grid grid-cols-2 gap-x-2 gap-y-1">
+                    {shopData.crops.map(item => (
+                      <Link key={item} href="/store" className="text-sm py-1" onClick={() => setIsMobileMenuOpen(false)}>{item}</Link>
+                    ))}
+                  </div>
+               </div>
+               <div>
+                  <h3 className="font-bold text-xs text-primary uppercase mb-2">Shop By Problem</h3>
+                  <div className="grid grid-cols-2 gap-x-2 gap-y-1">
+                    {shopData.problems.map(item => (
+                      <Link key={item} href="/store" className="text-sm py-1" onClick={() => setIsMobileMenuOpen(false)}>{item}</Link>
+                    ))}
+                  </div>
+               </div>
+            </div>
+          )}
 
           <div className="pt-4 border-t">
             {user ? (
