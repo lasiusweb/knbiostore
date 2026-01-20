@@ -24,7 +24,7 @@ To eliminate manual data entry and errors:
 To ensure products and expertise are discoverable by modern search engines and AI:
 *   **SEO:** Optimize product pages for search rankings using Next.js Server-Side Rendering.
 *   **Intuitive Discovery:** A responsive Mega Menu and a **Dynamic CMS-Ready Homepage** that allows farmers to quickly browse products by Segment, Crop, or specific Problem, ensuring a seamless shopping experience across devices.
-*   **AEO (Answer Engine Optimization):** Implement a CMS that structures content (FAQs, How-To guides) so AI engines can easily parse and answer questions about your microbes.
+*   **AEO (Answer Engine Optimization):** Implemented **JSON-LD Schema Markup** for the homepage (Organization, LocalBusiness, WebSite) and a CMS structure for content so AI engines can easily parse and answer questions about your microbes.
 
 ## 5. Technical Scalability & Security
 To build a robust foundation for future growth:

@@ -68,3 +68,8 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 - [x] **Track: Implement a comprehensive, dynamic, and professional homepage for KN Biosciences (CMS-Ready).**
 *Link: [./tracks/mega_homepage_implementation_20260120/](./tracks/mega_homepage_implementation_20260120/)*
+
+---
+
+- [x] **Track: Generate JSON-LD schema markup for the Mega Homepage.**
+*Link: [./tracks/homepage_schema_markup_20260120/](./tracks/homepage_schema_markup_20260120/)*
