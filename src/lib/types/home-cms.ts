@@ -1,3 +1,7 @@
+/**
+ * Home CMS Types for KN Biosciences Homepage
+ */
+
 export interface BannerData {
   text: string;
   link?: string;
@@ -6,7 +10,7 @@ export interface BannerData {
 
 export interface HeroSlide {
   id: string;
-  image: string; // URL or path
+  image: string;
   title: string;
   subtitle?: string;
   ctaText?: string;
@@ -16,8 +20,11 @@ export interface HeroSlide {
 export interface ShopByItem {
   id: string;
   name: string;
+  icon?: string;
   image?: string;
   link: string;
+  description?: string;
+  severity?: 'low' | 'medium' | 'high';
 }
 
 export interface ShopBySection {
@@ -29,8 +36,57 @@ export interface ChampionItem {
   id: string;
   title: string;
   description?: string;
+  icon?: string;
   image?: string;
   link: string;
+  color?: string;
+}
+
+export interface FarmingSegmentSection {
+  title: string;
+  subtitle?: string;
+  items: ChampionItem[];
+}
+
+export interface ValuePropositionItem {
+  id: string;
+  title: string;
+  description: string;
+  icon?: string;
+}
+
+export interface ValuePropositionSection {
+  title: string;
+  subtitle?: string;
+  items: ValuePropositionItem[];
+}
+
+export interface CTACard {
+  id: string;
+  title: string;
+  description: string;
+  icon?: string;
+  ctaText: string;
+  ctaLink: string;
+  color?: 'primary' | 'secondary' | 'accent';
+}
+
+export interface Milestone {
+  year: string;
+  title: string;
+  description: string;
+}
+
+export interface Certification {
+  name: string;
+  icon?: string;
+  image?: string;
+}
+
+export interface Initiative {
+  title: string;
+  description: string;
+  icon?: string;
 }
 
 export interface BrandStoryData {
@@ -39,11 +95,13 @@ export interface BrandStoryData {
   founder: {
     name: string;
     title: string;
-    bio: string; // Rich text or long string
+    bio: string;
     image?: string;
+    achievements?: string[];
   };
   journey: {
-    text: string; // The "Since 1997" story
+    text: string;
+    milestones?: Milestone[];
   };
   stats: {
     farmers: string;
@@ -51,12 +109,14 @@ export interface BrandStoryData {
     villages: string;
     womenEmpowered?: string;
   };
-  certifications: string[]; // ICAR, NPOP, etc.
+  certifications: Certification[];
+  initiatives?: Initiative[];
 }
 
 export interface FooterData {
   address: string;
   helpline: string;
+  email?: string;
   copyright: string;
   socials?: {
     facebook?: string;
@@ -66,6 +126,8 @@ export interface FooterData {
     instagram?: string;
   };
   quickLinks?: { label: string; href: string }[];
+  customerCare?: { label: string; href: string }[];
+  legal?: { label: string; href: string }[];
 }
 
 export interface HomeCMSData {
@@ -74,10 +136,9 @@ export interface HomeCMSData {
   shopBySegment: ShopBySection;
   shopByCrop: ShopBySection;
   shopByProblem: ShopBySection;
-  farmingSegment: {
-    title: string;
-    items: ChampionItem[];
-  };
+  farmingSegment: FarmingSegmentSection;
+  valueProposition: ValuePropositionSection;
+  ctaCards: CTACard[];
   brandStory: BrandStoryData;
   footer: FooterData;
 }
