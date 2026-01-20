@@ -38,10 +38,10 @@ const inventoryLotSchema = z.object({
   variant_id: z.string().min(1, "Variant is required"),
   lot_number: z.string().min(1, "Lot number is required"),
   manufacture_date: z.date({
-    required_error: "Manufacture date is required",
+    message: "Manufacture date is required",
   }),
   expiry_date: z.date({
-    required_error: "Expiry date is required",
+    message: "Expiry date is required",
   }),
   initial_quantity: z.coerce.number().min(1, "Initial quantity must be at least 1"),
   warehouse_location: z.string().min(1, "Warehouse location is required"),

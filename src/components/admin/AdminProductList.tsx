@@ -29,7 +29,7 @@ const AdminProductList = async () => {
   }
 
   if (error) {
-    return <div>Error loading products: {error.message}</div>;
+    return <div>Error loading products: {(error as any).message}</div>;
   }
 
   return (
