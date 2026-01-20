@@ -1,6 +1,6 @@
 import { TextDecoder, TextEncoder } from 'util';
 
-global.TextDecoder = TextDecoder;
+global.TextDecoder = TextDecoder as any;
 global.TextEncoder = TextEncoder as any;
 
 // Polyfill structuredClone if not available (common in JSDOM)

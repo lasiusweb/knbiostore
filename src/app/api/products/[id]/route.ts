@@ -2,8 +2,9 @@
 import { NextResponse } from 'next/server';
 import { getProductById } from '@/lib/db/products';
 
-export async function GET(request: Request, { params }: { params: { id: string } }) {
-  const id = parseInt(params.id, 10);
+export async function GET(request: Request, { params }: { params: Promise<{ id: string }> }) {
+  const { id: idParam } = await params;
+  const id = parseInt(idParam, 10);
   if (isNaN(id)) {
     return new NextResponse('Invalid product ID', { status: 400 });
   }

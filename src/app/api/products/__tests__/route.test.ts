@@ -102,7 +102,7 @@ describe('Product API endpoints', () => {
     (ProductDB.getProductById as jest.Mock).mockResolvedValue(mockProduct);
 
     const mockRequest = { url: 'http://localhost/api/products/1' } as Request;
-    const mockParams = { id: '1' };
+    const mockParams = Promise.resolve({ id: '1' });
 
     const response = await GET_BY_ID(mockRequest, { params: mockParams });
     const data = await response.json();
@@ -117,7 +117,7 @@ describe('Product API endpoints', () => {
     (ProductDB.getProductById as jest.Mock).mockResolvedValue(undefined); // Or null, depending on getProductById's return for not found
 
     const mockRequest = { url: 'http://localhost/api/products/999' } as Request;
-    const mockParams = { id: '999' };
+    const mockParams = Promise.resolve({ id: '999' });
 
     const response = await GET_BY_ID(mockRequest, { params: mockParams });
     // Assuming a 404 response for not found

@@ -106,7 +106,7 @@ describe('Cart API endpoints', () => {
     const mockRequest = {
       json: () => Promise.resolve({ quantity: 5 }),
     } as NextRequest;
-    const mockParams = { params: { itemId: mockCartItemId.toString() } };
+    const mockParams = { params: Promise.resolve({ itemId: mockCartItemId.toString() }) };
 
     const response = await PUT(mockRequest, mockParams);
     const data = await response.json();
@@ -121,7 +121,7 @@ describe('Cart API endpoints', () => {
     (CartDB.removeCartItem as jest.Mock).mockResolvedValue(undefined);
 
     const mockRequest = {} as NextRequest; // DELETE usually doesn't have a body for item removal
-    const mockParams = { params: { itemId: mockCartItemId.toString() } };
+    const mockParams = { params: Promise.resolve({ itemId: mockCartItemId.toString() }) };
 
     const response = await DELETE(mockRequest, mockParams);
 
