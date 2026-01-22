@@ -16,13 +16,7 @@ jest.mock("embla-carousel-react", () => {
 })
 
 describe("Carousel Bug Reproduction", () => {
-  it("should throw TypeError when api.canScrollPrev is missing", () => {
-    // We expect it to throw during render/useEffect
-    // But since it's inside useEffect, it might just log to console or crash the test runner
-    
-    // Silence console.error for the expected crash
-    const spy = jest.spyOn(console, "error").mockImplementation(() => {})
-
+  it("should NOT throw TypeError when api.canScrollPrev is missing", () => {
     expect(() => {
       render(
         <Carousel>
@@ -31,8 +25,6 @@ describe("Carousel Bug Reproduction", () => {
           </CarouselContent>
         </Carousel>
       )
-    }).toThrow(/api.canScrollPrev is not a function/)
-
-    spy.mockRestore()
+    }).not.toThrow()
   })
 })
