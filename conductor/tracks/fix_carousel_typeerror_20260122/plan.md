@@ -5,7 +5,7 @@
 - [x] **Task: Create Reproduction Test.** Create a test file `src/components/ui/__tests__/carousel-bug.test.tsx` that attempts to mount the `Carousel` component in a way that mimics the failure (e.g., ensuring `useEffect` runs). Use `jest` and `react-testing-library`. (f1a9b0a)
     - [x] **Sub-task:** Write a test case that mocks the `embla-carousel-react` hook and attempts to trigger the state update.
     - [x] **Sub-task:** Verify the test fails with the expected error (or a similar error indicating the issue).
-- [ ] **Task: Conductor - User Manual Verification 'Diagnosis & Reproduction' (Protocol in workflow.md).**
+- [x] **Task: Conductor - User Manual Verification 'Diagnosis & Reproduction' (Protocol in workflow.md).** [checkpoint: d8ca1e0]
 
 ## Phase 2: Implementation (Green Phase)
 - [ ] **Task: Apply Fix to Carousel Component.** Modify `src/components/ui/carousel.tsx`.
