@@ -3,7 +3,7 @@
 ## 1. Unified Multi-Channel Sales
 To provide a single platform that handles three distinct business models, with the B2C Storefront now functional:
 *   **B2B Portal:** For distributors to purchase bulk agricultural microbes at wholesale prices with an approval workflow.
-*   **B2C Storefront:** For individual farmers to buy retail quantities online.
+*   **B2C Storefront:** For individual farmers to buy retail quantities online, featuring a dynamic, server-rendered product catalog.
 *   **Offline Mobile POS:** A web-based app for warehouse staff to manage manual orders and inventory on the floor, specifically designed to work without internet connectivity.
 
 ## 2. Precision Inventory & Product Management
