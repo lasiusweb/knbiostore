@@ -15,5 +15,5 @@
 - [x] **Task: Conductor - User Manual Verification 'Implementation' (Protocol in workflow.md).** [checkpoint: 20ec0ba]
 
 ## Phase 3: Verification & Integration
-- [ ] **Task: Manual Verification.** Run the development server (`npm run dev`) and navigate to the homepage. Confirm the error is gone and the carousel works.
-- [ ] **Task: Conductor - User Manual Verification 'Verification & Integration' (Protocol in workflow.md).**
+- [x] **Task: Manual Verification.** Run the development server (`npm run dev`) and navigate to the homepage. Confirm the error is gone and the carousel works. (Patched HeroSection as well)
+- [x] **Task: Conductor - User Manual Verification 'Verification & Integration' (Protocol in workflow.md).** [checkpoint: f4e3145]
