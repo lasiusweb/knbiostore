@@ -78,3 +78,8 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 - [x] **Track: Generate the Store Product List Component. This component will fetch data from Supabase and display it in a customer-friendly grid.Create a Server Component src/components/store/StoreProductList.tsx. Logic:1. Import createClient from @/lib/supabase/client. 2. Fetch data:Query products table. Join with product_variants to get the price and SKU. Syntax: .select('*, product_variants(*)'). 3. Display a responsive Grid (CSS Grid: grid-cols-1 md:grid-cols-3 gap-6). Card Design (for each product):Create a Card component (Shadcn) for each product. Header: Product Name.Image: Use a placeholder div (gray box 300px height) with text 'Image Upload Coming Soon'.Body: Description text.Footer: Display the price of the first variant (e.g., 'Starting from ₹50'). Add a 'View Details' button.**
 *Link: [./tracks/store_product_list_component_20260117/](./tracks/store_product_list_component_20260117/)*
+
+---
+
+- [~] **Track: Fix Runtime TypeError in Carousel Component: api.canScrollPrev is not a function**
+*Link: [./tracks/fix_carousel_typeerror_20260122/](./tracks/fix_carousel_typeerror_20260122/)*

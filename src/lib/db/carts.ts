@@ -2,7 +2,9 @@
 import { createClient } from '@supabase/supabase-js';
 
 // This is a placeholder for the actual Supabase client
-const supabase = createClient('https://<project>.supabase.co', '<your-anon-key>');
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co'
+const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-key'
+const supabase = createClient(supabaseUrl, supabaseKey);
 
 export const createCart = async (userId: number) => {
   const { data, error } = await supabase

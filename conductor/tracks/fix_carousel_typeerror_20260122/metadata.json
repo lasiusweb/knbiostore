@@ -1,0 +1,8 @@
+{
+  "track_id": "fix_carousel_typeerror_20260122",
+  "type": "bug",
+  "status": "new",
+  "created_at": "2026-01-22T00:00:00Z",
+  "updated_at": "2026-01-22T00:00:00Z",
+  "description": "Fix Runtime TypeError in Carousel Component: api.canScrollPrev is not a function"
+}
