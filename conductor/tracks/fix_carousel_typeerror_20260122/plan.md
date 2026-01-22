@@ -8,9 +8,9 @@
 - [x] **Task: Conductor - User Manual Verification 'Diagnosis & Reproduction' (Protocol in workflow.md).** [checkpoint: d8ca1e0]
 
 ## Phase 2: Implementation (Green Phase)
-- [ ] **Task: Apply Fix to Carousel Component.** Modify `src/components/ui/carousel.tsx`.
-    - [ ] **Sub-task:** Add a guard clause inside the `useEffect` (or the `onSelect` callback) to check if `api` is defined and if `api.canScrollPrev` and `api.canScrollNext` are functions before calling them.
-    - [ ] **Sub-task:** Ensure the component handles the case where `api` is not yet ready gracefully.
+- [x] **Task: Apply Fix to Carousel Component.** Modify `src/components/ui/carousel.tsx`. (613060d)
+    - [x] **Sub-task:** Add a guard clause inside the `useEffect` (or the `onSelect` callback) to check if `api` is defined and if `api.canScrollPrev` and `api.canScrollNext` are functions before calling them.
+    - [x] **Sub-task:** Ensure the component handles the case where `api` is not yet ready gracefully.
 - [ ] **Task: Verify Fix with Tests.** Run the reproduction test again to ensure it now passes.
 - [ ] **Task: Conductor - User Manual Verification 'Implementation' (Protocol in workflow.md).**
 
