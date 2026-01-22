@@ -30,9 +30,9 @@ export function HeroSection() {
 
     // Auto-play
     const autoPlay = setInterval(() => {
-      if (api.canScrollNext()) {
+      if (typeof api.canScrollNext === 'function' && api.canScrollNext()) {
         api.scrollNext();
-      } else {
+      } else if (typeof api.scrollTo === 'function') {
         api.scrollTo(0);
       }
     }, 6000);
