@@ -1,49 +1,50 @@
-"use client"
+import { createClient } from '@/lib/supabase/client';
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
-import { useEffect, useState } from "react"
-import { createClient } from "@/lib/supabase/client"
-import { ProductCard } from "@/components/product-card"
-import { Skeleton } from "@/components/ui/skeleton"
+export default async function StoreProductList() {
+  const supabase = createClient();
+  
+  const { data: products, error } = await supabase
+    .from('products')
+    .select('*, product_variants(*)');
 
-export default function StoreProductList() {
-  const [products, setProducts] = useState<any[]>([])
-  const [isLoading, setIsLoading] = useState(true)
-  const supabase = createClient()
-
-  useEffect(() => {
-    async function fetchProducts() {
-      const { data, error } = await supabase
-        .from("products")
-        .select("*")
-      
-      if (data) {
-        setProducts(data)
-      }
-      setIsLoading(false)
-    }
-
-    fetchProducts()
-  }, [supabase])
-
-  if (isLoading) {
-    return (
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {[...Array(8)].map((_, i) => (
-          <Skeleton key={i} className="h-[350px] w-full rounded-lg" />
-        ))}
-      </div>
-    )
+  if (error) {
+    console.error('Error fetching products:', error);
+    return <div>Error loading products.</div>;
   }
 
-  if (products.length === 0) {
-    return <div className="text-center py-12">No products found.</div>
+  if (!products || products.length === 0) {
+    return <div className="text-center py-12">No products found.</div>;
   }
 
   return (
-    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-      {products.map((product) => (
-        <ProductCard key={product.id} product={product} />
-      ))}
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {products.map((product: any) => {
+        const firstVariant = product.product_variants?.[0];
+        const price = firstVariant ? `Starting from ₹${firstVariant.price}` : 'Price not available';
+
+        return (
+          <Card key={product.id} className="flex flex-col">
+            <CardHeader>
+              <CardTitle>{product.name}</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="bg-gray-200 h-[300px] flex items-center justify-center mb-4 text-gray-500">
+                Image Upload Coming Soon
+              </div>
+              <p className="text-sm text-gray-600 line-clamp-3">{product.description}</p>
+            </CardContent>
+            <CardFooter className="flex justify-between items-center mt-auto">
+              <span className="font-bold text-lg">{price}</span>
+              <Button asChild>
+                <Link href={`/store/${product.id}`}>View Details</Link>
+              </Button>
+            </CardFooter>
+          </Card>
+        );
+      })}
     </div>
-  )
+  );
 }
