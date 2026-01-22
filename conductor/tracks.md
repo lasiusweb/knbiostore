@@ -81,5 +81,5 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [~] **Track: Fix Runtime TypeError in Carousel Component: api.canScrollPrev is not a function**
+- [x] **Track: Fix Runtime TypeError in Carousel Component: api.canScrollPrev is not a function**
 *Link: [./tracks/fix_carousel_typeerror_20260122/](./tracks/fix_carousel_typeerror_20260122/)*
