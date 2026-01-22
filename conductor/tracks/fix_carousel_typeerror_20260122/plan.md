@@ -12,7 +12,7 @@
     - [x] **Sub-task:** Add a guard clause inside the `useEffect` (or the `onSelect` callback) to check if `api` is defined and if `api.canScrollPrev` and `api.canScrollNext` are functions before calling them.
     - [x] **Sub-task:** Ensure the component handles the case where `api` is not yet ready gracefully.
 - [x] **Task: Verify Fix with Tests.** Run the reproduction test again to ensure it now passes. (6aee12e)
-- [ ] **Task: Conductor - User Manual Verification 'Implementation' (Protocol in workflow.md).**
+- [x] **Task: Conductor - User Manual Verification 'Implementation' (Protocol in workflow.md).** [checkpoint: 20ec0ba]
 
 ## Phase 3: Verification & Integration
 - [ ] **Task: Manual Verification.** Run the development server (`npm run dev`) and navigate to the homepage. Confirm the error is gone and the carousel works.
