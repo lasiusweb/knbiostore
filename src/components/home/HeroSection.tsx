@@ -22,16 +22,24 @@ export function HeroSection() {
   React.useEffect(() => {
     if (!api) return;
 
-    setCurrent(api.selectedScrollSnap());
-
-    api.on('select', () => {
+    if (typeof api.selectedScrollSnap === 'function') {
       setCurrent(api.selectedScrollSnap());
-    });
+    }
+
+    if (typeof api.on === 'function') {
+      api.on('select', () => {
+        if (typeof api.selectedScrollSnap === 'function') {
+          setCurrent(api.selectedScrollSnap());
+        }
+      });
+    }
 
     // Auto-play
     const autoPlay = setInterval(() => {
       if (typeof api.canScrollNext === 'function' && api.canScrollNext()) {
-        api.scrollNext();
+        if (typeof api.scrollNext === 'function') {
+          api.scrollNext();
+        }
       } else if (typeof api.scrollTo === 'function') {
         api.scrollTo(0);
       }
