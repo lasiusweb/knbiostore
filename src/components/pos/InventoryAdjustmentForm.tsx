@@ -40,7 +40,7 @@ export function InventoryAdjustmentForm() {
 
     const filteredProducts = MOCK_PRODUCTS.filter(p =>
         p.productName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        p.sku.toLowerCase().includes(searchQuery.toLowerCase())
+        p.sku?.toLowerCase().includes(searchQuery.toLowerCase())
     ).slice(0, 4);
 
     const handleSubmit = (e: React.FormEvent) => {
