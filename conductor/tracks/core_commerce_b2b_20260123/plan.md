@@ -25,9 +25,9 @@
 - [x] Task: Conductor - User Manual Verification 'B2B & Dynamic Pricing Engine' (Protocol in workflow.md)
 
 ## Phase 4: Marketing & Conversion Tools
-- [ ] Task: Advanced Coupon Engine. Build the logic for percentage, fixed-rate, and "Buy X Get Y" promotions.
-    - [ ] Task: Write Tests for Coupon Validation.
-    - [ ] Task: Implement Coupon Redemption Logic. Create the API and UI for applying codes in the cart.
+- [x] Task: Advanced Coupon Engine. Build the logic for percentage, fixed-rate, and "Buy X Get Y" promotions. d4f7560
+    - [x] Task: Write Tests for Coupon Validation.
+    - [x] Task: Implement Coupon Redemption Logic. Create the API and UI for applying codes in the cart.
 - [ ] Task: Scarcity & Urgency UI. Implement real-time "Low Stock" badges and countdown timers for biological product batches.
     - [ ] Task: Write Tests for Urgency Components.
     - [ ] Task: Implement Urgency Components. Create high-fidelity banners and badges using brand-aligned styling.
