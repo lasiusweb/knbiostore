@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "KN Bio Store",
+  title: "KN Biosciences",
   description: "Microbial Micro-Precision Inventory & Sales",
 };
 

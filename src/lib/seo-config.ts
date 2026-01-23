@@ -1,8 +1,8 @@
 export const SEO_CONFIG = {
   siteName: 'KN Biosciences',
-  siteUrl: 'https://knbiostore.com', // Placeholder URL
-  logoUrl: 'https://knbiostore.com/logo.png', // Placeholder URL
-  description: 'From Tissue Culture to Total Farm Solutions — India’s #1 Agri-Science Innovator Since 1997.',
+  siteUrl: 'https://knbiosciences.in', // Official Web Hub
+  logoUrl: 'https://knbiosciences.in/assets/logo.png',
+  description: 'Total Farm Solutions — India’s #1 Agri-Science Innovator Since 1997.',
   socialProfiles: [
     'https://facebook.com/knbiosciences',
     'https://twitter.com/knbiosciences',

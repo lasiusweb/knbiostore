@@ -62,7 +62,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
         },
         offers: {
             '@type': 'Offer',
-            url: `https://knbiostore.com/store/${product.slug}`,
+            url: `https://knbiosciences.in/store/${product.slug}`,
             priceCurrency: 'INR',
             price: product.salePrice,
             priceValidUntil: '2026-12-31',
