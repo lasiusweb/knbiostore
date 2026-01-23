@@ -86,5 +86,5 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [ ] **Track: application experiencing slow page load, add skeleton effect**
+- [~] **Track: application experiencing slow page load, add skeleton effect**
 *Link: [./tracks/skeleton_loaders_20260122/](./tracks/skeleton_loaders_20260122/)*
