@@ -1,11 +1,6 @@
 // src/components/admin/AdminProductList.tsx
 import React from 'react';
 import { createClient } from '@/lib/supabase/client';
-import { BulkProductTable } from './BulkProductTable';
-import { BulkActionsHeader } from './BulkActionsHeader';
-import { PostgrestError } from '@supabase/supabase-js';
-
-import { createClient } from '@/lib/supabase/client';
 import { BulkProductTable, BulkProduct } from './BulkProductTable';
 import { BulkActionsHeader } from './BulkActionsHeader';
 import { PostgrestError } from '@supabase/supabase-js';
