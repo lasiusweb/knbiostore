@@ -8,14 +8,14 @@
 - [x] **Task: Conductor - User Manual Verification 'Foundation & Brand Styling' (Protocol in workflow.md)**
 
 ## Phase 2: Storefront Loading States
-- [ ] **Task: Implement Store Product List Skeleton.** Create a high-fidelity skeleton that mirrors the `ProductCard` layout (image, title, price, button).
-    - [ ] **Task: Write Tests for Store Skeleton.** Verify the skeleton layout matches the expected grid structure.
-    - [ ] **Task: Implement Store Skeleton.**
-- [ ] **Task: Implement Store Page Loading.** Create `src/app/store/loading.tsx` to handle page-level transitions.
-- [ ] **Task: Implement Product Detail Skeleton.** Create a high-fidelity skeleton for the product gallery and technical specs.
-    - [ ] **Task: Write Tests for Detail Skeleton.**
-    - [ ] **Task: Implement Detail Skeleton.**
-- [ ] **Task: Conductor - User Manual Verification 'Storefront Loading States' (Protocol in workflow.md)**
+- [x] **Task: Implement Store Product List Skeleton.** Create a high-fidelity skeleton that mirrors the `ProductCard` layout (image, title, price, button). 34bd9c9
+    - [x] **Task: Write Tests for Store Skeleton.** Verify the skeleton layout matches the expected grid structure.
+    - [x] **Task: Implement Store Skeleton.**
+- [x] **Task: Implement Store Page Loading.** Create `src/app/store/loading.tsx` to handle page-level transitions.
+- [x] **Task: Implement Product Detail Skeleton.** Create a high-fidelity skeleton for the product gallery and technical specs.
+    - [x] **Task: Write Tests for Detail Skeleton.**
+    - [x] **Task: Implement Detail Skeleton.**
+- [~] **Task: Conductor - User Manual Verification 'Storefront Loading States' (Protocol in workflow.md)**
 
 ## Phase 3: Admin & Homepage Loading States
 - [ ] **Task: Implement Admin Table Skeleton.** Create skeleton rows for the product management table that match column widths.
