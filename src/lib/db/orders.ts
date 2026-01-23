@@ -9,11 +9,40 @@ export const createOrder = async (
   cartId: number,
   totalAmount: number,
   shippingAddress: string,
-  paymentStatus: string // Added paymentStatus
+  paymentStatus: string,
+  b2bData?: {
+    businessName?: string;
+    gstNumber?: string;
+    pincode?: string;
+    billingAddress?: string;
+    shippingMethod?: string;
+    isHomeDelivery?: boolean;
+    shippingCharges?: number;
+    taxAmount?: number;
+    discountAmount?: number;
+    subtotalAmount?: number;
+  }
 ) => {
   const { data, error } = await supabase
     .from('orders')
-    .insert({ user_id: userId, cart_id: cartId, total_amount: totalAmount, shipping_address: shippingAddress, status: 'pending', payment_status: paymentStatus }) // Default status to 'pending'
+    .insert({ 
+      user_id: userId, 
+      cart_id: cartId, 
+      total_amount: totalAmount, 
+      shipping_address: shippingAddress, 
+      status: 'pending', 
+      payment_status: paymentStatus,
+      business_name: b2bData?.businessName,
+      gst_number: b2bData?.gstNumber,
+      pincode: b2bData?.pincode,
+      billing_address: b2bData?.billingAddress,
+      shipping_method: b2bData?.shippingMethod,
+      is_home_delivery: b2bData?.isHomeDelivery,
+      shipping_charges: b2bData?.shippingCharges,
+      tax_amount: b2bData?.taxAmount,
+      discount_amount: b2bData?.discountAmount,
+      subtotal_amount: b2bData?.subtotalAmount
+    })
     .select();
   if (error) {
     throw new Error(error.message);

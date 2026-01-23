@@ -32,7 +32,7 @@ describe('B2B Checkout API', () => {
     (createOrder as jest.Mock).mockResolvedValue({ id: 500 });
   });
 
-  it('handles partial payment with 30% deposit', async () => {
+  it('handles partial payment with 30% deposit and B2B fields', async () => {
     await testApiHandler({
       appHandler: route,
       async test({ fetch }) {
@@ -41,21 +41,31 @@ describe('B2B Checkout API', () => {
           body: JSON.stringify({
             userId: mockUser.id,
             shippingAddress: 'B2B Warehouse',
-            paymentType: 'partial'
+            paymentType: 'partial',
+            businessName: 'KN Bio Labs',
+            gstNumber: '22AAAAA0000A1Z5',
+            taxAmount: 18,
+            shippingCharges: 10
           }),
         });
 
         const json = await res.json();
         expect(res.status).toBe(201);
-        expect(json.totalAmount).toBe(100);
-        expect(json.amountPaid).toBe(30);
-        expect(json.balanceDue).toBe(70);
+        // Subtotal 100 + Tax 18 + Shipping 10 = 128
+        // 30% of 128 = 38.4
+        expect(json.totalAmount).toBe(128);
+        expect(json.amountPaid).toBe(38.4);
+        expect(json.balanceDue).toBe(89.6);
         expect(createOrder).toHaveBeenCalledWith(
           mockUser.id, 
           mockCart.id, 
-          100, 
+          128, 
           'B2B Warehouse', 
-          'partially_paid'
+          'partially_paid',
+          expect.objectContaining({
+            businessName: 'KN Bio Labs',
+            gstNumber: '22AAAAA0000A1Z5'
+          })
         );
       },
     });

@@ -1,0 +1,14 @@
+-- Migration: Add B2B specific fields to orders
+-- Created: 2026-01-23
+
+ALTER TABLE orders 
+ADD COLUMN IF NOT EXISTS business_name TEXT,
+ADD COLUMN IF NOT EXISTS gst_number TEXT,
+ADD COLUMN IF NOT EXISTS pincode TEXT,
+ADD COLUMN IF NOT EXISTS billing_address TEXT,
+ADD COLUMN IF NOT EXISTS shipping_method TEXT, -- transport type
+ADD COLUMN IF NOT EXISTS is_home_delivery BOOLEAN DEFAULT false,
+ADD COLUMN IF NOT EXISTS shipping_charges DECIMAL(12, 2) DEFAULT 0,
+ADD COLUMN IF NOT EXISTS tax_amount DECIMAL(12, 2) DEFAULT 0,
+ADD COLUMN IF NOT EXISTS discount_amount DECIMAL(12, 2) DEFAULT 0,
+ADD COLUMN IF NOT EXISTS subtotal_amount DECIMAL(12, 2) DEFAULT 0;
