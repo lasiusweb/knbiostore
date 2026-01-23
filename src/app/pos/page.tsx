@@ -18,7 +18,29 @@ import {
 import Navbar from '@/components/layout/Navbar';
 
 export default function POSPage() {
+    return (
+        <Suspense fallback={<div className="min-h-screen bg-background flex items-center justify-center font-black uppercase tracking-widest animate-pulse">Initializing Terminal...</div>}>
+            <POSContent />
+        </Suspense>
+    );
+}
+
+function POSContent() {
+    const searchParams = useSearchParams();
     const [activeTab, setActiveTab] = useState('bundles');
+    const [selectedFarmer, setSelectedFarmer] = useState<any>(null);
+
+    useEffect(() => {
+        const tab = searchParams.get('tab');
+        if (tab && ['bundles', 'inventory', 'taxes', 'customers', 'sales'].includes(tab)) {
+            setActiveTab(tab);
+        }
+    }, [searchParams]);
+
+    const handleFarmerSelect = (farmer: any) => {
+        setSelectedFarmer(farmer);
+        setActiveTab('sales'); // Auto-switch to sales tab on selection
+    };
 
     return (
         <div className="min-h-screen bg-background flex flex-col">
@@ -45,7 +67,7 @@ export default function POSPage() {
                     </div>
                 </div>
 
-                <Tabs defaultValue="bundles" className="space-y-8" onValueChange={setActiveTab}>
+                <Tabs value={activeTab} className="space-y-8" onValueChange={setActiveTab}>
                     <div className="overflow-x-auto pb-2">
                         <TabsList className="bg-muted/50 p-1 border h-14">
                             <TabsTrigger value="dashboard" disabled className="flex items-center gap-2 px-6 h-12">
@@ -92,11 +114,11 @@ export default function POSPage() {
                     </TabsContent>
 
                     <TabsContent value="customers" className="animate-fade-in border-0 p-0 focus-visible:ring-0">
-                        <CustomerAgriProfile />
+                        <CustomerAgriProfile onSelect={handleFarmerSelect} />
                     </TabsContent>
 
                     <TabsContent value="sales" className="animate-fade-in border-0 p-0 focus-visible:ring-0">
-                        <SalesOrderForm />
+                        <SalesOrderForm selectedFarmer={selectedFarmer} />
                     </TabsContent>
 
                     <TabsContent value="dashboard">

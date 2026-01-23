@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
   if (cartItems.length === 0) return NextResponse.json({ error: 'Cart is empty' }, { status: 400 });
 
   const calculatedSubtotal = cartItems.reduce(
-    (sum, item) => sum + item.quantity * item.price_at_addition,
+    (sum: number, item: any) => sum + item.quantity * item.price_at_addition,
     0
   );
 

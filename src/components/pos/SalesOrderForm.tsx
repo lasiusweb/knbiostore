@@ -14,7 +14,9 @@ import {
     Minus,
     ArrowRight,
     ClipboardList,
-    CheckCircle2
+    CheckCircle2,
+    Lightbulb,
+    Info
 } from 'lucide-react';
 import { MOCK_PRODUCTS } from '@/data/mock-products';
 
@@ -25,16 +27,24 @@ interface CartItem {
     quantity: number;
 }
 
-export function SalesOrderForm() {
+export function SalesOrderForm({ selectedFarmer }: { selectedFarmer?: any }) {
     const [cart, setCart] = useState<CartItem[]>([]);
     const [searchQuery, setSearchQuery] = useState('');
-    const [customerName, setCustomerName] = useState('');
+    const [customerName, setCustomerName] = useState(selectedFarmer?.name || '');
     const [isPreBooking, setIsPreBooking] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
 
     const filteredProducts = MOCK_PRODUCTS.filter(p =>
         p.productName.toLowerCase().includes(searchQuery.toLowerCase())
     ).slice(0, 5);
+
+    // RECOMMENDATION LOGIC: If soil pH is high, suggest Sulfur based products. If low, suggest Lime based.
+    // Also suggest based on crops.
+    const recommendations = selectedFarmer ? MOCK_PRODUCTS.filter(p => {
+        if (parseFloat(selectedFarmer.ph) > 7.0 && p.targetProblems.some(prob => prob.toLowerCase().includes('acidity') || prob.toLowerCase().includes('ph'))) return true;
+        if (p.targetCrops.some(c => c.toLowerCase() === selectedFarmer.primaryCrop?.toLowerCase())) return true;
+        return false;
+    }).slice(0, 2) : [];
 
     const addToCart = (product: typeof MOCK_PRODUCTS[0]) => {
         const existing = cart.find(item => item.id === product.id);
@@ -130,20 +140,61 @@ export function SalesOrderForm() {
                 </Card>
 
                 {/* Customer Quick Capture */}
-                <Card className="border-primary/20 bg-primary/5">
+                <Card className={`transition-all duration-500 border-2 ${selectedFarmer ? 'border-primary/40 bg-primary/5' : 'border-border/50 bg-muted/5'}`}>
                     <CardHeader className="pb-3">
                         <CardTitle className="text-sm flex items-center gap-2">
-                            <User className="w-4 h-4 text-primary" />
-                            Customer Association
+                            <User className={`w-4 h-4 ${selectedFarmer ? 'text-primary' : 'text-muted-foreground'}`} />
+                            {selectedFarmer ? 'Active Farmer Profile' : 'Customer Association'}
                         </CardTitle>
                     </CardHeader>
-                    <CardContent>
-                        <Input
-                            placeholder="Mobile Number or Farmer ID..."
-                            className="bg-background"
-                            value={customerName}
-                            onChange={(e) => setCustomerName(e.target.value)}
-                        />
+                    <CardContent className="space-y-4">
+                        <div className="relative">
+                            <Input
+                                placeholder="Mobile Number or Farmer ID..."
+                                className="bg-background font-bold h-11"
+                                value={customerName || selectedFarmer?.name || ''}
+                                onChange={(e) => setCustomerName(e.target.value)}
+                            />
+                            {selectedFarmer && (
+                                <Badge className="absolute right-2 top-1/2 -translate-y-1/2 bg-primary text-[10px] font-mono">
+                                    {selectedFarmer.id}
+                                </Badge>
+                            )}
+                        </div>
+
+                        {selectedFarmer && (
+                            <div className="p-4 bg-background border border-primary/20 rounded-xl space-y-4 animate-in fade-in slide-in-from-top-2">
+                                <div className="flex items-center justify-between">
+                                    <div className="flex items-center gap-2">
+                                        <Lightbulb className="w-4 h-4 text-amber-500" />
+                                        <span className="text-xs font-black uppercase tracking-tighter">Bio-Recommendations</span>
+                                    </div>
+                                    <Badge variant="outline" className="text-[8px] font-bold border-primary/30 text-primary uppercase">
+                                        For {selectedFarmer.primaryCrop}
+                                    </Badge>
+                                </div>
+
+                                <div className="space-y-2">
+                                    {recommendations.length > 0 ? recommendations.map(p => (
+                                        <div key={p.id} className="flex items-center justify-between p-2 rounded-lg bg-primary/5 border border-primary/10 hover:border-primary transition-all cursor-pointer group" onClick={() => addToCart(p)}>
+                                            <div className="flex items-center gap-2">
+                                                <div className="w-8 h-8 rounded bg-background border flex items-center justify-center text-[10px] font-black text-primary">BIO</div>
+                                                <div>
+                                                    <p className="text-[10px] font-bold leading-tight">{p.productName}</p>
+                                                    <p className="text-[8px] text-muted-foreground">Matches pH {selectedFarmer.ph}</p>
+                                                </div>
+                                            </div>
+                                            <Plus className="w-3 h-3 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+                                        </div>
+                                    )) : (
+                                        <div className="text-[10px] text-muted-foreground italic flex items-center gap-2 p-2">
+                                            <Info className="w-3 h-3" />
+                                            Maintain regular nutrition schedule.
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+                        )}
                     </CardContent>
                 </Card>
             </div>

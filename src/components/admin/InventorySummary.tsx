@@ -11,8 +11,10 @@ import {
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
+import { useRouter } from 'next/navigation';
 
 export function InventorySummary() {
+    const router = useRouter();
     const segments = [
         { label: 'Agriculture', units: 4500, value: '₹12.4L', progress: 45, color: 'bg-primary' },
         { label: 'Aquaculture', units: 2100, value: '₹8.6L', progress: 21, color: 'bg-blue-500' },
@@ -21,7 +23,10 @@ export function InventorySummary() {
     ];
 
     return (
-        <Card className="h-full border-border/50 shadow-sm relative overflow-hidden group">
+        <Card
+            className="h-full border-border/50 shadow-sm relative overflow-hidden group cursor-pointer hover:border-primary/30 transition-all"
+            onClick={() => router.push('/pos?tab=inventory')}
+        >
             <CardHeader className="pb-2">
                 <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">

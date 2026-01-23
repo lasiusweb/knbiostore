@@ -10,8 +10,10 @@ import {
     History,
     Activity
 } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 export function SalesActivity() {
+    const router = useRouter();
     const comparisons = [
         {
             label: 'Today',
@@ -32,7 +34,10 @@ export function SalesActivity() {
     ];
 
     return (
-        <Card className="border-border/50 shadow-sm relative overflow-hidden h-full">
+        <Card
+            className="border-border/50 shadow-sm relative overflow-hidden h-full cursor-pointer hover:border-primary/30 transition-all"
+            onClick={() => router.push('/pos?tab=sales')}
+        >
             <CardHeader className="pb-2">
                 <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">

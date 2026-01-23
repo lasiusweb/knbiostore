@@ -12,8 +12,10 @@ import {
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { useRouter } from 'next/navigation';
 
 export function TaxAnalysisWidget() {
+    const router = useRouter();
     const taxData = [
         { label: 'CGST (Intra-state)', amount: '₹12,450', percentage: 25, icon: <Home className="w-4 h-4" /> },
         { label: 'SGST (Intra-state)', amount: '₹12,450', percentage: 25, icon: <Home className="w-4 h-4" /> },
@@ -87,7 +89,12 @@ export function TaxAnalysisWidget() {
                         <HelpCircle className="w-3.5 h-3.5" />
                         <span>Next filing: Feb 20, 2026</span>
                     </div>
-                    <Button variant="link" size="sm" className="h-auto p-0 text-xs font-bold text-primary group/btn">
+                    <Button
+                        variant="link"
+                        size="sm"
+                        className="h-auto p-0 text-xs font-bold text-primary group/btn"
+                        onClick={() => router.push('/pos?tab=taxes')}
+                    >
                         Detailed Tax Report
                         <ArrowUpRight className="w-3 h-3 ml-1 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
                     </Button>

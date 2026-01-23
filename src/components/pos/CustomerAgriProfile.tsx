@@ -5,31 +5,37 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter }
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
-import {
-    Users,
-    MapPin,
-    Sprout,
-    Thermometer,
-    History,
-    Plus,
-    Search,
-    CheckCircle2,
-    FileText
-} from 'lucide-react';
-
-export function CustomerAgriProfile() {
+export function CustomerAgriProfile({ onSelect }: { onSelect?: (farmer: any) => void }) {
     const [searchQuery, setSearchQuery] = useState('');
     const [isSuccess, setIsSuccess] = useState(false);
+    const [activeFarmer, setActiveFarmer] = useState({
+        id: 'F-1025',
+        name: 'Rajesh Kumar',
+        mobile: '9876543210',
+        location: 'Kammarpally, Nizamabad',
+        landSize: '12.5',
+        primaryCrop: 'Paddy',
+        ph: '6.8',
+        carbon: '0.72%'
+    });
 
     // Mock data for search
     const mockFarmers = [
-        { id: 'F-1025', name: 'Rajesh Kumar', mobile: '9876543210', location: 'Nizamabad, TS' },
-        { id: 'F-1289', name: 'Lakshmi Rao', mobile: '9123456780', location: 'Warangal, TS' }
+        { id: 'F-1025', name: 'Rajesh Kumar', mobile: '9876543210', location: 'Nizamabad, TS', ph: '6.8', carbon: '0.72%', landSize: '12.5', primaryCrop: 'Paddy' },
+        { id: 'F-1289', name: 'Lakshmi Rao', mobile: '9123456780', location: 'Warangal, TS', ph: '7.2', carbon: '0.45%', landSize: '8.0', primaryCrop: 'Cotton' }
     ];
 
     const handleSave = () => {
         setIsSuccess(true);
         setTimeout(() => setIsSuccess(false), 3000);
+    };
+
+    const handleSelectFarmer = (f: any) => {
+        setActiveFarmer({
+            ...f,
+            landSize: f.landSize.toString()
+        });
+        setSearchQuery('');
     };
 
     return (
@@ -54,7 +60,11 @@ export function CustomerAgriProfile() {
                     {searchQuery && (
                         <div className="absolute top-12 inset-x-0 bg-background border rounded-xl shadow-2xl z-50 p-2 space-y-1 animate-slide-up">
                             {mockFarmers.map(f => (
-                                <div key={f.id} className="p-3 hover:bg-primary/5 rounded-lg border border-transparent hover:border-primary/20 cursor-pointer group transition-all">
+                                <div
+                                    key={f.id}
+                                    className="p-3 hover:bg-primary/5 rounded-lg border border-transparent hover:border-primary/20 cursor-pointer group transition-all"
+                                    onClick={() => handleSelectFarmer(f)}
+                                >
                                     <div className="flex justify-between items-center">
                                         <span className="font-bold text-sm tracking-tight">{f.name}</span>
                                         <Badge variant="outline" className="text-[10px] font-mono">{f.id}</Badge>
@@ -84,29 +94,24 @@ export function CustomerAgriProfile() {
                         <CardContent className="space-y-4 pt-4">
                             <div className="space-y-2">
                                 <label className="text-[10px] font-black uppercase text-muted-foreground">Farmer Name</label>
-                                <Input defaultValue="Rajesh Kumar" className="h-10 font-medium" />
+                                <Input value={activeFarmer.name} readOnly className="h-10 font-medium bg-muted/10 cursor-not-allowed" />
                             </div>
                             <div className="grid grid-cols-2 gap-4">
                                 <div className="space-y-2">
                                     <label className="text-[10px] font-black uppercase text-muted-foreground">Land Size (Acres)</label>
                                     <div className="relative">
-                                        <Input type="number" defaultValue="12.5" className="h-10 pr-12 font-bold" />
+                                        <Input value={activeFarmer.landSize} readOnly className="h-10 pr-12 font-bold bg-muted/10 cursor-not-allowed" />
                                         <span className="absolute right-3 top-1/2 -translate-y-1/2 text-[10px] font-bold text-muted-foreground">ACRE</span>
                                     </div>
                                 </div>
                                 <div className="space-y-2">
                                     <label className="text-[10px] font-black uppercase text-muted-foreground">Primary Crop</label>
-                                    <select className="w-full h-10 px-3 bg-background border border-input rounded-md text-sm outline-none focus:ring-1 focus:ring-primary/30">
-                                        <option>Paddy</option>
-                                        <option>Cotton</option>
-                                        <option>Chillies</option>
-                                        <option>Maize</option>
-                                    </select>
+                                    <Input value={activeFarmer.primaryCrop} readOnly className="h-10 font-bold bg-muted/10 cursor-not-allowed" />
                                 </div>
                             </div>
                             <div className="space-y-2">
                                 <label className="text-[10px] font-black uppercase text-muted-foreground">Village / Mandal</label>
-                                <Input defaultValue="Kammarpally, Nizamabad" className="h-10 text-sm" />
+                                <Input value={activeFarmer.location} readOnly className="h-10 text-sm bg-muted/10 cursor-not-allowed" />
                             </div>
                         </CardContent>
                     </Card>
@@ -128,6 +133,17 @@ export function CustomerAgriProfile() {
                             </div>
                         </CardContent>
                     </Card>
+
+                    {/* NEW SELECT FOR ORDER BUTTON */}
+                    {onSelect && (
+                        <Button
+                            className="w-full h-14 bg-foreground text-background font-black uppercase tracking-tighter text-lg hover:scale-[1.02] transition-transform shadow-xl"
+                            onClick={() => onSelect(activeFarmer)}
+                        >
+                            Select for Transaction
+                            <ArrowRight className="w-5 h-5 ml-2" />
+                        </Button>
+                    )}
                 </div>
 
                 {/* Middle Column: Soil Health */}
@@ -147,12 +163,12 @@ export function CustomerAgriProfile() {
                                 <div className="grid grid-cols-2 gap-6">
                                     <div className="p-4 bg-muted/40 rounded-xl border border-border/50 text-center space-y-1">
                                         <p className="text-[9px] font-black uppercase text-muted-foreground">Soil pH</p>
-                                        <p className="text-2xl font-black text-foreground">6.8</p>
+                                        <p className="text-2xl font-black text-foreground">{activeFarmer.ph}</p>
                                         <Badge variant="outline" className="h-4 text-[8px] bg-green-50 text-green-600 border-green-200">Balanced</Badge>
                                     </div>
                                     <div className="p-4 bg-muted/40 rounded-xl border border-border/50 text-center space-y-1">
                                         <p className="text-[9px] font-black uppercase text-muted-foreground">Org. Carbon</p>
-                                        <p className="text-2xl font-black text-foreground">0.72%</p>
+                                        <p className="text-2xl font-black text-foreground">{activeFarmer.carbon}</p>
                                         <Badge variant="outline" className="h-4 text-[8px] bg-amber-50 text-amber-600 border-amber-200">Moderate</Badge>
                                     </div>
                                 </div>
@@ -163,7 +179,7 @@ export function CustomerAgriProfile() {
                                     </div>
                                     <div className="flex items-center justify-between text-xs">
                                         <span className="font-bold text-muted-foreground">Phosphorus (P)</span>
-                                        <Badge className="bg-amber-500/20 text-amber-600 border-0 font-bold h-5">Deficit</Badge>
+                                        <Badge className="bg-amber-500/20 text-amber-600 border-0 font-bold h-5">{parseFloat(activeFarmer.ph) > 7 ? 'Optimal' : 'Deficit'}</Badge>
                                     </div>
                                     <div className="flex items-center justify-between text-xs">
                                         <span className="font-bold text-muted-foreground">Potassium (K)</span>
@@ -241,5 +257,119 @@ export function CustomerAgriProfile() {
                 </div>
             </div>
         </div>
+    );
+}
+
+{/* Middle Column: Soil Health */ }
+<div className="space-y-6 lg:col-span-2">
+    <div className="grid md:grid-cols-2 gap-8">
+        <Card className="border-primary/20 shadow-lg relative overflow-hidden group">
+            <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:scale-110 transition-transform">
+                <Thermometer className="w-16 h-16 text-primary" />
+            </div>
+            <CardHeader className="pb-3 border-b">
+                <CardTitle className="text-sm font-bold uppercase tracking-widest text-primary flex items-center gap-2">
+                    <Thermometer className="w-4 h-4" />
+                    Latest Soil Health Record
+                </CardTitle>
+            </CardHeader>
+            <CardContent className="pt-6 space-y-6">
+                <div className="grid grid-cols-2 gap-6">
+                    <div className="p-4 bg-muted/40 rounded-xl border border-border/50 text-center space-y-1">
+                        <p className="text-[9px] font-black uppercase text-muted-foreground">Soil pH</p>
+                        <p className="text-2xl font-black text-foreground">6.8</p>
+                        <Badge variant="outline" className="h-4 text-[8px] bg-green-50 text-green-600 border-green-200">Balanced</Badge>
+                    </div>
+                    <div className="p-4 bg-muted/40 rounded-xl border border-border/50 text-center space-y-1">
+                        <p className="text-[9px] font-black uppercase text-muted-foreground">Org. Carbon</p>
+                        <p className="text-2xl font-black text-foreground">0.72%</p>
+                        <Badge variant="outline" className="h-4 text-[8px] bg-amber-50 text-amber-600 border-amber-200">Moderate</Badge>
+                    </div>
+                </div>
+                <div className="space-y-4">
+                    <div className="flex items-center justify-between text-xs">
+                        <span className="font-bold text-muted-foreground">Nitrogen (N)</span>
+                        <Badge className="bg-primary/20 text-primary border-0 font-bold h-5">Optimal</Badge>
+                    </div>
+                    <div className="flex items-center justify-between text-xs">
+                        <span className="font-bold text-muted-foreground">Phosphorus (P)</span>
+                        <Badge className="bg-amber-500/20 text-amber-600 border-0 font-bold h-5">Deficit</Badge>
+                    </div>
+                    <div className="flex items-center justify-between text-xs">
+                        <span className="font-bold text-muted-foreground">Potassium (K)</span>
+                        <Badge className="bg-green-500/20 text-green-600 border-0 font-bold h-5">High</Badge>
+                    </div>
+                </div>
+            </CardContent>
+            <CardFooter className="bg-primary/5 border-t py-4 justify-center">
+                <Button variant="link" size="sm" className="h-auto p-0 text-[10px] font-black uppercase tracking-widest text-primary">
+                    Upload Lab Report (PDF/IMG)
+                </Button>
+            </CardFooter>
+        </Card>
+
+        <Card className="border-border/50 shadow-sm">
+            <CardHeader className="pb-3 border-b">
+                <CardTitle className="text-sm font-bold uppercase tracking-widest text-muted-foreground flex items-center gap-2">
+                    <History className="w-4 h-4" />
+                    Crop & Sales History
+                </CardTitle>
+            </CardHeader>
+            <CardContent className="pt-4 p-0">
+                <div className="divide-y">
+                    {[
+                        { year: '2025', season: 'Kharif', crop: 'Paddy (MTU-1010)', yield: '28 Bags/Acre', status: 'Success' },
+                        { year: '2024', season: 'Rabi', crop: 'Maize (DKC-9108)', yield: '32 Quintals/Acre', status: 'Success' },
+                        { year: '2024', season: 'Kharif', crop: 'Cotton (RCH-659)', yield: '12 Quintals/Acre', status: 'Success' }
+                    ].map((h, i) => (
+                        <div key={i} className="p-4 hover:bg-muted/30 transition-colors">
+                            <div className="flex justify-between items-start mb-1">
+                                <span className="text-xs font-black">{h.crop}</span>
+                                <Badge variant="outline" className="text-[8px] h-4 uppercase">{h.year} • {h.season}</Badge>
+                            </div>
+                            <div className="flex justify-between items-center">
+                                <span className="text-[10px] text-muted-foreground italic flex items-center gap-1">
+                                    <Sprout className="w-3 h-3" />
+                                    Yield: <span className="text-foreground font-bold">{h.yield}</span>
+                                </span>
+                                <CheckCircle2 className="w-3.5 h-3.5 text-green-500" />
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </CardContent>
+            <CardFooter className="py-4 justify-center">
+                <Button variant="outline" className="w-full text-[10px] font-bold uppercase tracking-widest h-8">
+                    Add Season Record
+                </Button>
+            </CardFooter>
+        </Card>
+    </div>
+
+    <div className="flex gap-4">
+        <Button
+            className="flex-1 h-12 gradient-primary border-0 text-white font-bold group shadow-xl shadow-primary/20"
+            onClick={handleSave}
+        >
+            {isSuccess ? (
+                <span className="flex items-center gap-2 animate-fade-in">
+                    <CheckCircle2 className="w-5 h-5" />
+                    Profile Synchronized
+                </span>
+            ) : (
+                <>
+                    <FileText className="w-4 h-4 mr-2" />
+                    Save Farmer Profile
+                    <Plus className="w-4 h-4 ml-2 group-hover:scale-110 transition-transform" />
+                </>
+            )}
+        </Button>
+        <Button variant="outline" className="h-12 px-6 font-bold text-xs uppercase tracking-widest">
+            Export ID Card
+        </Button>
+    </div>
+</div>
+            </div >
+        </div >
     );
 }

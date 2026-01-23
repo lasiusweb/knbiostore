@@ -10,8 +10,12 @@ import {
     Sprout
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import { useRouter } from 'next/navigation';
+import { Button } from '@/components/ui/button';
+import { ArrowRight } from 'lucide-react';
 
 export function CustomerInsights() {
+    const router = useRouter();
     return (
         <Card className="h-full border-border/50 shadow-sm relative overflow-hidden group">
             <CardHeader className="pb-2">
@@ -79,6 +83,15 @@ export function CustomerInsights() {
                         64% of farmers who bought <span className="text-foreground font-bold">Rhizobium</span> also returned for <span className="text-foreground font-bold">Azospirillum</span> within 30 days.
                     </p>
                 </div>
+
+                <Button
+                    variant="outline"
+                    className="w-full h-9 text-[10px] font-black uppercase tracking-widest border-purple-200 text-purple-600 hover:bg-purple-50"
+                    onClick={() => router.push('/pos?tab=customers')}
+                >
+                    Manage Agri-Profiles
+                    <ArrowRight className="w-3 h-3 ml-2" />
+                </Button>
             </CardContent>
         </Card>
     );

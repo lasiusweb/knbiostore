@@ -13,7 +13,9 @@ import {
     CheckCircle2,
     Calendar,
     User,
-    Hash
+    Search,
+    Plus,
+    Minus
 } from 'lucide-react';
 import { MOCK_PRODUCTS } from '@/data/mock-products';
 
@@ -31,13 +33,18 @@ export function InventoryAdjustmentForm() {
     const [quantity, setQuantity] = useState(1);
     const [reason, setReason] = useState('RE-STOCK');
     const [notes, setNotes] = useState('');
+    const [searchQuery, setSearchQuery] = useState('');
     const [isSuccess, setIsSuccess] = useState(false);
 
     const selectedProduct = MOCK_PRODUCTS.find(p => p.id === selectedProductId);
 
+    const filteredProducts = MOCK_PRODUCTS.filter(p =>
+        p.productName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        p.sku.toLowerCase().includes(searchQuery.toLowerCase())
+    ).slice(0, 4);
+
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        // In a real app, this would call an API
         console.log('Stock Adjustment:', {
             productId: selectedProductId,
             type,
@@ -45,7 +52,7 @@ export function InventoryAdjustmentForm() {
             reason,
             notes,
             date: new Date().toISOString(),
-            user: 'Admin-User'
+            user: 'Admin-01'
         });
 
         setIsSuccess(true);
@@ -53,8 +60,8 @@ export function InventoryAdjustmentForm() {
     };
 
     return (
-        <div className="max-w-2xl mx-auto">
-            <Card className="border-border/50 shadow-lg">
+        <div className="max-w-2xl mx-auto space-y-6">
+            <Card className="border-border/50 shadow-lg overflow-hidden">
                 <CardHeader className="border-b bg-muted/20">
                     <div className="flex items-center gap-3">
                         <div className={`p-2 rounded-lg ${type === 'INCREMENT' ? 'bg-green-500/10 text-green-600' : 'bg-destructive/10 text-destructive'}`}>
@@ -69,25 +76,80 @@ export function InventoryAdjustmentForm() {
 
                 <form onSubmit={handleSubmit}>
                     <CardContent className="space-y-6 pt-6 text-sm">
-                        {/* Product Selection */}
-                        <div className="space-y-2">
+                        {/* Product Search Selection */}
+                        <div className="space-y-3">
                             <label className="text-sm font-semibold flex items-center gap-2">
-                                <Hash className="w-4 h-4 text-primary" />
-                                Select SKU
+                                <Search className="w-4 h-4 text-primary" />
+                                Search Product SKU
                             </label>
-                            <select
-                                className="w-full h-11 px-3 bg-background border border-input rounded-lg focus:ring-2 focus:ring-primary outline-none"
-                                value={selectedProductId}
-                                onChange={(e) => setSelectedProductId(e.target.value)}
-                            >
-                                {MOCK_PRODUCTS.map(p => (
-                                    <option key={p.id} value={p.id}>{p.productName} ({p.sku})</option>
-                                ))}
-                            </select>
+                            <div className="relative">
+                                <Input
+                                    placeholder="Type SKU or Name (e.g., VAM, RHIZ)..."
+                                    className="h-11 pl-4 rounded-xl border-border/50 bg-background"
+                                    value={searchQuery}
+                                    onChange={(e) => setSearchQuery(e.target.value)}
+                                />
+                                <Package className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground w-4 h-4" />
+                            </div>
+
+                            {searchQuery && (
+                                <div className="p-2 border rounded-xl bg-background shadow-2xl space-y-1 animate-in fade-in slide-in-from-top-2">
+                                    {filteredProducts.length > 0 ? filteredProducts.map(p => (
+                                        <div
+                                            key={p.id}
+                                            className={`flex items-center justify-between p-3 rounded-lg border transition-all group ${selectedProductId === p.id ? 'border-primary bg-primary/5' : 'border-transparent hover:bg-muted/50'}`}
+                                        >
+                                            <div className="cursor-pointer flex-1" onClick={() => setSelectedProductId(p.id)}>
+                                                <h4 className="font-bold text-xs">{p.productName}</h4>
+                                                <p className="text-[10px] text-muted-foreground font-mono">{p.sku}</p>
+                                            </div>
+                                            <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                                <Button
+                                                    type="button"
+                                                    variant="outline"
+                                                    size="icon"
+                                                    className="h-7 w-7 border-green-200 text-green-600 hover:bg-green-50"
+                                                    onClick={() => {
+                                                        setSelectedProductId(p.id);
+                                                        setType('INCREMENT');
+                                                        setQuantity(1);
+                                                        setReason('CORRECTION');
+                                                    }}
+                                                >
+                                                    <Plus className="w-3 h-3" />
+                                                </Button>
+                                                <Button
+                                                    type="button"
+                                                    variant="outline"
+                                                    size="icon"
+                                                    className="h-7 w-7 border-destructive/20 text-destructive hover:bg-destructive/5"
+                                                    onClick={() => {
+                                                        setSelectedProductId(p.id);
+                                                        setType('DECREMENT');
+                                                        setQuantity(1);
+                                                        setReason('DAMAGED');
+                                                    }}
+                                                >
+                                                    <Minus className="w-3 h-3" />
+                                                </Button>
+                                            </div>
+                                        </div>
+                                    )) : (
+                                        <div className="p-4 text-center text-[10px] text-muted-foreground uppercase font-black">No SKU Matches</div>
+                                    )}
+                                </div>
+                            )}
+
                             {selectedProduct && (
-                                <div className="flex items-center gap-2 px-1 text-xs text-muted-foreground">
-                                    <span className="font-medium">Current Stock:</span>
-                                    <Badge variant="secondary" className="h-5">42 Units</Badge>
+                                <div className="flex items-center justify-between px-2 text-xs py-2 bg-muted/20 rounded-lg">
+                                    <div className="flex items-center gap-2 text-muted-foreground">
+                                        <span className="font-bold uppercase text-[9px]">Selected:</span>
+                                        <span className="font-bold text-foreground truncate max-w-[200px]">{selectedProduct.productName}</span>
+                                    </div>
+                                    <div className="flex items-center gap-2 text-[10px]">
+                                        <span className="text-muted-foreground font-bold">CURRENT STOCK:</span>
+                                        <Badge variant="secondary" className="h-5 font-black text-primary">42 Units</Badge>
+                                    </div>
                                 </div>
                             )}
                         </div>
@@ -97,8 +159,8 @@ export function InventoryAdjustmentForm() {
                             <button
                                 type="button"
                                 className={`flex items-center justify-center gap-2 p-4 rounded-xl border-2 transition-all ${type === 'INCREMENT'
-                                        ? 'border-primary bg-primary/5 text-primary'
-                                        : 'border-border grayscale hover:grayscale-0'
+                                    ? 'border-primary bg-primary/5 text-primary'
+                                    : 'border-border grayscale hover:grayscale-0'
                                     }`}
                                 onClick={() => setType('INCREMENT')}
                             >
@@ -108,8 +170,8 @@ export function InventoryAdjustmentForm() {
                             <button
                                 type="button"
                                 className={`flex items-center justify-center gap-2 p-4 rounded-xl border-2 transition-all ${type === 'DECREMENT'
-                                        ? 'border-destructive bg-destructive/5 text-destructive'
-                                        : 'border-border grayscale hover:grayscale-0'
+                                    ? 'border-destructive bg-destructive/5 text-destructive'
+                                    : 'border-border grayscale hover:grayscale-0'
                                     }`}
                                 onClick={() => setType('DECREMENT')}
                             >
@@ -178,7 +240,7 @@ export function InventoryAdjustmentForm() {
                                 }`}
                         >
                             {isSuccess ? (
-                                <span className="flex items-center gap-2 animate-fade-in">
+                                <span className="flex items-center gap-2 animate-fade-in shadow-xl shadow-green-500/20">
                                     <CheckCircle2 className="w-5 h-5" />
                                     Adjustment Logged Successfully!
                                 </span>
@@ -194,8 +256,8 @@ export function InventoryAdjustmentForm() {
             </Card>
 
             {/* Disclaimer */}
-            <div className="mt-4 flex gap-2 text-[10px] text-muted-foreground">
-                <AlertCircle className="w-3 h-3 shrink-0" />
+            <div className="mt-4 flex gap-2 text-[10px] text-muted-foreground bg-muted/30 p-4 rounded-xl border border-dashed">
+                <AlertCircle className="w-3 h-3 shrink-0 text-primary" />
                 <p>This action will be recorded in the terminal logs and synced across all nodes. Regulatory compliance (NPOP/ISO) requirements specify reason codes for stock corrections.</p>
             </div>
         </div>
