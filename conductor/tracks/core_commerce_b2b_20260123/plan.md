@@ -19,7 +19,7 @@
 - [x] Task: Tiered Pricing Logic. Implement the calculation engine that prioritizes role-based discounts vs. specific price lists. 34b3301
     - [x] Task: Write Unit Tests for Pricing Engine. Test scenarios for Gold/Silver tiers and distributor role overrides.
     - [x] Task: Implement Pricing Calculation Utility. Create a centralized function used by both Storefront and Admin.
-- [x] Task: B2B Partial Payment Workflow. Modify the checkout process to support credit-based balances for B2B accounts. 157e46b
+- [x] Task: B2B Partial Payment Workflow. Modify the checkout process to support credit-based balances for B2B accounts. d173a8e
     - [x] Task: Write Integration Tests for B2B Checkout.
     - [x] Task: Implement Partial Payment UI & Logic. Update the checkout form to handle deposit calculations.
 - [~] Task: Conductor - User Manual Verification 'B2B & Dynamic Pricing Engine' (Protocol in workflow.md)
