@@ -1,6 +1,8 @@
 import StoreProductList from '@/components/store/StoreProductList';
+import StoreProductListSkeleton from '@/components/store/StoreProductListSkeleton';
 import { Search } from 'lucide-react';
 import { Input } from '@/components/ui/input';
+import { Suspense } from 'react';
 
 export default function StorePage() {
   return (
@@ -32,7 +34,9 @@ export default function StorePage() {
 
         <div className="container mx-auto px-4 py-8">
             <h2 className="text-2xl font-bold mb-6">Our Products</h2>
-            <StoreProductList />
+            <Suspense fallback={<StoreProductListSkeleton />}>
+              <StoreProductList />
+            </Suspense>
         </div>
     </div>
   );
