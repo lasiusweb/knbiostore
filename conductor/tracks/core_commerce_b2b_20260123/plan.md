@@ -34,7 +34,7 @@
 - [x] Task: Conductor - User Manual Verification 'Marketing & Conversion Tools' (Protocol in workflow.md)
 
 ## Phase 5: Multi-Warehouse Logistics
-- [ ] Task: Multi-Warehouse Inventory Tracking. Enable independent stock counts per location.
-    - [ ] Task: Write Tests for Stock Routing.
-    - [ ] Task: Implement Warehouse Stock UI. Add a warehouse selector/view to the Admin Inventory Lot form.
+- [x] Task: Multi-Warehouse Inventory Tracking. Enable independent stock counts per location. f0c33b7
+    - [x] Task: Write Tests for Stock Routing.
+    - [x] Task: Implement Warehouse Stock UI. Add a warehouse selector/view to the Admin Inventory Lot form.
 - [ ] Task: Conductor - User Manual Verification 'Multi-Warehouse Logistics' (Protocol in workflow.md)
