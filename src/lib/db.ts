@@ -36,21 +36,30 @@ interface Customer {
   phone?: string;
 }
 
+export interface CartItem {
+  id?: number;
+  variant_id: string;
+  quantity: number;
+  price_at_addition: number;
+}
+
 export class KnBioStoreDB extends Dexie {
   products!: EntityTable<Product, 'id'>;
   inventory_lots!: EntityTable<InventoryLot, 'id'>;
   orders!: EntityTable<Order, 'id'>;
   order_items!: EntityTable<OrderItem, 'id'>;
   customers!: EntityTable<Customer, 'id'>;
+  cart!: EntityTable<CartItem, 'id'>;
 
   constructor() {
     super('knbiostore_pos');
-    this.version(2).stores({
+    this.version(3).stores({
       products: 'id, name, is_active',
       inventory_lots: 'id, lot_number, expiry_date, available_quantity, variant_id',
       orders: 'id, created_at, status, total_amount',
       order_items: 'id, order_id, lot_id, quantity, price_at_sale',
-      customers: 'id, name, email, phone'
+      customers: 'id, name, email, phone',
+      cart: '++id, variant_id, quantity, price_at_addition'
     });
   }
 }

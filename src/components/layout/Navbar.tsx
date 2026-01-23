@@ -8,25 +8,69 @@ import { Menu, X, Search, ShoppingCart, User as UserIcon, ChevronDown, ChevronUp
 import { createClient } from '@/lib/supabase/client';
 import { User } from '@supabase/supabase-js';
 import { Input } from '@/components/ui/input';
+import { useCart } from '@/hooks/useCart';
+import { useOfflineSync } from '@/hooks/useOfflineSync';
+import { Wifi, WifiOff, RefreshCw } from 'lucide-react';
+
+const SyncStatus = () => {
+  const { isSyncing, error } = useOfflineSync();
+  const [isOnline, setIsOnline] = useState(true);
+
+  useEffect(() => {
+    setIsOnline(navigator.onLine);
+    const handleOnline = () => setIsOnline(true);
+    const handleOffline = () => setIsOnline(false);
+
+    window.addEventListener('online', handleOnline);
+    window.addEventListener('offline', handleOffline);
+
+    return () => {
+      window.removeEventListener('online', handleOnline);
+      window.removeEventListener('offline', handleOffline);
+    };
+  }, []);
+
+  return (
+    <div className="flex items-center space-x-2 px-2 text-xs font-medium">
+      {isSyncing ? (
+        <span className="flex items-center text-blue-600 animate-pulse">
+          <RefreshCw className="h-3 w-3 mr-1 animate-spin" />
+          Syncing...
+        </span>
+      ) : isOnline ? (
+        <span className="flex items-center text-green-600">
+          <Wifi className="h-3 w-3 mr-1" />
+          Online
+        </span>
+      ) : (
+        <span className="flex items-center text-amber-600">
+          <WifiOff className="h-3 w-3 mr-1" />
+          Offline
+        </span>
+      )}
+      {error && <span className="text-red-500">!</span>}
+    </div>
+  );
+};
 
 const shopData = {
   segments: [
-    'Agriculture', 'Aquaculture', 'Poultry Healthcare', 'Animal Healthcare', 
-    'Bioremediation', 'Seeds', 'Organic Farming', 'Farm equipment', 
+    'Agriculture', 'Aquaculture', 'Poultry Healthcare', 'Animal Healthcare',
+    'Bioremediation', 'Seeds', 'Organic Farming', 'Farm equipment',
     'Testing lab', 'Oilpalm'
   ],
   farmingSegments: [
-    'for-crop-champions', 'for-pond-champions', 'for-poultry-pros', 
+    'for-crop-champions', 'for-pond-champions', 'for-poultry-pros',
     'for-organic-newbies', 'organic-farming', 'farm-needs', 'farm-equipment'
   ],
   crops: [
-    'Paddy', 'Mango', 'Banana', 'Chilli', 'Cotton', 'Coffee', 'Tea', 
-    'Papaya', 'Pomegranate', 'Dragoon', 'Ground Nut', 'Pulses', 'Coco', 
-    'Turmeric', 'Oil Palm', 'Coconut', 'Maize', 'Fish', 'Shrimp', 
+    'Paddy', 'Mango', 'Banana', 'Chilli', 'Cotton', 'Coffee', 'Tea',
+    'Papaya', 'Pomegranate', 'Dragoon', 'Ground Nut', 'Pulses', 'Coco',
+    'Turmeric', 'Oil Palm', 'Coconut', 'Maize', 'Fish', 'Shrimp',
     'Chicks', 'Layers', 'Broilers'
   ],
   problems: [
-    'Thrips', 'Mites', 'White Flys', 'Green Flys', 'White Grubs', 
+    'Thrips', 'Mites', 'White Flys', 'Green Flys', 'White Grubs',
     'Nutrients Deficiency'
   ]
 };
@@ -37,6 +81,7 @@ const Navbar = () => {
   const [user, setUser] = useState<User | null>(null);
   const router = useRouter();
   const supabase = createClient();
+  const { cartItems } = useCart();
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -93,8 +138,8 @@ const Navbar = () => {
         <div className="hidden md:flex items-center space-x-2">
           {/* Shop Mega Menu Trigger */}
           <div className="relative group">
-            <Button 
-              variant="ghost" 
+            <Button
+              variant="ghost"
               className="flex items-center space-x-1 group-hover:text-primary transition-colors"
               aria-haspopup="true"
               aria-expanded={false}
@@ -102,7 +147,7 @@ const Navbar = () => {
               <span>Shop</span>
               <ChevronDown className="h-4 w-4" />
             </Button>
-            
+
             {/* Mega Menu Content */}
             <div className="absolute top-full right-0 w-[800px] bg-white border shadow-2xl rounded-b-lg opacity-0 invisible -translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 ease-in-out transform origin-top z-50 p-6">
               <div className="grid grid-cols-4 gap-8">
@@ -157,20 +202,34 @@ const Navbar = () => {
             </div>
           </div>
 
-          <div className="relative w-48 lg:w-64">
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              const query = (e.currentTarget.elements.namedItem('q') as HTMLInputElement).value;
+              router.push(`/store?q=${encodeURIComponent(query)}`);
+            }}
+            className="relative w-48 lg:w-64"
+          >
             <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-            <Input 
-              type="search" 
-              placeholder="Search..." 
+            <Input
+              name="q"
+              type="search"
+              placeholder="Search..."
               className="pl-8 h-9"
               aria-label="Search products"
             />
-          </div>
+          </form>
+
+          <SyncStatus />
 
           <Button variant="ghost" size="icon" asChild aria-label="cart">
             <Link href="/cart" className="relative">
               <ShoppingCart className="h-5 w-5" />
-              <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground text-[10px] font-bold px-1 rounded-full">0</span>
+              {cartItems.length > 0 && (
+                <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground text-[10px] font-bold px-1.5 py-0.5 rounded-full">
+                  {cartItems.length}
+                </span>
+              )}
             </Link>
           </Button>
 
@@ -195,15 +254,15 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <div className="md:hidden flex items-center space-x-2">
-           <Button variant="ghost" size="icon" asChild aria-label="cart">
+          <Button variant="ghost" size="icon" asChild aria-label="cart">
             <Link href="/cart">
               <ShoppingCart className="h-5 w-5" />
             </Link>
           </Button>
-          <Button 
-            variant="ghost" 
-            size="icon" 
-            onClick={toggleMobileMenu} 
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={toggleMobileMenu}
             aria-label="toggle menu"
             aria-expanded={isMobileMenuOpen}
           >
@@ -218,9 +277,9 @@ const Navbar = () => {
           <div className="pb-4">
             <div className="relative">
               <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-              <Input 
-                type="search" 
-                placeholder="Search..." 
+              <Input
+                type="search"
+                placeholder="Search..."
                 className="pl-8 h-9"
                 aria-label="Search products"
               />
@@ -228,10 +287,10 @@ const Navbar = () => {
           </div>
 
           {navLinks.map((link) => (
-            <Button 
-              key={link.label} 
-              variant="ghost" 
-              asChild 
+            <Button
+              key={link.label}
+              variant="ghost"
+              asChild
               className="w-full justify-start"
               onClick={() => setIsMobileMenuOpen(false)}
             >
@@ -239,8 +298,8 @@ const Navbar = () => {
             </Button>
           ))}
 
-          <Button 
-            variant="ghost" 
+          <Button
+            variant="ghost"
             className="w-full justify-between font-bold"
             onClick={() => setIsShopOpen(!isShopOpen)}
           >
@@ -250,38 +309,38 @@ const Navbar = () => {
 
           {isShopOpen && (
             <div className="pl-4 space-y-4 pt-2">
-               <div>
-                  <h3 className="font-bold text-xs text-primary uppercase mb-2">Shop by Segment</h3>
-                  <div className="grid grid-cols-2 gap-x-2 gap-y-1">
-                    {shopData.segments.map(item => (
-                      <Link key={item} href="/store" className="text-sm py-1" onClick={() => setIsMobileMenuOpen(false)}>{item}</Link>
-                    ))}
-                  </div>
-               </div>
-               <div>
-                  <h3 className="font-bold text-xs text-primary uppercase mb-2">Farming Segment</h3>
-                  <div className="grid grid-cols-2 gap-x-2 gap-y-1">
-                    {shopData.farmingSegments.map(item => (
-                      <Link key={item} href="/store" className="text-sm py-1" onClick={() => setIsMobileMenuOpen(false)}>{item}</Link>
-                    ))}
-                  </div>
-               </div>
-               <div>
-                  <h3 className="font-bold text-xs text-primary uppercase mb-2">Shop by Crop</h3>
-                  <div className="grid grid-cols-2 gap-x-2 gap-y-1">
-                    {shopData.crops.map(item => (
-                      <Link key={item} href="/store" className="text-sm py-1" onClick={() => setIsMobileMenuOpen(false)}>{item}</Link>
-                    ))}
-                  </div>
-               </div>
-               <div>
-                  <h3 className="font-bold text-xs text-primary uppercase mb-2">Shop By Problem</h3>
-                  <div className="grid grid-cols-2 gap-x-2 gap-y-1">
-                    {shopData.problems.map(item => (
-                      <Link key={item} href="/store" className="text-sm py-1" onClick={() => setIsMobileMenuOpen(false)}>{item}</Link>
-                    ))}
-                  </div>
-               </div>
+              <div>
+                <h3 className="font-bold text-xs text-primary uppercase mb-2">Shop by Segment</h3>
+                <div className="grid grid-cols-2 gap-x-2 gap-y-1">
+                  {shopData.segments.map(item => (
+                    <Link key={item} href="/store" className="text-sm py-1" onClick={() => setIsMobileMenuOpen(false)}>{item}</Link>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <h3 className="font-bold text-xs text-primary uppercase mb-2">Farming Segment</h3>
+                <div className="grid grid-cols-2 gap-x-2 gap-y-1">
+                  {shopData.farmingSegments.map(item => (
+                    <Link key={item} href="/store" className="text-sm py-1" onClick={() => setIsMobileMenuOpen(false)}>{item}</Link>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <h3 className="font-bold text-xs text-primary uppercase mb-2">Shop by Crop</h3>
+                <div className="grid grid-cols-2 gap-x-2 gap-y-1">
+                  {shopData.crops.map(item => (
+                    <Link key={item} href="/store" className="text-sm py-1" onClick={() => setIsMobileMenuOpen(false)}>{item}</Link>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <h3 className="font-bold text-xs text-primary uppercase mb-2">Shop By Problem</h3>
+                <div className="grid grid-cols-2 gap-x-2 gap-y-1">
+                  {shopData.problems.map(item => (
+                    <Link key={item} href="/store" className="text-sm py-1" onClick={() => setIsMobileMenuOpen(false)}>{item}</Link>
+                  ))}
+                </div>
+              </div>
             </div>
           )}
 
@@ -289,9 +348,9 @@ const Navbar = () => {
             {user ? (
               <div className="space-y-4">
                 <p className="text-sm text-muted-foreground px-4">Hi, {user.email}</p>
-                <Button 
-                  variant="outline" 
-                  className="w-full justify-start" 
+                <Button
+                  variant="outline"
+                  className="w-full justify-start"
                   onClick={() => {
                     handleLogout();
                     setIsMobileMenuOpen(false);
@@ -301,9 +360,9 @@ const Navbar = () => {
                 </Button>
               </div>
             ) : (
-              <Button 
-                variant="ghost" 
-                className="w-full justify-start" 
+              <Button
+                variant="ghost"
+                className="w-full justify-start"
                 asChild
                 onClick={() => setIsMobileMenuOpen(false)}
               >
