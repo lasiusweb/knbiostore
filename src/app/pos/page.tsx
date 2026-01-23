@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { TaxSettings } from '@/components/pos/TaxSettings';
 import { BundleDesigner } from '@/components/pos/BundleDesigner';
 import { InventoryAdjustmentForm } from '@/components/pos/InventoryAdjustmentForm';

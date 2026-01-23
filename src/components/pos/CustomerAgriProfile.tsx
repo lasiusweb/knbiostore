@@ -5,6 +5,19 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter }
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
+import {
+    Users,
+    MapPin,
+    Sprout,
+    Thermometer,
+    History,
+    Plus,
+    Search,
+    CheckCircle2,
+    FileText,
+    ArrowRight
+} from 'lucide-react';
+
 export function CustomerAgriProfile({ onSelect }: { onSelect?: (farmer: any) => void }) {
     const [searchQuery, setSearchQuery] = useState('');
     const [isSuccess, setIsSuccess] = useState(false);
@@ -134,7 +147,7 @@ export function CustomerAgriProfile({ onSelect }: { onSelect?: (farmer: any) => 
                         </CardContent>
                     </Card>
 
-                    {/* NEW SELECT FOR ORDER BUTTON */}
+                    {/* SELECT FOR ORDER BUTTON */}
                     {onSelect && (
                         <Button
                             className="w-full h-14 bg-foreground text-background font-black uppercase tracking-tighter text-lg hover:scale-[1.02] transition-transform shadow-xl"
@@ -238,7 +251,7 @@ export function CustomerAgriProfile({ onSelect }: { onSelect?: (farmer: any) => 
                             onClick={handleSave}
                         >
                             {isSuccess ? (
-                                <span className="flex items-center gap-2 animate-fade-in">
+                                <span className="flex items-center gap-2 animate-fade-in shadow-xl shadow-green-500/20">
                                     <CheckCircle2 className="w-5 h-5" />
                                     Profile Synchronized
                                 </span>
@@ -257,119 +270,5 @@ export function CustomerAgriProfile({ onSelect }: { onSelect?: (farmer: any) => 
                 </div>
             </div>
         </div>
-    );
-}
-
-{/* Middle Column: Soil Health */ }
-<div className="space-y-6 lg:col-span-2">
-    <div className="grid md:grid-cols-2 gap-8">
-        <Card className="border-primary/20 shadow-lg relative overflow-hidden group">
-            <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:scale-110 transition-transform">
-                <Thermometer className="w-16 h-16 text-primary" />
-            </div>
-            <CardHeader className="pb-3 border-b">
-                <CardTitle className="text-sm font-bold uppercase tracking-widest text-primary flex items-center gap-2">
-                    <Thermometer className="w-4 h-4" />
-                    Latest Soil Health Record
-                </CardTitle>
-            </CardHeader>
-            <CardContent className="pt-6 space-y-6">
-                <div className="grid grid-cols-2 gap-6">
-                    <div className="p-4 bg-muted/40 rounded-xl border border-border/50 text-center space-y-1">
-                        <p className="text-[9px] font-black uppercase text-muted-foreground">Soil pH</p>
-                        <p className="text-2xl font-black text-foreground">6.8</p>
-                        <Badge variant="outline" className="h-4 text-[8px] bg-green-50 text-green-600 border-green-200">Balanced</Badge>
-                    </div>
-                    <div className="p-4 bg-muted/40 rounded-xl border border-border/50 text-center space-y-1">
-                        <p className="text-[9px] font-black uppercase text-muted-foreground">Org. Carbon</p>
-                        <p className="text-2xl font-black text-foreground">0.72%</p>
-                        <Badge variant="outline" className="h-4 text-[8px] bg-amber-50 text-amber-600 border-amber-200">Moderate</Badge>
-                    </div>
-                </div>
-                <div className="space-y-4">
-                    <div className="flex items-center justify-between text-xs">
-                        <span className="font-bold text-muted-foreground">Nitrogen (N)</span>
-                        <Badge className="bg-primary/20 text-primary border-0 font-bold h-5">Optimal</Badge>
-                    </div>
-                    <div className="flex items-center justify-between text-xs">
-                        <span className="font-bold text-muted-foreground">Phosphorus (P)</span>
-                        <Badge className="bg-amber-500/20 text-amber-600 border-0 font-bold h-5">Deficit</Badge>
-                    </div>
-                    <div className="flex items-center justify-between text-xs">
-                        <span className="font-bold text-muted-foreground">Potassium (K)</span>
-                        <Badge className="bg-green-500/20 text-green-600 border-0 font-bold h-5">High</Badge>
-                    </div>
-                </div>
-            </CardContent>
-            <CardFooter className="bg-primary/5 border-t py-4 justify-center">
-                <Button variant="link" size="sm" className="h-auto p-0 text-[10px] font-black uppercase tracking-widest text-primary">
-                    Upload Lab Report (PDF/IMG)
-                </Button>
-            </CardFooter>
-        </Card>
-
-        <Card className="border-border/50 shadow-sm">
-            <CardHeader className="pb-3 border-b">
-                <CardTitle className="text-sm font-bold uppercase tracking-widest text-muted-foreground flex items-center gap-2">
-                    <History className="w-4 h-4" />
-                    Crop & Sales History
-                </CardTitle>
-            </CardHeader>
-            <CardContent className="pt-4 p-0">
-                <div className="divide-y">
-                    {[
-                        { year: '2025', season: 'Kharif', crop: 'Paddy (MTU-1010)', yield: '28 Bags/Acre', status: 'Success' },
-                        { year: '2024', season: 'Rabi', crop: 'Maize (DKC-9108)', yield: '32 Quintals/Acre', status: 'Success' },
-                        { year: '2024', season: 'Kharif', crop: 'Cotton (RCH-659)', yield: '12 Quintals/Acre', status: 'Success' }
-                    ].map((h, i) => (
-                        <div key={i} className="p-4 hover:bg-muted/30 transition-colors">
-                            <div className="flex justify-between items-start mb-1">
-                                <span className="text-xs font-black">{h.crop}</span>
-                                <Badge variant="outline" className="text-[8px] h-4 uppercase">{h.year} • {h.season}</Badge>
-                            </div>
-                            <div className="flex justify-between items-center">
-                                <span className="text-[10px] text-muted-foreground italic flex items-center gap-1">
-                                    <Sprout className="w-3 h-3" />
-                                    Yield: <span className="text-foreground font-bold">{h.yield}</span>
-                                </span>
-                                <CheckCircle2 className="w-3.5 h-3.5 text-green-500" />
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </CardContent>
-            <CardFooter className="py-4 justify-center">
-                <Button variant="outline" className="w-full text-[10px] font-bold uppercase tracking-widest h-8">
-                    Add Season Record
-                </Button>
-            </CardFooter>
-        </Card>
-    </div>
-
-    <div className="flex gap-4">
-        <Button
-            className="flex-1 h-12 gradient-primary border-0 text-white font-bold group shadow-xl shadow-primary/20"
-            onClick={handleSave}
-        >
-            {isSuccess ? (
-                <span className="flex items-center gap-2 animate-fade-in">
-                    <CheckCircle2 className="w-5 h-5" />
-                    Profile Synchronized
-                </span>
-            ) : (
-                <>
-                    <FileText className="w-4 h-4 mr-2" />
-                    Save Farmer Profile
-                    <Plus className="w-4 h-4 ml-2 group-hover:scale-110 transition-transform" />
-                </>
-            )}
-        </Button>
-        <Button variant="outline" className="h-12 px-6 font-bold text-xs uppercase tracking-widest">
-            Export ID Card
-        </Button>
-    </div>
-</div>
-            </div >
-        </div >
     );
 }

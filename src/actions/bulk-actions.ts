@@ -19,9 +19,9 @@ export async function importProductsFromCSV(csvContent: string) {
       // 1. Upsert product
       const { data: productData, error: productError } = await supabase
         .from('products')
-        .upsert({ 
-          name: item.product_name, 
-          description: item.description 
+        .upsert({
+          name: item.product_name,
+          description: item.description
         }, { onConflict: 'name' })
         .select()
         .single();
@@ -65,7 +65,7 @@ interface ProductWithVariants {
 
 export async function exportProductsToCSV() {
   const supabase = createClient();
-  
+
   try {
     const { data, error } = await supabase
       .from('products')
@@ -79,7 +79,7 @@ export async function exportProductsToCSV() {
 
     const products = data as unknown as ProductWithVariants[];
     const headers = ['sku', 'product_name', 'sale_price', 'mrp', 'in_stock', 'description'];
-    const rows = products.flatMap((product) => 
+    const rows = products.flatMap((product) =>
       product.product_variants.map((variant) => [
         variant.sku,
         product.name,
@@ -99,25 +99,57 @@ export async function exportProductsToCSV() {
   }
 }
 
-export async function batchUpdateProducts(ids: string[], updates: { price?: number; in_stock?: boolean }) {
+export async function batchUpdateProducts(
+  ids: string[],
+  updates: {
+    price?: number;
+    in_stock?: boolean;
+    agriAttributes?: {
+      microbialCount?: string;
+      solubility?: string;
+      soilPHRange?: string;
+      applicationCoverage?: string;
+    };
+    b2bSupport?: {
+      dealerPrice?: number;
+      bulkMoq?: number;
+    }
+  }
+) {
   const supabase = createClient();
-  
+
   try {
-    if (updates.price !== undefined) {
+    // 1. Update basic variant fields
+    if (updates.price !== undefined || updates.in_stock !== undefined) {
+      const variantUpdates: any = {};
+      if (updates.price !== undefined) variantUpdates.price = updates.price;
+      if (updates.in_stock !== undefined) variantUpdates.in_stock = updates.in_stock;
+
       const { error } = await supabase
         .from('product_variants')
-        .update({ price: updates.price })
+        .update(variantUpdates)
         .in('product_id', ids);
-      
+
       if (error) throw error;
     }
 
-    if (updates.in_stock !== undefined) {
+    // 2. Update product-level enterprise fields
+    if (updates.agriAttributes !== undefined || updates.b2bSupport !== undefined) {
+      const productUpdates: any = {};
+
+      if (updates.agriAttributes) {
+        productUpdates.agri_attributes = updates.agriAttributes;
+      }
+
+      if (updates.b2bSupport) {
+        productUpdates.b2b_support = updates.b2bSupport;
+      }
+
       const { error } = await supabase
-        .from('product_variants')
-        .update({ in_stock: updates.in_stock })
-        .in('product_id', ids);
-      
+        .from('products')
+        .update(productUpdates)
+        .in('id', ids);
+
       if (error) throw error;
     }
 

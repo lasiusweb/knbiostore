@@ -10,6 +10,22 @@ export interface ChemicalComponent {
   role?: string;
 }
 
+// Agri-Science specific attributes
+export interface AgriAttributes {
+  microbialCount?: string; // e.g., "1x10^9 CFU/ml"
+  solubility?: string; // e.g., "99.9% water soluble"
+  soilPHRange?: string; // e.g., "6.5 - 7.5"
+  applicationCoverage?: string; // e.g., "1kg per Acre"
+  compatibility?: string[]; // List of compatible chemicals/bio-inputs
+}
+
+// Product FAQ for technical guidance
+export interface ProductFAQ {
+  question: string;
+  answer: string;
+  category: 'APPLICATION' | 'SAFETY' | 'STORAGE' | 'GENERAL';
+}
+
 // Contact details for customer care and marketer
 export interface ContactDetails {
   name?: string;
@@ -95,6 +111,15 @@ export interface Product {
   customerCareDetails: ContactDetails;
   marketedBy: ContactDetails;
 
+  // Enterprise & Agri Features
+  agriAttributes?: AgriAttributes;
+  faqs?: ProductFAQ[];
+  b2bSupport?: {
+    dealerPrice: number;
+    bulkMoq: number;
+    creditEligible: boolean;
+  };
+
   // Metadata
   isActive: boolean;
   isFeatured: boolean;
@@ -115,12 +140,12 @@ export interface ProductFilters {
 }
 
 // Sort options
-export type ProductSortOption = 
-  | 'name-asc' 
-  | 'name-desc' 
-  | 'price-asc' 
-  | 'price-desc' 
-  | 'newest' 
+export type ProductSortOption =
+  | 'name-asc'
+  | 'name-desc'
+  | 'price-asc'
+  | 'price-desc'
+  | 'newest'
   | 'popularity';
 
 // Featured product for homepage
