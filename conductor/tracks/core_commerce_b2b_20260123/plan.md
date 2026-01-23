@@ -24,14 +24,14 @@
     - [x] Task: Implement Partial Payment UI & Logic. Update the checkout form to handle deposit calculations.
 - [x] Task: Conductor - User Manual Verification 'B2B & Dynamic Pricing Engine' (Protocol in workflow.md)
 
-## Phase 4: Marketing & Conversion Tools
+## Phase 4: Marketing & Conversion Tools [checkpoint: 228503f]
 - [x] Task: Advanced Coupon Engine. Build the logic for percentage, fixed-rate, and "Buy X Get Y" promotions. d4f7560
     - [x] Task: Write Tests for Coupon Validation.
     - [x] Task: Implement Coupon Redemption Logic. Create the API and UI for applying codes in the cart.
 - [x] Task: Scarcity & Urgency UI. Implement real-time "Low Stock" badges and countdown timers for biological product batches. 5b71b8b
     - [x] Task: Write Tests for Urgency Components.
     - [x] Task: Implement Urgency Components. Create high-fidelity banners and badges using brand-aligned styling.
-- [ ] Task: Conductor - User Manual Verification 'Marketing & Conversion Tools' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Marketing & Conversion Tools' (Protocol in workflow.md)
 
 ## Phase 5: Multi-Warehouse Logistics
 - [ ] Task: Multi-Warehouse Inventory Tracking. Enable independent stock counts per location.
