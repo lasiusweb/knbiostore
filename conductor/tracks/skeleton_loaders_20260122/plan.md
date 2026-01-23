@@ -18,11 +18,11 @@
 - [x] **Task: Conductor - User Manual Verification 'Storefront Loading States' (Protocol in workflow.md)**
 
 ## Phase 3: Admin & Homepage Loading States
-- [ ] **Task: Implement Admin Table Skeleton.** Create skeleton rows for the product management table that match column widths.
-    - [ ] **Task: Write Tests for Admin Skeleton.**
-    - [ ] **Task: Implement Admin Skeleton.**
-- [ ] **Task: Implement Admin Page Loading.** Create `src/app/admin/products/loading.tsx`.
-- [ ] **Task: Implement Homepage Section Skeletons.** Create specific skeletons for data-fetching sections like `ShopByCrop`, `ShopByProblem`, and `ShopBySegment`.
-    - [ ] **Task: Write Tests for Homepage Skeletons.**
-    - [ ] **Task: Implement Homepage Skeletons.**
-- [ ] **Task: Conductor - User Manual Verification 'Admin & Homepage Loading States' (Protocol in workflow.md)**
+- [x] **Task: Implement Admin Table Skeleton.** Create skeleton rows for the product management table that match column widths. b0c12e7
+    - [x] **Task: Write Tests for Admin Skeleton.**
+    - [x] **Task: Implement Admin Skeleton.**
+- [x] **Task: Implement Admin Page Loading.** Create `src/app/admin/products/loading.tsx`.
+- [x] **Task: Implement Homepage Section Skeletons.** Create specific skeletons for data-fetching sections like `ShopByCrop`, `ShopByProblem`, and `ShopBySegment`.
+    - [x] **Task: Write Tests for Homepage Skeletons.**
+    - [x] **Task: Implement Homepage Skeletons.**
+- [~] **Task: Conductor - User Manual Verification 'Admin & Homepage Loading States' (Protocol in workflow.md)**
