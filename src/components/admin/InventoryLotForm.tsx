@@ -33,6 +33,7 @@ import {
 } from "@/components/ui/popover";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { createLot } from "@/actions/create-lot";
+import { getWarehouses } from "@/actions/inventory-actions";
 
 const inventoryLotSchema = z.object({
   variant_id: z.string().min(1, "Variant is required"),
@@ -44,7 +45,7 @@ const inventoryLotSchema = z.object({
     message: "Expiry date is required",
   }),
   initial_quantity: z.coerce.number().min(1, "Initial quantity must be at least 1"),
-  warehouse_location: z.string().min(1, "Warehouse location is required"),
+  warehouse_id: z.string().min(1, "Warehouse is required"),
 }).refine((data) => data.expiry_date > data.manufacture_date, {
   message: "Expiry date must be after manufacture date",
   path: ["expiry_date"],
@@ -54,6 +55,7 @@ export type InventoryLotFormValues = z.infer<typeof inventoryLotSchema>;
 
 const InventoryLotForm = () => {
   const [variants, setVariants] = useState<any[]>([]);
+  const [warehouses, setWarehouses] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -65,29 +67,36 @@ const InventoryLotForm = () => {
       variant_id: "",
       lot_number: "",
       initial_quantity: 0,
-      warehouse_location: "",
+      warehouse_id: "",
     },
   });
 
   useEffect(() => {
-    const fetchVariants = async () => {
+    const fetchData = async () => {
       try {
         const supabase = createClient();
-        const { data, error: fetchError } = await supabase
-          .from('product_variants')
-          .select('*, products(name)');
+        const [variantsRes, warehousesRes] = await Promise.all([
+          supabase.from('product_variants').select('*, products(name)'),
+          getWarehouses()
+        ]);
 
-        if (fetchError) throw fetchError;
-        setVariants(data || []);
+        if (variantsRes.error) throw variantsRes.error;
+        setVariants(variantsRes.data || []);
+
+        if (warehousesRes.success) {
+          setWarehouses(warehousesRes.data || []);
+        } else {
+          console.error('Error fetching warehouses:', warehousesRes.error);
+        }
       } catch (err: any) {
-        console.error('Error fetching variants:', err);
+        console.error('Error fetching data:', err);
         setError(err.message);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchVariants();
+    fetchData();
   }, []);
 
   async function onSubmit(values: InventoryLotFormValues) {
@@ -268,13 +277,24 @@ const InventoryLotForm = () => {
 
             <FormField
               control={form.control}
-              name="warehouse_location"
+              name="warehouse_id"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Warehouse Location</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Enter warehouse location" {...field} />
-                  </FormControl>
+                  <FormLabel>Warehouse</FormLabel>
+                  <Select onValueChange={field.onChange} defaultValue={field.value} value={field.value}>
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select a warehouse" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      {warehouses.map((warehouse) => (
+                        <SelectItem key={warehouse.id} value={warehouse.id}>
+                          {warehouse.name} ({warehouse.location})
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                   <FormMessage />
                 </FormItem>
               )}

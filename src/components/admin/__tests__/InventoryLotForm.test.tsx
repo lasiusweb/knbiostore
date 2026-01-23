@@ -2,11 +2,17 @@ import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import InventoryLotForm from '../InventoryLotForm';
 import { createClient } from '@/lib/supabase/client';
+import { getWarehouses } from '@/actions/inventory-actions';
 import { act } from 'react';
 
 // Mock Supabase
 jest.mock('@/lib/supabase/client', () => ({
   createClient: jest.fn(),
+}));
+
+// Mock inventory actions
+jest.mock('@/actions/inventory-actions', () => ({
+  getWarehouses: jest.fn().mockResolvedValue({ success: true, data: [] }),
 }));
 
 describe('InventoryLotForm', () => {
@@ -18,6 +24,7 @@ describe('InventoryLotForm', () => {
   beforeEach(() => {
     jest.clearAllMocks();
     (createClient as jest.Mock).mockReturnValue(mockSupabase);
+    (getWarehouses as jest.Mock).mockResolvedValue({ success: true, data: [] });
   });
 
   it('renders the form title', async () => {
@@ -27,12 +34,13 @@ describe('InventoryLotForm', () => {
     expect(screen.getByText(/Add New Inventory Lot/i)).toBeInTheDocument();
   });
 
-  it('fetches product variants on mount', async () => {
+  it('fetches product variants and warehouses on mount', async () => {
     await act(async () => {
       render(<InventoryLotForm />);
     });
     expect(mockSupabase.from).toHaveBeenCalledWith('product_variants');
     expect(mockSupabase.select).toHaveBeenCalledWith('*, products(name)');
+    expect(getWarehouses).toHaveBeenCalled();
   });
 
   it('renders all required form fields', async () => {
@@ -40,13 +48,10 @@ describe('InventoryLotForm', () => {
       render(<InventoryLotForm />);
     });
     
-    // Select is a bit tricky to find by role sometimes if it's custom, 
-    // but we can check for labels or placeholders once implemented.
-    // For now, let's just look for labels we expect.
     expect(screen.getByText(/Select Variant/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/Lot Number/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/Initial Quantity/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/Warehouse Location/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Warehouse/i)).toBeInTheDocument();
   });
 
   it('renders manufacture and expiry date fields', async () => {
