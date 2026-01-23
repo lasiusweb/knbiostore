@@ -45,7 +45,10 @@ describe('B2B Checkout API', () => {
             businessName: 'KN Bio Labs',
             gstNumber: '22AAAAA0000A1Z5',
             taxAmount: 18,
-            shippingCharges: 10
+            shippingCharges: 10,
+            contactDetails: {
+              contact1: { name: 'John Doe', phone: '9876543210' }
+            }
           }),
         });
 
@@ -64,7 +67,9 @@ describe('B2B Checkout API', () => {
           'partially_paid',
           expect.objectContaining({
             businessName: 'KN Bio Labs',
-            gstNumber: '22AAAAA0000A1Z5'
+            gstNumber: '22AAAAA0000A1Z5',
+            tax_amount: 18,
+            contactDetails: expect.anything()
           })
         );
       },

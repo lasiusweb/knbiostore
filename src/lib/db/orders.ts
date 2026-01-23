@@ -21,6 +21,7 @@ export const createOrder = async (
     taxAmount?: number;
     discountAmount?: number;
     subtotalAmount?: number;
+    contactDetails?: any;
   }
 ) => {
   const { data, error } = await supabase
@@ -41,7 +42,8 @@ export const createOrder = async (
       shipping_charges: b2bData?.shippingCharges,
       tax_amount: b2bData?.taxAmount,
       discount_amount: b2bData?.discountAmount,
-      subtotal_amount: b2bData?.subtotalAmount
+      subtotal_amount: b2bData?.subtotalAmount,
+      notes: b2bData?.contactDetails ? JSON.stringify(b2bData.contactDetails) : null
     })
     .select();
   if (error) {

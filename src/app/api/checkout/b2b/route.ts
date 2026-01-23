@@ -16,7 +16,8 @@ export async function POST(request: NextRequest) {
     shippingCharges,
     taxAmount,
     discountAmount,
-    subtotalAmount
+    subtotalAmount,
+    contactDetails
   } = await request.json();
 
   if (!userId || !shippingAddress || !paymentType) {
@@ -62,9 +63,10 @@ export async function POST(request: NextRequest) {
       shippingMethod,
       isHomeDelivery,
       shippingCharges,
-      taxAmount,
-      discountAmount,
-      subtotalAmount: subtotal
+      tax_amount: taxAmount,
+      discount_amount: discountAmount,
+      subtotalAmount: subtotal,
+      contactDetails
     }
   );
 
