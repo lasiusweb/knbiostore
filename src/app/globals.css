@@ -7,120 +7,77 @@
    ======================================== */
 
 :root {
-  /* Primary Colors - Emerald Green */
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-
-  /* Secondary Colors - Slate */
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-
-  /* Accent Colors - Teal/Cyan */
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-
-  /* Background Colors */
-
-  /* Card Colors */
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-
-  /* Popover Colors */
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-
-  /* Muted Colors */
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-
-  /* Destructive Colors */
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: 0 0% 100%;
-
-  /* Border & Input */
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-
-  /* Chart Colors */
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-
-  /* Sidebar Colors */
-  --sidebar-background: 0 0% 98%;
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
-
-  /* Skeleton Brand Colors (Sage Green) */
-  --skeleton: 140 20% 94%;
-  --skeleton-shimmer: 140 25% 88%;
-
-  /* Radius */
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --sidebar: oklch(0.985 0 0);
+  --background: 0 0% 98.8235%;
+  --foreground: 0 0% 9.0196%;
+  --card: 0 0% 98.8235%;
+  --card-foreground: 0 0% 9.0196%;
+  --popover: 0 0% 98.8235%;
+  --popover-foreground: 0 0% 32.1569%;
+  --primary: 151.3274 66.8639% 66.8627%;
+  --primary-foreground: 153.3333 13.0435% 13.5294%;
+  --secondary: 0 0% 99.2157%;
+  --secondary-foreground: 0 0% 9.0196%;
+  --muted: 0 0% 92.9412%;
+  --muted-foreground: 0 0% 12.5490%;
+  --accent: 0 0% 92.9412%;
+  --accent-foreground: 0 0% 12.5490%;
+  --destructive: 9.8901 81.9820% 43.5294%;
+  --destructive-foreground: 0 100% 99.4118%;
+  --border: 0 0% 87.4510%;
+  --input: 0 0% 96.4706%;
+  --ring: 151.3274 66.8639% 66.8627%;
+  --chart-1: 151.3274 66.8639% 66.8627%;
+  --chart-2: 173.4483 80.5556% 38.6275%;
+  --chart-3: 196.8641 90.5263% 18.6275%;
+  --chart-4: 37.6923 92.1260% 50.1961%;
+  --chart-5: 160.1183 84.0796% 39.4118%;
+  --sidebar-background: 0 0% 98.8235%;
+  --sidebar-foreground: 0 0% 43.9216%;
+  --sidebar-primary: 151.3274 66.8639% 66.8627%;
+  --sidebar-primary-foreground: 153.3333 13.0435% 13.5294%;
+  --sidebar-accent: 0 0% 92.9412%;
+  --sidebar-accent-foreground: 0 0% 12.5490%;
+  --sidebar-border: 0 0% 87.4510%;
+  --sidebar-ring: 151.3274 66.8639% 66.8627%;
+  --radius: 0.5rem;
+  --font-sans: Outfit, sans-serif;
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* Primary Colors - Emerald Green */
-    --primary: 160 84% 45%;
-    --primary-foreground: 0 0% 100%;
-
-    /* Secondary Colors */
-    --secondary: 215 20% 35%;
-    --secondary-foreground: 0 0% 100%;
-
-    /* Accent Colors */
-    --accent: 173 80% 45%;
-    --accent-foreground: 0 0% 100%;
-
-    /* Background Colors - Dark */
-
-    /* Card Colors - Dark */
-    --card: 224 71% 6%;
-    --card-foreground: 210 20% 98%;
-
-    /* Popover Colors - Dark */
-    --popover: 224 71% 6%;
-    --popover-foreground: 210 20% 98%;
-
-    /* Muted Colors - Dark */
-    --muted: 215 20% 15%;
-    --muted-foreground: 217 10% 65%;
-
-    /* Destructive Colors */
-    --destructive: 0 62% 50%;
-    --destructive-foreground: 0 0% 100%;
-
-    /* Border & Input - Dark */
-    --border: 215 20% 20%;
-    --input: 215 20% 20%;
-    --ring: 160 84% 45%;
-
-    /* Sidebar Colors - Dark */
-    --sidebar-background: 224 71% 6%;
-    --sidebar-foreground: 210 20% 98%;
-    --sidebar-primary: 160 84% 45%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 215 20% 15%;
-    --sidebar-accent-foreground: 210 20% 98%;
-    --sidebar-border: 215 20% 20%;
-    --sidebar-ring: 160 84% 45%;
-
-    /* Skeleton Brand Colors - Dark */
-    --skeleton: 140 10% 15%;
-    --skeleton-shimmer: 140 12% 20%;
-  }
+.dark {
+  --background: 0 0% 7.0588%;
+  --foreground: 0 0% 98.0392%;
+  --card: 0 0% 7.0588%;
+  --card-foreground: 0 0% 98.0392%;
+  --popover: 0 0% 7.0588%;
+  --popover-foreground: 0 0% 98.0392%;
+  --primary: 154.8980 100.0000% 19.2157%;
+  --primary-foreground: 152.7273 19.2982% 88.8235%;
+  --secondary: 0 0% 14.1176%;
+  --secondary-foreground: 0 0% 98.0392%;
+  --muted: 0 0% 14.1176%;
+  --muted-foreground: 0 0% 63.9216%;
+  --accent: 0 0% 14.1176%;
+  --accent-foreground: 0 0% 98.0392%;
+  --destructive: 0 62.7907% 30.5882%;
+  --destructive-foreground: 0 0% 98.0392%;
+  --border: 0 0% 14.1176%;
+  --input: 0 0% 14.1176%;
+  --ring: 154.8980 100.0000% 19.2157%;
+  --chart-1: 154.8980 100.0000% 19.2157%;
+  --chart-2: 173.4483 80.5556% 38.6275%;
+  --chart-3: 196.8641 90.5263% 18.6275%;
+  --chart-4: 43.1034 95.8678% 51.5686%;
+  --chart-5: 172.4551 66.0079% 50.3922%;
+  --sidebar-background: 0 0% 7.0588%;
+  --sidebar-foreground: 0 0% 53.7255%;
+  --sidebar-primary: 154.8980 100.0000% 19.2157%;
+  --sidebar-primary-foreground: 152.7273 19.2982% 88.8235%;
+  --sidebar-accent: 0 0% 19.2157%;
+  --sidebar-accent-foreground: 0 0% 98.0392%;
+  --sidebar-border: 0 0% 16.0784%;
+  --sidebar-ring: 141.8919 69.1589% 58.0392%;
 }
 
 /* Tailwind Theme Configuration */
