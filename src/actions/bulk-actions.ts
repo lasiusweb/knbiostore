@@ -98,3 +98,34 @@ export async function exportProductsToCSV() {
     return { success: false, error: pgError.message || 'Failed to export products' };
   }
 }
+
+export async function batchUpdateProducts(ids: string[], updates: { price?: number; in_stock?: boolean }) {
+  const supabase = createClient();
+  
+  try {
+    if (updates.price !== undefined) {
+      const { error } = await supabase
+        .from('product_variants')
+        .update({ price: updates.price })
+        .in('product_id', ids);
+      
+      if (error) throw error;
+    }
+
+    if (updates.in_stock !== undefined) {
+      const { error } = await supabase
+        .from('product_variants')
+        .update({ in_stock: updates.in_stock })
+        .in('product_id', ids);
+      
+      if (error) throw error;
+    }
+
+    revalidatePath('/admin/products');
+    return { success: true, message: `Successfully updated ${ids.length} products.` };
+  } catch (error) {
+    const pgError = error as PostgrestError;
+    console.error('Batch update failed:', pgError);
+    return { success: false, error: pgError.message || 'Failed to update products' };
+  }
+}
