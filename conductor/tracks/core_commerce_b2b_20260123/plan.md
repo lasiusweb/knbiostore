@@ -22,7 +22,8 @@
 - [x] Task: B2B Partial Payment Workflow. Modify the checkout process to support credit-based balances for B2B accounts. d7aa0e5
     - [x] Task: Write Integration Tests for B2B Checkout.
     - [x] Task: Implement Partial Payment UI & Logic. Update the checkout form to handle deposit calculations.
-- [x] Task: Conductor - User Manual Verification 'B2B & Dynamic Pricing Engine' (Protocol in workflow.md)
+- [x] Task: Admin Dashboard Implementation. Create central command center with KPI cards and sidebar. c2778ea
+- [~] Task: Conductor - User Manual Verification 'B2B & Dynamic Pricing Engine' (Protocol in workflow.md)
 
 ## Phase 4: Marketing & Conversion Tools [checkpoint: 228503f]
 - [x] Task: Advanced Coupon Engine. Build the logic for percentage, fixed-rate, and "Buy X Get Y" promotions. d4f7560
