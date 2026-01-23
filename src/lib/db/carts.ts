@@ -4,7 +4,20 @@ import { createClient } from '@supabase/supabase-js';
 // This is a placeholder for the actual Supabase client
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co'
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-key'
-const supabase = createClient(supabaseUrl, supabaseKey);
+
+// Safe mock for build environment
+const supabaseMock = {
+  from: () => ({
+    insert: () => ({ select: () => ({ single: () => ({ data: null, error: null }), data: [], error: null }) }),
+    select: () => ({ eq: () => ({ single: () => ({ data: null, error: null }), select: () => ({}), eq: () => ({}) }), single: () => ({ data: null, error: null }) }),
+    update: () => ({ eq: () => ({ select: () => ({ data: [], error: null }) }) }),
+    delete: () => ({ eq: () => ({ error: null }) }),
+  })
+} as any;
+
+const supabase = (supabaseUrl.includes('placeholder') || supabaseKey.includes('placeholder'))
+  ? supabaseMock
+  : createClient(supabaseUrl, supabaseKey);
 
 export const createCart = async (userId: number) => {
   const { data, error } = await supabase

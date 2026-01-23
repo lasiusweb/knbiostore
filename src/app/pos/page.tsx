@@ -3,6 +3,9 @@
 import { useState } from 'react';
 import { TaxSettings } from '@/components/pos/TaxSettings';
 import { BundleDesigner } from '@/components/pos/BundleDesigner';
+import { InventoryAdjustmentForm } from '@/components/pos/InventoryAdjustmentForm';
+import { SalesOrderForm } from '@/components/pos/SalesOrderForm';
+import { CustomerAgriProfile } from '@/components/pos/CustomerAgriProfile';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
     BarChart3,
@@ -53,15 +56,19 @@ export default function POSPage() {
                                 <Package2 className="w-4 h-4" />
                                 Bundle Designer
                             </TabsTrigger>
+                            <TabsTrigger value="inventory" className="flex items-center gap-2 px-6 h-12 data-[state=active]:bg-background data-[state=active]:text-primary data-[state=active]:shadow-sm">
+                                <Package2 className="w-4 h-4" />
+                                Stock Correction
+                            </TabsTrigger>
                             <TabsTrigger value="taxes" className="flex items-center gap-2 px-6 h-12 data-[state=active]:bg-background data-[state=active]:text-primary data-[state=active]:shadow-sm">
                                 <Settings2 className="w-4 h-4" />
                                 Tax Settings
                             </TabsTrigger>
-                            <TabsTrigger value="customers" disabled className="flex items-center gap-2 px-6 h-12">
+                            <TabsTrigger value="customers" className="flex items-center gap-2 px-6 h-12 data-[state=active]:bg-background data-[state=active]:text-primary data-[state=active]:shadow-sm">
                                 <Users className="w-4 h-4" />
                                 Agri-Profiles
                             </TabsTrigger>
-                            <TabsTrigger value="sales" disabled className="flex items-center gap-2 px-6 h-12">
+                            <TabsTrigger value="sales" className="flex items-center gap-2 px-6 h-12 data-[state=active]:bg-background data-[state=active]:text-primary data-[state=active]:shadow-sm">
                                 <ShoppingCart className="w-4 h-4" />
                                 Pre-Bookings
                             </TabsTrigger>
@@ -76,8 +83,20 @@ export default function POSPage() {
                         <BundleDesigner />
                     </TabsContent>
 
+                    <TabsContent value="inventory" className="animate-fade-in border-0 p-0 focus-visible:ring-0">
+                        <InventoryAdjustmentForm />
+                    </TabsContent>
+
                     <TabsContent value="taxes" className="animate-fade-in border-0 p-0 focus-visible:ring-0">
                         <TaxSettings />
+                    </TabsContent>
+
+                    <TabsContent value="customers" className="animate-fade-in border-0 p-0 focus-visible:ring-0">
+                        <CustomerAgriProfile />
+                    </TabsContent>
+
+                    <TabsContent value="sales" className="animate-fade-in border-0 p-0 focus-visible:ring-0">
+                        <SalesOrderForm />
                     </TabsContent>
 
                     <TabsContent value="dashboard">

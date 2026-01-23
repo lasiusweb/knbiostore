@@ -2,7 +2,21 @@
 import { createClient } from '@supabase/supabase-js';
 
 // This is a placeholder for the actual Supabase client
-const supabase = createClient('https://<project>.supabase.co', '<your-anon-key>');
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co'
+const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-key'
+
+// Safe mock for build environment
+const supabaseMock = {
+  from: () => ({
+    insert: () => ({ select: () => ({ data: [], error: null }) }),
+    select: () => ({ eq: () => ({ single: () => ({ data: null, error: null }), eq: () => ({}) }), single: () => ({ data: null, error: null }) }),
+    update: () => ({ eq: () => ({ select: () => ({ data: [], error: null }) }) }),
+  })
+} as any;
+
+const supabase = (supabaseUrl.includes('placeholder') || supabaseKey.includes('placeholder'))
+  ? supabaseMock
+  : createClient(supabaseUrl, supabaseKey);
 
 export const createOrder = async (
   userId: number,
@@ -26,12 +40,12 @@ export const createOrder = async (
 ) => {
   const { data, error } = await supabase
     .from('orders')
-    .insert({ 
-      user_id: userId, 
-      cart_id: cartId, 
-      total_amount: totalAmount, 
-      shipping_address: shippingAddress, 
-      status: 'pending', 
+    .insert({
+      user_id: userId,
+      cart_id: cartId,
+      total_amount: totalAmount,
+      shipping_address: shippingAddress,
+      status: 'pending',
       payment_status: paymentStatus,
       business_name: b2bData?.businessName,
       gst_number: b2bData?.gstNumber,

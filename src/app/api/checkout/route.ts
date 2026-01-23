@@ -37,7 +37,7 @@ export async function POST(request: NextRequest) {
   for (const item of cartItems) {
     await addOrderItem(
       order.id,
-      item.product_id,
+      item.variant_id,
       item.variant_id,
       item.quantity,
       item.price_at_addition

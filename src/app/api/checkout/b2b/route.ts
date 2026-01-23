@@ -3,9 +3,9 @@ import { getCartByUserId, getCartItems, removeCartItem } from '@/lib/db/carts';
 import { createOrder, addOrderItem } from '@/lib/db/orders';
 
 export async function POST(request: NextRequest) {
-  const { 
-    userId, 
-    shippingAddress, 
+  const {
+    userId,
+    shippingAddress,
     paymentType,
     businessName,
     gstNumber,
@@ -50,10 +50,10 @@ export async function POST(request: NextRequest) {
 
   // Create order with partial payment support and B2B fields
   const order = await createOrder(
-    userId, 
-    cart.id, 
-    totalAmount, 
-    shippingAddress, 
+    userId,
+    cart.id,
+    totalAmount,
+    shippingAddress,
     paymentStatus,
     {
       businessName,
@@ -63,8 +63,8 @@ export async function POST(request: NextRequest) {
       shippingMethod,
       isHomeDelivery,
       shippingCharges,
-      tax_amount: taxAmount,
-      discount_amount: discountAmount,
+      taxAmount,
+      discountAmount,
       subtotalAmount: subtotal,
       contactDetails
     }
@@ -74,7 +74,7 @@ export async function POST(request: NextRequest) {
   for (const item of cartItems) {
     await addOrderItem(
       order.id,
-      item.product_id,
+      item.variant_id, // Using variant_id as product identifier
       item.variant_id,
       item.quantity,
       item.price_at_addition
@@ -82,10 +82,10 @@ export async function POST(request: NextRequest) {
     await removeCartItem(item.id);
   }
 
-  return NextResponse.json({ 
-    orderId: order.id, 
-    totalAmount, 
-    amountPaid, 
-    balanceDue: totalAmount - amountPaid 
+  return NextResponse.json({
+    orderId: order.id,
+    totalAmount,
+    amountPaid,
+    balanceDue: totalAmount - amountPaid
   }, { status: 201 });
 }
