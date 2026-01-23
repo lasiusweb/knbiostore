@@ -7,6 +7,11 @@ import { NewsletterSignup } from '@/components/home/NewsletterSignup';
 import { ShopByCrop } from '@/components/home/ShopByCrop';
 import { ShopByProblem } from '@/components/home/ShopByProblem';
 import { ShopBySegment } from '@/components/home/ShopBySegment';
+import {
+  ShopBySegmentSkeleton,
+  ShopByCropSkeleton,
+  ShopByProblemSkeleton
+} from '@/components/home/HomeSectionsSkeleton';
 import { ValueProposition } from '@/components/home/ValueProposition';
 import { JsonLd } from '@/components/seo/JsonLd';
 import {
@@ -15,6 +20,7 @@ import {
   generateWebSiteSchema,
   generateCollectionPageSchema
 } from '@/lib/seo-helpers';
+import { Suspense } from 'react';
 
 export default function Home() {
   const orgSchema = generateOrganizationSchema();
@@ -31,13 +37,19 @@ export default function Home() {
       <HeroSection />
 
       {/* Shop By Segment - 10 Items */}
-      <ShopBySegment />
+      <Suspense fallback={<ShopBySegmentSkeleton />}>
+        <ShopBySegment />
+      </Suspense>
 
       {/* Shop By Crop - 10 Items */}
-      <ShopByCrop />
+      <Suspense fallback={<ShopByCropSkeleton />}>
+        <ShopByCrop />
+      </Suspense>
 
       {/* Shop By Problem - 6 Items */}
-      <ShopByProblem />
+      <Suspense fallback={<ShopByProblemSkeleton />}>
+        <ShopByProblem />
+      </Suspense>
 
       {/* For Champions - Farming Segments */}
       <ChampionSelector />
