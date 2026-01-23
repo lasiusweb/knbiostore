@@ -28,9 +28,9 @@
 - [x] Task: Advanced Coupon Engine. Build the logic for percentage, fixed-rate, and "Buy X Get Y" promotions. d4f7560
     - [x] Task: Write Tests for Coupon Validation.
     - [x] Task: Implement Coupon Redemption Logic. Create the API and UI for applying codes in the cart.
-- [ ] Task: Scarcity & Urgency UI. Implement real-time "Low Stock" badges and countdown timers for biological product batches.
-    - [ ] Task: Write Tests for Urgency Components.
-    - [ ] Task: Implement Urgency Components. Create high-fidelity banners and badges using brand-aligned styling.
+- [x] Task: Scarcity & Urgency UI. Implement real-time "Low Stock" badges and countdown timers for biological product batches. 5b71b8b
+    - [x] Task: Write Tests for Urgency Components.
+    - [x] Task: Implement Urgency Components. Create high-fidelity banners and badges using brand-aligned styling.
 - [ ] Task: Conductor - User Manual Verification 'Marketing & Conversion Tools' (Protocol in workflow.md)
 
 ## Phase 5: Multi-Warehouse Logistics
