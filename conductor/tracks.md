@@ -88,3 +88,7 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 - [x] **Track: application experiencing slow page load, add skeleton effect**
 *Link: [./tracks/skeleton_loaders_20260122/](./tracks/skeleton_loaders_20260122/)*
+---
+
+- [~] **Track: Core Commerce & B2B Expansion**
+*Link: [./tracks/core_commerce_b2b_20260123/](./tracks/core_commerce_b2b_20260123/)*

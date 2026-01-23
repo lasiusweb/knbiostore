@@ -1,0 +1,8 @@
+{
+  "track_id": "core_commerce_b2b_20260123",
+  "type": "feature",
+  "status": "new",
+  "created_at": "2026-01-23T11:56:00Z",
+  "updated_at": "2026-01-23T11:56:00Z",
+  "description": "Expand the catalog with bulk operations, implement tiered B2B pricing, add marketing conversion tools, and enable multi-warehouse inventory tracking."
+}
