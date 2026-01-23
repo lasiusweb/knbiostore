@@ -23,7 +23,7 @@
     - [x] Task: Write Integration Tests for B2B Checkout.
     - [x] Task: Implement Partial Payment UI & Logic. Update the checkout form to handle deposit calculations.
 - [x] Task: Admin Dashboard Implementation. Create central command center with KPI cards, charts, and tooltips. 2393321
-- [~] Task: Conductor - User Manual Verification 'B2B & Dynamic Pricing Engine' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'B2B & Dynamic Pricing Engine' (Protocol in workflow.md)
 
 ## Phase 4: Marketing & Conversion Tools [checkpoint: 228503f]
 - [x] Task: Advanced Coupon Engine. Build the logic for percentage, fixed-rate, and "Buy X Get Y" promotions. d4f7560
@@ -34,8 +34,8 @@
     - [x] Task: Implement Urgency Components. Create high-fidelity banners and badges using brand-aligned styling.
 - [x] Task: Conductor - User Manual Verification 'Marketing & Conversion Tools' (Protocol in workflow.md)
 
-## Phase 5: Multi-Warehouse Logistics
+## Phase 5: Multi-Warehouse Logistics [checkpoint: 9b03211]
 - [x] Task: Multi-Warehouse Inventory Tracking. Enable independent stock counts per location. f0c33b7
     - [x] Task: Write Tests for Stock Routing.
-    - [x] Task: Implement Warehouse Stock UI. Add a warehouse selector/view to the Admin Inventory Lot form.
-- [ ] Task: Conductor - User Manual Verification 'Multi-Warehouse Logistics' (Protocol in workflow.md)
+    - [x] Task: Implement Warehouse Stock UI. Add a warehouse selector/view to the Admin Inventory Lot form. 02043f5
+- [x] Task: Conductor - User Manual Verification 'Multi-Warehouse Logistics' (Protocol in workflow.md)
