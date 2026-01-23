@@ -1,0 +1,8 @@
+{
+  "track_id": "fix_missing_tabs_20260123",
+  "type": "bug",
+  "status": "new",
+  "created_at": "2026-01-23T14:45:00Z",
+  "updated_at": "2026-01-23T14:45:00Z",
+  "description": "Fix Missing Tabs Component build error in POS page"
+}
