@@ -3,7 +3,9 @@
 ## 1. Unified Multi-Channel Sales
 To provide a single platform that handles three distinct business models, with the B2C Storefront now functional:
 *   **B2B Portal:** For distributors to purchase bulk agricultural microbes at wholesale prices with an approval workflow.
+    *   **Enterprise B2B Engine:** Supports tiered pricing (Gold/Silver/Bronze), role-based discounts, volume-based pricing, and partial payment workflows for credit-based transactions.
 *   **B2C Storefront:** For individual farmers to buy retail quantities online, featuring a dynamic, server-rendered product catalog.
+    *   **Marketing & Conversion:** Features advanced coupon logic (Percentage, Fixed, BOGO) and real-time scarcity indicators (Low Stock badges) to drive conversions.
 *   **Offline Mobile POS:** A web-based app for warehouse staff to manage manual orders and inventory on the floor, specifically designed to work without internet connectivity.
 
 ## 2. Precision Inventory & Product Management
@@ -11,7 +13,9 @@ To manage the complex lifecycle of biological products:
 *   **Variant System:** Handle specific product attributes like Weight (g/kg/ml), Packing (Box/Drum/Bag), and Form (Powder/Liquid/Granules) with specific pricing per variant.
 *   **Admin Product Management:** Enabled product creation and variant management through a dedicated admin interface.
     *   Includes a comprehensive list view of all products with variant and tag details.
+    *   **Bulk Management Suite:** Admins can manage high-scale catalogs via CSV/Excel import/export and a synchronized in-app batch editor.
 *   **Batch Tracking:** Track inventory down to the Lot Number and Expiry Date.
+*   **Multi-Warehouse Logistics:** Independent stock tracking across multiple physical locations with intelligent order routing based on availability.
 *   **Traceability:** Ensure every sale links back to the specific manufactured batch for quality control and regulatory compliance.
 
 ## 3. Automated Operations (Zoho & Logistics)

@@ -24,3 +24,4 @@
 
 ## Utilities
 *   date-fns
+*   CSV/Excel Processing (ExcelJS/PapaParse)
